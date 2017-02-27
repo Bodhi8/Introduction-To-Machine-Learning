@@ -53,12 +53,13 @@ def prettyPicture(clf, X_test, y_test):
     plt.scatter(grade_bkg, bumpy_bkg, color = "r", label="slow")
     plt.legend()
     plt.xlabel("bumpiness")
-    plt.ylabel("grade")
+    plt.ylabel("grade1")
 
     # plt.savefig("test.png") # udacity location 
     # plt.savefig("/Users/Menfi/Documents/workspace/zzzzz/src/test.png")
     # plt.show("/Users/Menfi/Documents/workspace/zzzzz/src/test.png")
-    pylab.show()
+    plt.show() # works
+    # pylab.show() # works
  
     print("\tEnd class_vis - prettyPicture function")
 
