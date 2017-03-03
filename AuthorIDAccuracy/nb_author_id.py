@@ -46,9 +46,15 @@ print("classifier- {}".format(classifier))
 print("type(classifier)- {}\n".format(type(classifier)))
 #      type(classifier)- <class 'sklearn.naive_bayes.GaussianNB'>
 
+t0 = time()
 classifier.fit(features_train,labels_train)
+print("training time: - {}".format(round(time() - t0, 3)))
+# print "training time:", round(time()-t0, 3), "s"
 
+t0 = time()
 pred = classifier.predict(features_test)
+print("predict time: - {}\n".format(round(time() - t0, 3)))
+
 print("pred - {}".format(pred))
 #      pred - [0 0 1 ..., 1 0 0]
 print("type(pred) - {}\n".format(type(pred)))
