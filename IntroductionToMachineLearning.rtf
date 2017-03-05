@@ -1,7 +1,9 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue255;}
-\margl1440\margr1440\vieww14200\viewh8400\viewkind0
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green0\blue255;\red0\green170\blue0;
+\red128\green0\blue0;\red255\green0\blue0;\red201\green128\blue43;\red0\green0\blue0;}
+\margl1440\margr1440\vieww28040\viewh17060\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
@@ -49,8 +51,501 @@ scikit-learn - sklearn naive bayes \
 Gaussian Naive Bayes\
 \
 ***\
-*** Introduction to Machine Learning - Naive Bayes NN of 43 - NN February 2017 \
-***\cf2 \
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Calculating Naive Bayes Accuracy \cf0  20 of 43 - 27 February 2017 \
+***\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 # accuracy of GaussianNB() classifier method 1 of 3 <---------------------------------------------------------\cf0 \
+\cf3 # accuracy - get the accuracy \ul og\ulnone  the classifier # 0.884\cf0 \
+my_clf_score = clf.score(features_test,labels_test)\
+\cf2 print\cf0 (\cf4 "\\tmy_clf_score is \{\}\\n"\cf0 .format(my_clf_score)) \cf3 # 0.884\cf0 \
+\cf3 # print("\\\ul ttype\ulnone (my_clf_score) - \{\}\\n".format(type(my_clf_score))) # class 'numpy.float64'\cf0 \
+\
+\cf3 # accuracy of GaussianNB() classifier method 2 of 3 <---------------------------------------------------------\cf0 \
+\cf3 # enumerate through \ul Python\ulnone  list, also keep track of list index \cf0 \
+\cf3 # enumerate through the labels_test *** list ***\cf0 \
+matchCount = \cf5 0\cf0 \
+\cf2 for\cf0  idx, label \cf2 in\cf0  enumerate(labels_test):\
+    \cf3 # print("\\\ul tidx\ulnone  is \{\}".format(\ul idx\ulnone )) # 0 - 249\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul idx\ulnone ) - \{\}\\n".format(type(\ul idx\ulnone ))) # \ul int\ulnone , \ul int\cf0 \ulnone \
+    \cf3 # print("\\\ul tlabel\ulnone  is \{\}".format(label)) # 0, 1, 1.0\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (label) - \{\}\\n".format(type(label))) # class '\ul int\ulnone ', class 'float'\cf0 \
+    \cf3 # print("\\\ul tpred\ulnone [\ul idx\ulnone ] is \{\}".format(\ul pred\ulnone [\ul idx\ulnone ])) # 0.0, 1.0 ...\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul pred\ulnone [\ul idx\ulnone ]) - \{\}\\n".format(type(\ul pred\ulnone [\ul idx\ulnone ]))) # numpy.float64\cf0 \
+    \cf2 if\cf0  label == pred[idx]:\
+        matchCount +=\cf5 1\cf0 \
+        \cf3 # print('we have a winner')\cf0 \
+        \
+\cf3 # accuracy - get the accuracy of the classifier # 0.884\cf0 \
+\cf2 print\cf0 (\cf4 "\\\ul tlen\ulnone (labels_test) is \{\}"\cf0 .format(len(labels_test))) \cf3 # \cf0 \
+\cf2 print\cf0 (\cf4 "\\tmatchCount is \{\}"\cf0 .format(matchCount)) \cf3 # \cf0 \
+\cf2 print\cf0 (\cf4 "\\tmatchCount / \ul len\ulnone (labels_test) is \{\}\\n"\cf0 .format(matchCount / len(labels_test))) \cf3 # 0.884\cf0 \
+\
+\cf3 # accuracy of GaussianNB() classifier method 3 of 3 <---------------------------------------------------------\cf0 \
+myGaussianNB_Classifier_Accuracy = sklearn.metrics.accuracy_score(pred,labels_test)\
+\cf2 print\cf0 (\cf4 "\\tmyGaussianNB_Classifier_Accuracy - \{\}"\cf0 .format(myGaussianNB_Classifier_Accuracy))\
+\cf2 print\cf0 (\cf4 "\\\ul ttype\ulnone (myGaussianNB_Classifier_Accuracy) - \{\}\\n"\cf0 .format(type(myGaussianNB_Classifier_Accuracy)))\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Cancer Test\cf0  24 of 43 - 27 February 2017 \
+***\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+Bayes Rule\
+Specific Cancer Occurs in 1% (\cf6 0.01\cf0 ) of the Population\
+P(C) = 0.01 - Probability of Cancer\
+Cancer Test - 90% chance is it positive if you have the cancer (\cf2 sensitivity\cf0  of test)\
+Cancer Test - 90% chance is it negative if you do not have the cancer (\cf2 specitivity\cf0  (\cf2 specificity\cf0 ))\
+\
+Prior			Test			Posterior\
+Probability		Evidence		Probability\
+\
+Bayes Rule\
+Prior Probability OF Having The Cancer - (Before you run the Test) - \cf6 0.01\cf0 \
+\
+\cf6 \ul \ulc6 PRIOR\cf0 \ulnone \
+Probability Of Having Cancer = \cf2 0.01\cf0 \
+Probability Of Positive Test with Cancer = \cf2 0.9\cf0 \
+Probability Of Cancer With Positive Test = \cf2 0.01\cf0  * \cf2 0.9\cf0  = \cf6 0.009\cf0 \
+
+\f0 \kerning1\expnd0\expndtw0 \
+
+\f2 \expnd0\expndtw0\kerning0
+Probability Of Not Having Cancer = \cf2 0.99\cf0 \
+Probability Of Positive Test with NO Cancer = \cf2 0.1\cf0 \
+Probability Of Positive Test NO Cancer = \cf6 0.099\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf6 \kerning1\expnd0\expndtw0 Calculate Posterior Probabilities By Normalizing
+\f2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 Calculate Normalizer \cf6 \
+0.009 \cf2 +\cf6  0.099 = \cf2 0.108\
+\
+Joint Probability Of Two Events\
+\cf0 Probability Of Cancer With Positive Test = \cf2 0.01\cf0  * \cf2 0.9\cf0  = \cf6 0.009\
+\cf0 Probability Of Positive Test NO Cancer = \cf6 0.099\
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf6 \kerning1\expnd0\expndtw0 Calculate Posterior Probabilities By Normalizing
+\f2 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \ul \ulc2 Divide by Normalizer - Calculate Posterior Probability \cf0 \ulnone \
+Normalized Probability Has Cancer with a positive test result - \cf6 0.009 / \cf2 0.108 = 0.0833 \cf0 (\cf2 posterior\cf0 )\
+Normalized Probability NO Cancer  with a positive test result - \cf6 0.099 / \cf2 0.108 = 0.9167 \cf0 (\cf2 posterior\cf0 )\cf2 \
+\
+0.08333 + 0.9167 = \cf6 1 ** adding up to 1 big deal **\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf2 \kerning1\expnd0\expndtw0 \
+\
+\cf0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Bayes Rule for Classification \cf0  31 of 43 - 27 February 2017 \
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Chris or Sara \cf0  32 of 43 - 27 February 2017\
+***\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+Prior - even odds email is from Chris or Sara\
+p(Chris)	= 0.5\
+p(Sara)	= 0.5\
+\
+Chris - \cf2 given data\cf0 \
+Love - 0.1 - Deal - 0.8 - Life 0.1\
+\
+Sara - \cf2 given data\cf0 \
+Love - 0.5 - Deal - 0.2 - Life 0.3\
+\
+Email says - Life Deal - slightly more likely email is from Chris\
+Chris	- usage of Life probability(0.1) * usage of Deal probability(0.8) * Prior(0.5) = \cf6 0.04 ** Chris by a SLIM margin **\cf0 \
+Sara		- usage of Life probability(0.3) * usage of Deal probability(0.2) * Prior(0.5) = \cf6 0.03\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Posterior Possibilities \cf0  33 of 43 - 28 February 2017 \
+***\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+Prior - even odds email is from Chris or Sara\
+p(Chris)	= 0.5\
+p(Sara)	= 0.5\
+\
+Chris - \cf2 given data\cf0 \
+Love - 0.1 - Deal - 0.8 - Life 0.1\
+\
+Sara - \cf2 given data\cf0 \
+Love - 0.5 - Deal - 0.2 - Life 0.3\
+\
+Email says - Life Deal - slightly more likely email is from Chris\
+Chris	- usage of Life probability(0.1) * usage of Deal probability(0.8) * Prior(0.5) = \cf6 0.04 ** Chris by a SLIM margin **\cf0 \
+Sara		- usage of Life probability(0.3) * usage of Deal probability(0.2) * Prior(0.5) = \cf6 0.03\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
+\
+Probability email is from Chris - \cf6 0.04\cf0 \
+Probability email is from Sara - \cf6 0.03\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf6 \ul ** \ulnone Calculate Posterior Probabilities By Normalizing\ul  **\ulnone \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+1 of 2 - \cf2 First Calculate Normalizer \cf6 \
+0.04 \cf2 +\cf6  0.03 = \cf2 0.07\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 2 of 2 - \cf6 ** Calculate Posterior Probabilities By Normalizing **\cf0  - 
+\f2 \cf2 \expnd0\expndtw0\kerning0
+Divide by Normalizer\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 Normalized Probability email is from Chris	- \cf6 0.04 / \cf2 0.07 = 0.571 \cf0 (posterior)\
+Normalized Probability email is from Sara	- \cf6 0.03 / \cf2 0.07 = 0.429 \cf0 (posterior) \
+\
+0.571 + 0.429 = 1 ** \cf2 equals 1 - big deal\cf0  **\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Bayesian Possibilities On Your Own \cf0  34 of 43 - 28 February 2017 \
+***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+\
+Email says - Love Deal - slightly more likely email is from Chris\
+Chris	- usage of Love probability(0.1) * usage of Deal probability(0.8) * Prior(0.5), 0.1 * 0.8 * 0.5 = \cf6 0.04\cf0 \
+Sara		- usage of Love probability(0.5) * usage of Deal probability(0.2) * Prior(0.5), 0.5 * 0.2 * 0.5 = \cf6 0.05 ** Sara by a SLIM margin **\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf6 \ul \ulc6 ** Calculate Posterior Probabilities By Normalizing ** \ulnone \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+1 of 2 - \cf2 First Calculate Normalizer \cf6 \
+0.04 \cf2 +\cf6  0.05 = \cf2 0.09\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 2 of 2 - \cf6 ** Calculate Posterior Probabilities By Normalizing **\cf0  - 
+\f2 \cf2 \expnd0\expndtw0\kerning0
+Divide by Normalizer\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 Normalized Probability email is from Chris	- \cf6 0.04 / \cf2 0.09 = 0.444 \cf0 (posterior)\
+Normalized Probability email is from Sara	- \cf6 0.05 / \cf2 0.09 = 0.555 \cf0 (posterior) \
+\
+0.444 + 0.555 = 0.999  ** \cf2 equals 1 - big deal\cf0  **\
+\
+Naive Bayes - Frequently used with text, who wrote this Shakespeare, Chris, Sara ... \
+Naive Bayes - Called "naive" because it does take into account word order - just the frequency of the words\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Getting Started with Mini-Projects \cf0 39 of 43 -  February 2017 \
+***
+\f2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+Support Vector Machines \
+\
+Welcome to the first mini-project! Here's what to expect:\
+you'll download the project starter files (one time only)\
+you'll run a startup script\
+near the end of each lesson, there will be a video and/or reading node telling you about the mini-project for that lesson\
+then, a series of reading nodes at the end of the lesson will walk you through what you should do for that mini-project, and give you a chance to enter the answers that you get as you work through the tasks (these will look like quizzes)\
+you'll develop the code on your own computer based on the instructions in the reading nodes\
+the code you write will enable you to answer the quiz questions\
+\
+So, what now?\
+if you know git, you can clone the starter files: git clone \cf2 https://github.com/udacity/ud120-projects.git\cf0 \
+If you don't know git, Udacity has a great (and short) course that can get you started\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Machine learning for Author ID \cf0 40 of 43 -  February 2017 \
+***\
+\
+We\'92ll do something very similar in this project. We have a set of emails, half of which were written by one person and the other half by another person at the same company .\
+Our objective is to classify the emails as written by one person or the other based only on the text of the email.\
+We will start with Naive Bayes in this mini-project, and then expand in later projects to other algorithms.\
+\
+We will start by giving you a list of strings. Each string is the text of an email, which has undergone some basic preprocessing; we will then provide the code to split the dataset into training and testing sets. (In the next lessons you\'92ll learn how to do this preprocessing and splitting yourself, but for now we\'92ll give the code to you).\
+\
+One particular feature of Naive Bayes is that it\'92s a good algorithm for working with text classification. \
+When dealing with text, it\'92s very common to treat each unique word as a feature, and since the typical person\'92s vocabulary is many thousands of words, this makes for a large number of features. \
+The relative simplicity of the algorithm and the independent features assumption of Naive Bayes make it a strong performer for classifying texts. \
+In this mini-project, you will download and install sklearn on your computer and use Naive Bayes to classify emails by author.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Getting Your Code Setup  \cf0 41 of 43 -  February 2017 \
+***\
+Check that you have a working python installation, preferably version 2.6 or 2.7 (that\'92s the version that we use--other versions may work, but we can\'92t guarantee it) \
+We will use pip to install some packages. First get and install pip from here.\
+Using pip, install a bunch of python packages:\
+go to your terminal line (don\'92t open python, just the command prompt)\
+install sklearn: pip install scikit-learn\
+for your reference, here\'92s the sklearn installation instructions\
+install natural language toolkit: pip install nltk\
+Get the Intro to Machine Learning source code. You will need git to clone the repository: git clone https://github.com/udacity/ud120-projects.git\
+\
+You only have to do this once, the code base contains the starter code for all the mini-projects. Go into the tools/ directory, and run startup.py. It will first check for the python modules, then download and unzip a large dataset that we will use heavily later. The download/unzipping can take a while, but you don\'92t have to wait for it to finish in order to get started on Part 1.\
+\
+***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Quiz: Author ID Accuracy  \cf0 41 of 43 -  February 2017 \
+***\
+
+\fs28 \cf6 Create and train a Naive Bayes classifier in naive_bayes/nb_author_id.py. Use it to make predictions for the test set. What is the accuracy?\
+see nb_author_id.py\
+
+\fs24 \cf0 \
+When training you may see the following error: UserWarning: Duplicate scores. Result may depend on feature ordering.There are probably duplicate features, or you used a classification score for a regression task. warn("Duplicate scores. Result may depend on feature ordering.")\
+\
+This is a warning that two or more words happen to have the same usage patterns in the emails--as far as the algorithm is concerned, this means that two features are the same. Some algorithms will actually break (mathematically won\'92t work) or give multiple different answers (depending on feature ordering) when there are duplicate features and sklearn is giving us a warning. Good information, but not something we have to worry about.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Quiz: Author ID Accuracy\
+\
+Some students have encountered memory problems when executing the code for this problem. \
+To reduce the chance of seeing a memory error while running the code, we recommend that you use a computer with at least 2GB of RAM. \
+If you find that the code is causing memory errors, you can also try setting test_size = 0.5 in the email_preprocess.py file.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs22 \cf0 \CocoaLigature0  \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \CocoaLigature1 classifier = GaussianNB()\
+classifier.fit(features_train,labels_train)\
+pred = classifier.predict(features_test)
+\f3 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf0 \CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf3 # What is the accuracy of your Naive \ul Bayes\ulnone  author identifier? 1 of 3\cf0 \
+my_classifier_score = classifier.score(features_test,labels_test)\
+\cf2 print\cf0 (\cf7 "my_classifier_score - \{\}"\cf0 .format(my_classifier_score))\
+\cf3 #      my_classifier_score - 0.9732650739476678 1 of 3\cf0 \
+\cf3 # print("type(my_classifier_score)- \{\}\\n".format(type(my_classifier_score)))\cf0 \
+\cf3 #        type(my_classifier_score)- <class 'numpy.float64'>\cf0 \
+\
+\cf3 # What is the accuracy of your Naive \ul Bayes\ulnone  author identifier? 2 of 3\cf0 \
+matchCount = \cf5 0\cf0 \
+\cf2 for\cf0  idx, label \cf2 in\cf0  enumerate(labels_test):\
+    \cf3 # print("\\\ul tidx\ulnone  is \{\}".format(\ul idx\ulnone )) # 0 - 249\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul idx\ulnone ) - \{\}\\n".format(type(\ul idx\ulnone ))) # \ul int\ulnone , \ul int\cf0 \ulnone \
+    \cf3 # print("\\\ul tlabel\ulnone  is \{\}".format(label)) # 0, 1, 1.0\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (label) - \{\}\\n".format(type(label))) # class '\ul int\ulnone ', class 'float'\cf0 \
+    \cf3 # print("\\\ul tpred\ulnone [\ul idx\ulnone ] is \{\}".format(\ul pred\ulnone [\ul idx\ulnone ])) # 0.0, 1.0 ...\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul pred\ulnone [\ul idx\ulnone ]) - \{\}\\n".format(type(\ul pred\ulnone [\ul idx\ulnone ]))) # numpy.float64\cf0 \
+    \cf2 if\cf0  label == pred[idx]:\
+        matchCount +=\cf5 1\cf0 \
+        \
+\cf2 print\cf0 (\cf7 "\ul len\ulnone (labels_test) is \{\}"\cf0 .format(len(labels_test))) \
+\cf3 #      \ul len\ulnone (labels_test) is 1758\cf0 \
+\cf2 print\cf0 (\cf7 "matchCount is \{\}"\cf0 .format(matchCount)) \
+\cf3 #      matchCount is 1711\cf0 \
+\cf2 print\cf0 (\cf7 "matchCount / \ul len\ulnone (labels_test) is \{\}\\n"\cf0 .format(matchCount / len(labels_test)))\
+\cf3 #      matchCount / \ul len\ulnone (labels_test) is 0.9732650739476678\cf0 \
+\
+\cf3 # What is the accuracy of your Naive \ul Bayes\ulnone  author identifier? 3 of 3\cf0 \
+myGaussianNB_Classifier_Accuracy = sklearn.metrics.accuracy_score(pred,labels_test)\
+\cf2 print\cf0 (\cf7 "myGaussianNB_Classifier_Accuracy - \{\}\\n"\cf0 .format(myGaussianNB_Classifier_Accuracy))\
+\cf3 #      myGaussianNB_Classifier_Accuracy - 0.9732650739476678\cf0 \
+\cf3 # print("type(myGaussianNB_Classifier_Accuracy) - \{\}\\n".format(type(myGaussianNB_Classifier_Accuracy)))\cf0 \
+\cf3 #      type(myGaussianNB_Classifier_Accuracy) - <class 'numpy.float64'>\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 Timing Your NB Classifier   \cf0 43 of 43 -  3 March 2017 \
+***\
+\
+timing, (time), (performance), timing Gaussian Naive Bayes (GaussianNB) classifier training and prediction\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 t0 = time()\
+classifier.fit(features_train,labels_train)\
+\cf2 print\cf0 (\cf7 "training time: - \{\}"\cf0 .format(round(time() - t0, \cf5 3\cf0 )))\
+\cf3 # print "training time:", round(time()-t0, 3), "s"\cf0 \
+\
+t0 = time()\
+pred = classifier.predict(features_test)\
+\cf2 print\cf0 (\cf7 "predict time: - \{\}\\n"\cf0 .format(round(time() - t0, \cf5 3\cf0 )))\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 training time: - 1.213\
+predict time: - 0.169 - prediction is faster than training, less time\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ***\
+*** Introduction to Machine Learning - Naive Bayes - \cf2 SVM Support Vector Machines    \cf0 NN of 37 -  3 March 2017 \
+***\
+SVM - Support Vector Machines (actually an algorithm, not a machine), \cf2 very popular algorithm\
+\cf0 Find separating line hyperplane, decision boundary (per instructor "\cf6 perfectly straight\cf0 ") between two classes.\
+Best line maximizes the distance to the point representing the two classes - the distance is called the margin\
+Margin is the distance between the separating line, hyperplane, decision boundary and the nearest point of the two classes.\
+Margin line maximizes distance to the nearest point of either of the two classes.\
+Goal maximize robustness of result.  \
+*** \cf6 Making the CORRECT CLASSIFICATION takes PRECEDENCE over MAXIMIZING the MARGIN, \cf2 when determining the separating line or the hyperplane.\cf6  \cf0  ***\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf8 ** \cf2 Create, Instantiate, Naive Bayes Gaussian Terrain Classifier\cf8   **\
+\cf2 from\cf0  sklearn.naive_bayes \cf2 import\cf0  GaussianNB\
+clf = GaussianNB()\
+\
+\cf8 # Train - Naive Bayes Gaussian Terrain Classifier ** learns patterns ** \
+\cf0 clf.fit(features_train, labels_train)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 # create \cf6 predict\cf0  - Naive Bayes Gaussian Terrain Classifier\
+\pard\pardeftab720\partightenfactor0
+\cf0 pred = clf.predict(features_test)\
+\
+# Naive Bayes Gaussian Terrain Classifier - ACCURACY 1 of 3 \cf6 # 0.884\cf0 \
+my_clf_score = clf.score(features_test,labels_test)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 # Naive Bayes Gaussian Terrain Classifier - ACCURACY 2 of 3 \cf6 # 0.884\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 matchCount = \cf5 0\cf0 \
+\cf2 for\cf0  idx, label \cf2 in\cf0  enumerate(labels_test):\
+    \cf3 # print("\\\ul tidx\ulnone  is \{\}".format(\ul idx\ulnone )) # 0 - 249\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul idx\ulnone ) - \{\}\\n".format(type(\ul idx\ulnone ))) # \ul int\ulnone , \ul int\cf0 \ulnone \
+    \cf3 # print("\\\ul tlabel\ulnone  is \{\}".format(label)) # 0, 1, 1.0\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (label) - \{\}\\n".format(type(label))) # class '\ul int\ulnone ', class 'float'\cf0 \
+    \cf3 # print("\\\ul tpred\ulnone [\ul idx\ulnone ] is \{\}".format(\ul pred\ulnone [\ul idx\ulnone ])) # 0.0, 1.0 ...\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul pred\ulnone [\ul idx\ulnone ]) - \{\}\\n".format(type(\ul pred\ulnone [\ul idx\ulnone ]))) # numpy.float64\cf0 \
+    \cf2 if\cf0  label == pred[idx]:\
+        matchCount +=\cf5 1\cf0 \
+        \
+\cf3 # accuracy - get the accuracy of the Naive \ul Bayes\ulnone  Classifier \cf6 # 0.884\cf0 \
+\cf2 print\cf0 (\cf4 "\\\ul tlen\ulnone (labels_test) is \{\}"\cf0 .format(len(labels_test))) \cf3 # \cf0 \
+\cf2 print\cf0 (\cf4 "\\tNaive \ul Bayes\ulnone  matchCount is \{\}"\cf0 .format(matchCount)) \cf3 # \cf0 \
+\cf2 print\cf0 (\cf4 "\\tNaive \ul Bayes\ulnone  Terrain Classifier Accuracy - matchCount / \ul len\ulnone (labels_test) is \{\}"\cf0 .format(matchCount / len(labels_test))) \cf6 # 0.884\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 # Naive Bayes Gaussian Terrain Classifier - ACCURACY 3 of 3 \cf6 # 0.884\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 myGaussianNBTerrainClassifierAAccuracy = sklearn.metrics.accuracy_score(pred,labels_test)\
+\
+\
+\
+\
+\
+\
+\
+--------------------------------------------------------------------------\
+\
+\cf8 ** \cf2 Create, instantiate Support Vector Machines - SVM - Terrain Classifier\cf8  **\
+\cf2 import\cf0  sklearn.svm\cf3  \
+\cf8 ** (\cf2 kernel = 'linear'\cf8 )\cf6  instructor\cf8  **\cf0 \
+SVMclf = sklearn.svm.SVC(kernel = \cf4 'linear'\cf0 ) \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 # Train - \cf8 Support Vector Machines - SVM - Terrain Classifier\cf0  ** learns patterns ** \
+SVMclf.fit(X,y)\
+\
+# create \cf6 predict\cf0  - Support Vector Machines - SVM - Terrain Classifier\
+\pard\pardeftab720\partightenfactor0
+\cf0 SVMpred = SVMclf.predict(features_test)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 # Support Vector Machines - SVM - Terrain Classifier - ACCURACY 1 of 3 \cf6 # 0.92\cf0 \
+my_SVM_clfScore = SVMclf.score(features_test,labels_test)\
+\
+# Support Vector Machines - SVM - Terrain Classifier - ACCURACY 2 of 3 \cf6 # 0.92\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 SupportVectorMachinesMatchCount = \cf5 0\cf0 \
+\cf2 for\cf0  idx, label \cf2 in\cf0  enumerate(labels_test):\
+    \cf3 # print("\\\ul tidx\ulnone  is \{\}".format(\ul idx\ulnone )) # 0 - 249\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul idx\ulnone ) - \{\}\\n".format(type(\ul idx\ulnone ))) # \ul int\ulnone , \ul int\cf0 \ulnone \
+    \cf3 # print("\\\ul tlabel\ulnone  is \{\}".format(label)) # 0, 1, 1.0\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (label) - \{\}\\n".format(type(label))) # class '\ul int\ulnone ', class 'float'\cf0 \
+    \cf3 # print("\\\ul tpred\ulnone [\ul idx\ulnone ] is \{\}".format(\ul pred\ulnone [\ul idx\ulnone ])) # 0.0, 1.0 ...\cf0 \
+    \cf3 # print("\\\ul ttype\ulnone (\ul pred\ulnone [\ul idx\ulnone ]) - \{\}\\n".format(type(\ul pred\ulnone [\ul idx\ulnone ]))) # numpy.float64\cf0 \
+    \cf2 if\cf0  label == SVMpred[idx]:\
+        SupportVectorMachinesMatchCount +=\cf5 1\cf0 \
+        \
+\cf3 # accuracy - get the accuracy of the Support Vector Machines - SVM - Terrain Classifier\cf6  # 0.92\cf0 \
+\cf2 print\cf0 (\cf4 "\\\ul tlen\ulnone (labels_test) is \{\}"\cf0 .format(len(labels_test))) \cf3 # \cf0 \
+\cf2 print\cf0 (\cf4 "\\tSupportVectorMachinesMatchCount is \{\}"\cf0 .format(SupportVectorMachinesMatchCount)) \cf3 # \cf0 \
+\cf2 print\cf0 (\cf4 "\\tSupport Vector Machine Terrain Classifier Accuracy - SupportVectorMachinesMatchCount / \ul len\ulnone (labels_test) is \{\}\\n"\cf0 .format(SupportVectorMachinesMatchCount / len(labels_test))) \cf6 # 0.92\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+# Support Vector Machines - SVM - Terrain Classifier - ACCURACY 3 of 3 \cf6 # 0.92\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 SupportVectorMachinesSVMTerraiClassifieAccuracy = sklearn.metrics.accuracy_score(SVMpred,labels_test) \cf6 # 0.92\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3  \cf0 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
 \
 \
 }
