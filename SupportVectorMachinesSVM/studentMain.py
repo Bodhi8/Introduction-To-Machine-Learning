@@ -37,6 +37,7 @@ from ClassifyNB import classify
 import numpy as np
 import pylab as pl
 import sklearn.metrics
+import time 
 
 print('Begin studentMain.py')
 
@@ -67,12 +68,18 @@ SVMclf = classify('SVM', features_train, labels_train)
 
 # use the trained classifier to do the predictions
 # generate the ** pred ** numpy.ndarray (n dimensional array)
-pred = clf.predict(features_test) # accuracy methods 2 and 3 below
+# how to time something, performance timing
+t0 = time.time()
+pred = clf.predict(features_test) # used for accuracy methods 2 and 3 below
+print("Naive Bayes, predict timing: - {}".format(round(time.time() - t0, 3)))
 # print("\tpred is {}\n".format(pred))
 # print("\ttype(pred) - {}\n".format(type(pred))) # numpy.ndarray
 
 # generate Support Vector Machines - SVM - predictor
+# how to time something, performance timing
+t0 = time.time()
 SVMpred = SVMclf.predict(features_test)
+print("Support Vector Machines - SVM, predict timing: - {}\n".format(round(time.time() - t0, 3)))
 
 # accuracy of GaussianNB() classifier method 1 of 3
 # accuracy - get the accuracy og the classifier # 0.884
@@ -122,11 +129,13 @@ print("\tlen(labels_test) is {}".format(len(labels_test))) #
 print("\tSupportVectorMachinesMatchCount is {}".format(SupportVectorMachinesMatchCount)) # 
 print("\tSupport Vector Machine Terrain Classifier Accuracy - SupportVectorMachinesMatchCount / len(labels_test) is {}\n".format(SupportVectorMachinesMatchCount / len(labels_test))) # 
 
+# sklearn.metrics.accuracy_score(pred,labels_test), accuracy method used by instructor in video
 # accuracy of Naive Bayes Terrain Classifier method 3 of 3
 myGaussianNBTerrainClassifierAAccuracy = sklearn.metrics.accuracy_score(pred,labels_test)
 print("\tmyGaussianNBTerrainClassifierAAccuracy - {}".format(myGaussianNBTerrainClassifierAAccuracy))
 # print("\ttype(myGaussianNB_Classifier_Accuracy) - {}\n".format(type(myGaussianNB_Classifier_Accuracy)))
 
+# sklearn.metrics.accuracy_score(pred,labels_test), accuracy method used by instructor in video
 # accuracy of Support Vector Machines - SVM - Terrain Classifier method 3 of 3
 SupportVectorMachinesSVMTerraiClassifieAccuracy = sklearn.metrics.accuracy_score(SVMpred,labels_test)
 print("\tSupportVectorMachinesSVMTerraiClassifieAccuracy - {}\n".format(SupportVectorMachinesSVMTerraiClassifieAccuracy))

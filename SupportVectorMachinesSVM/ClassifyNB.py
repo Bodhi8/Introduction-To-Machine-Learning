@@ -32,6 +32,7 @@ from sklearn.naive_bayes import GaussianNB
 # Support Vector Machines SVM Classifier
 import sklearn.svm
 
+import time
 
 def classify(classifierType, features_train, labels_train):
        
@@ -50,7 +51,13 @@ def classify(classifierType, features_train, labels_train):
     # SVMclf = sklearn.svm.SVC()
     # instructor saya - kernel = 'linear' 
     # (kernel = 'linear') - visibly STRAIGHTENS out the decision boundary 
-    SVMclf = sklearn.svm.SVC(kernel = 'linear')
+    # SVMclf = sklearn.svm.SVC(kernel = 'linear')
+    # Experiment with the C parameter
+    # result - small C parameter - significantly straighter line
+    # SVMclf = sklearn.svm.SVC(C=10) # small C parameter - significantly straighter line
+    # kernel : string, optional (default=’rbf’)
+
+    SVMclf = sklearn.svm.SVC(kernel='rbf', gamma=1)
     # SVMclf = sklearn.svm.SVC()
     
     # call the fit function of - *** import the sklearn module for GaussianNB ***
@@ -64,12 +71,18 @@ def classify(classifierType, features_train, labels_train):
     # print("\tClassifyNB.py - classify function - labels_train is {}".format(labels_train))
 
     # Train Naive Bayes Gaussian Terrain Classifier 
+    t0 = time.time()
     clf.fit(features_train, labels_train)
+    print("Naive Bayes, fit / training timing: - {}".format(round(time.time() - t0, 3)))
+
     print("\ttype(clf) - {}".format(type(clf)))
     print("\tclf.__class__.__name__ - {}\n".format(clf.__class__.__name__))
     
     # Train SupportVectorMachines Classifier 
+    t0 = time.time()
     SVMclf.fit(features_train, labels_train)
+    print("Support Vector Machines - SVM, fit / training timing: - {}".format(round(time.time() - t0, 3)))
+
     print("\ttype(SVMclf) - {}".format(type(SVMclf)))
     print("\tSVMclf.__class__.__name__ - {}".format(SVMclf.__class__.__name__))
     print("\ttype(SVMclf.__class__.__name__) - {}\n".format(type(SVMclf.__class__.__name__)))
