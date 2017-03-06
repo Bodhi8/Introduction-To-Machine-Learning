@@ -2,7 +2,9 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\fmodern\fcharset0 Courier;
 \f3\fnil\fcharset0 Menlo-Regular;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green0\blue255;\red0\green170\blue0;
-\red128\green0\blue0;\red255\green0\blue0;\red201\green128\blue43;\red0\green0\blue0;}
+\red128\green0\blue0;\red255\green0\blue0;\red201\green128\blue43;\red0\green0\blue0;\red28\green28\blue28;
+\red38\green38\blue38;\red246\green246\blue246;\red26\green26\blue26;\red22\green23\blue26;\red231\green236\blue240;
+}
 \margl1440\margr1440\vieww28040\viewh17060\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -83,8 +85,9 @@ matchCount = \cf5 0\cf0 \
 \cf2 print\cf0 (\cf4 "\\tmatchCount is \{\}"\cf0 .format(matchCount)) \cf3 # \cf0 \
 \cf2 print\cf0 (\cf4 "\\tmatchCount / \ul len\ulnone (labels_test) is \{\}\\n"\cf0 .format(matchCount / len(labels_test))) \cf3 # 0.884\cf0 \
 \
+\cf3 # sklearn.metrics.accuracy_score(\ul pred\ulnone ,labels_test), accuracy method used by instructor in video\cf0 \
 \cf3 # accuracy of GaussianNB() classifier method 3 of 3 <---------------------------------------------------------\cf0 \
-myGaussianNB_Classifier_Accuracy = sklearn.metrics.accuracy_score(pred,labels_test)\
+myGaussianNB_Classifier_Accuracy = sklearn.metrics.\cf6 accuracy_score\cf0 (pred,labels_test)\
 \cf2 print\cf0 (\cf4 "\\tmyGaussianNB_Classifier_Accuracy - \{\}"\cf0 .format(myGaussianNB_Classifier_Accuracy))\
 \cf2 print\cf0 (\cf4 "\\\ul ttype\ulnone (myGaussianNB_Classifier_Accuracy) - \{\}\\n"\cf0 .format(type(myGaussianNB_Classifier_Accuracy)))\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -341,7 +344,7 @@ If you find that the code is causing memory errors, you can also try setting tes
 \pard\pardeftab720\partightenfactor0
 
 \f1 \cf0 \CocoaLigature1 classifier = GaussianNB()\
-classifier.fit(features_train,labels_train)\
+classifier.fit(features_train,labels_train) ** \cf2 fit - training features, training labels used\cf0  **\
 pred = classifier.predict(features_test)
 \f3 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
@@ -374,8 +377,9 @@ matchCount = \cf5 0\cf0 \
 \cf2 print\cf0 (\cf7 "matchCount / \ul len\ulnone (labels_test) is \{\}\\n"\cf0 .format(matchCount / len(labels_test)))\
 \cf3 #      matchCount / \ul len\ulnone (labels_test) is 0.9732650739476678\cf0 \
 \
+\cf3 # sklearn.metrics.accuracy_score(\ul pred\ulnone ,labels_test), accuracy method used by instructor in video\cf0 \
 \cf3 # What is the accuracy of your Naive \ul Bayes\ulnone  author identifier? 3 of 3\cf0 \
-myGaussianNB_Classifier_Accuracy = sklearn.metrics.accuracy_score(pred,labels_test)\
+myGaussianNB_Classifier_Accuracy = sklearn.metrics.\cf6 accuracy_score\cf0 (pred,labels_test)\
 \cf2 print\cf0 (\cf7 "myGaussianNB_Classifier_Accuracy - \{\}\\n"\cf0 .format(myGaussianNB_Classifier_Accuracy))\
 \cf3 #      myGaussianNB_Classifier_Accuracy - 0.9732650739476678\cf0 \
 \cf3 # print("type(myGaussianNB_Classifier_Accuracy) - \{\}\\n".format(type(myGaussianNB_Classifier_Accuracy)))\cf0 \
@@ -391,8 +395,8 @@ timing, (time), (performance), timing Gaussian Naive Bayes (GaussianNB) classifi
 \
 \pard\pardeftab720\partightenfactor0
 
-\f1\fs22 \cf0 t0 = time()\
-classifier.fit(features_train,labels_train)\
+\f1\fs22 \cf0 t0 = time() ** ** \
+classifier.fit(features_train,labels_train) ** \cf2 fit - training features, training labels used\cf0  **\
 \cf2 print\cf0 (\cf7 "training time: - \{\}"\cf0 .format(round(time() - t0, \cf5 3\cf0 )))\
 \cf3 # print "training time:", round(time()-t0, 3), "s"\cf0 \
 \
@@ -408,7 +412,7 @@ predict time: - 0.169 - prediction is faster than training, less time\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 ***\
-*** Introduction to Machine Learning - Naive Bayes - \cf2 SVM Support Vector Machines    \cf0 NN of 37 -  3 March 2017 \
+*** Introduction to Machine Learning - Naive Bayes - \cf2 SVM Support Vector Machines    \cf0 NN of 37 -  5 March 2017 \
 ***\
 SVM - Support Vector Machines (actually an algorithm, not a machine), \cf2 very popular algorithm\
 \cf0 Find separating line hyperplane, decision boundary (per instructor "\cf6 perfectly straight\cf0 ") between two classes.\
@@ -426,7 +430,7 @@ Goal maximize robustness of result.  \
 clf = GaussianNB()\
 \
 \cf8 # Train - Naive Bayes Gaussian Terrain Classifier ** learns patterns ** \
-\cf0 clf.fit(features_train, labels_train)\
+\cf0 clf.fit(features_train, labels_train) ** \cf2 fit - training features, training labels used\cf0  **\
 \
 \pard\pardeftab720\partightenfactor0
 \cf0 # create \cf6 predict\cf0  - Naive Bayes Gaussian Terrain Classifier\
@@ -455,15 +459,11 @@ my_clf_score = clf.score(features_test,labels_test)\
 \cf2 print\cf0 (\cf4 "\\tNaive \ul Bayes\ulnone  matchCount is \{\}"\cf0 .format(matchCount)) \cf3 # \cf0 \
 \cf2 print\cf0 (\cf4 "\\tNaive \ul Bayes\ulnone  Terrain Classifier Accuracy - matchCount / \ul len\ulnone (labels_test) is \{\}"\cf0 .format(matchCount / len(labels_test))) \cf6 # 0.884\cf3 \
 \
+# sklearn.metrics.accuracy_score(\ul pred\ulnone ,labels_test), accuracy method used by instructor in video\
 \pard\pardeftab720\partightenfactor0
 \cf0 # Naive Bayes Gaussian Terrain Classifier - ACCURACY 3 of 3 \cf6 # 0.884\cf3 \
 \pard\pardeftab720\partightenfactor0
-\cf0 myGaussianNBTerrainClassifierAAccuracy = sklearn.metrics.accuracy_score(pred,labels_test)\
-\
-\
-\
-\
-\
+\cf0 myGaussianNBTerrainClassifierAAccuracy = sklearn.metrics.\cf6 accuracy_score\cf0 (pred,labels_test)\
 \
 \
 --------------------------------------------------------------------------\
@@ -475,8 +475,10 @@ SVMclf = sklearn.svm.SVC(kernel = \cf4 'linear'\cf0 ) \
 \
 \pard\pardeftab720\partightenfactor0
 \cf0 # Train - \cf8 Support Vector Machines - SVM - Terrain Classifier\cf0  ** learns patterns ** \
-SVMclf.fit(X,y)\
-\
+\pard\pardeftab720\partightenfactor0
+\cf0 SVMclf.fit(features_train, labels_train) ** \cf2 fit - training features, training labels used\cf0  **\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
 # create \cf6 predict\cf0  - Support Vector Machines - SVM - Terrain Classifier\
 \pard\pardeftab720\partightenfactor0
 \cf0 SVMpred = SVMclf.predict(features_test)\
@@ -504,16 +506,120 @@ my_SVM_clfScore = SVMclf.score(features_test,labels_test)\
 \cf2 print\cf0 (\cf4 "\\tSupport Vector Machine Terrain Classifier Accuracy - SupportVectorMachinesMatchCount / \ul len\ulnone (labels_test) is \{\}\\n"\cf0 .format(SupportVectorMachinesMatchCount / len(labels_test))) \cf6 # 0.92\cf0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 \
-# Support Vector Machines - SVM - Terrain Classifier - ACCURACY 3 of 3 \cf6 # 0.92\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf0 SupportVectorMachinesSVMTerraiClassifieAccuracy = sklearn.metrics.accuracy_score(SVMpred,labels_test) \cf6 # 0.92\cf0 \
+\cf3 # sklearn.metrics.accuracy_score(\ul pred\ulnone ,labels_test), accuracy method used by instructor in video\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 # Support Vector Machines - SVM - Terrain Classifier - ACCURACY 3 of 3 \cf6 # 0.92\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 SupportVectorMachinesSVMTerraiClassifieAccuracy = sklearn.metrics.\cf6 accuracy_score\cf0 (SVMpred,labels_test) \cf6 # 0.92\cf0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ***\
+*** Introduction to Machine Learning - \cf3 SVM\cf0  - \cf2 Non Linear SVM Support Vector Machines \cf0 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24  of 37 (many lessons) -  5 March 2017 \
+***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf9 \expnd0\expndtw0\kerning0
+There are several different types, kinds of Support Vector Machines (SVM) within scikit-learn.\
+The one we use - Support Vector Classifier (SVC).\
+Support Vector Classifier (SVC) is one example of a Several different Support Vector Machines (SVM)\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf9 The 'gamma' parameter actually has no effect on the 'linear' kernel for SVMs.\
+The key parameter for this kernel function is "C", which is described on the following video.\
+C parameter example, gamma parameter example\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf9 *** Introduction to Machine Learning - \cf3 Support Vector Machines SVM\cf9  - \cf2 Kernel and Gamma\cf9  - 21 of 37 6 March 2017\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf9 Random Support Vector Classifier (SVC) copied from the online documentation.\
+\cf2 C and gamma parameter example\cf9  \
+Here the Support Vector Classifier (SVC) is being created, before \cf2 .fit\cf9  fitting or training the Classifier \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf10 \cb11 SVC(\cf6 C=1.0\cf10 , cache_size=200, class_weight=None, coef0=0.0,\cf12 \
+\cf10     decision_function_shape=None, degree=3, \cf6 gamma='auto'\cf10 , \cf6 kernel='rbf'\cf10 ,\cf12 \
+\cf10     max_iter=-1, probability=False, random_state=None, shrinking=True,\cf12 \
+\cf10     tol=0.001, verbose=False)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb11 Also used - \cf6 kernel='linear'\cf8  - 
+\f0\fs28 \cb1 T\cf9 he \cf6 'gamma' parameter\cf9  actually has no effect on the \cf6 'linear' kernel\cf9  for SVMs.
+\f1\fs26 \cf6 \cb11 \
+\cf8 Instructor used both - \cf6 kernel='linear', kernel='rbf' \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf9 C is the parameter for the soft margin \cf6 cost\cf9  function\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf10 \cb1 Small C makes the cost of misclassificaiton low 
+\b0 ("soft margin"), thus allowing more of them for the sake of wider "cushion".\
+
+\b Large C makes the cost of misclassification high 
+\b0 ('hard margin"), thus forcing the algorithm to explain the input data stricter and potentially overfit.\
+\cf6 I actually coded it - smaller C straighter line\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf6 \kerning1\expnd0\expndtw0 SVMclf = sklearn.svm.SVC(C=10) - \cf8 ** \cf6 \ul \ulc6 significantly straighter line\cf8 \ulnone  **\cf6 \
+SVMclf = sklearn.svm.SVC(C=10000) \cf0 ** \cf6 \ul \ulc6 more training points correct -\cf2  ** instructor **\cf0 \ulnone  **\cf6  \
+C parameter had no effect - my code - when kernel = linear - \cf0 SVMclf = sklearn.svm.SVC(\cf6 kernel = 'linear'\cf0 )\cf2  I actually tried it.\
+\
+\cf8 kernel : string, optional (\cf6 default=\'92\ul rbf\ulnone \'92\cf8 ) - \cf2 from documentation\cf8  - 
+\f0\fs28 \cf9 \expnd0\expndtw0\kerning0
+Support Vector Classifier (SVC) \cf6 default kernel rbf\cf9  radial basis function kernel\cf10 \
+\pard\pardeftab720\partightenfactor0
+\cf10 \
+Gamma is the free parameter of the Gaussian radial basis function.\
+\pard\pardeftab720\partightenfactor0
+\cf13 Intuitively, the 
+\f2\fs26 \cf12 \cb14 gamma
+\f0\fs28 \cf13 \cb1  parameter defines how far the influence of a single training example reaches, with low values meaning \'91far\'92 and high values meaning \'91close\'92. \
+gamma=0.1 - random example \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf9 rbf - radial basis function kernel  \
+\
+overfitting - classifier line tries to \cf6 correctly\cf9  classify every point, 100% of the points correctly 100% of the time - \cf6 curvy decision boundary - hyperplane \cf9 lines (taking data too literally)\
+\
+\cf2 Now code gamma\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 SVMclf = sklearn.svm.SVC(kernel=\cf4 '\ul rbf\ulnone '\cf0 , gamma=\cf5 1000\cf0 ) - curvy line - overfitting \
+SVMclf = sklearn.svm.SVC(kernel=\cf4 '\ul rbf\ulnone '\cf0 , gamma=\cf5 10\cf0 ) - curvy line - overfitting \
+SVMclf = sklearn.svm.SVC(kernel=\cf4 '\ul rbf\ulnone '\cf0 , gamma=\cf5 1\cf0 ) - straighter line \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+Now code kernel
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 SVMclf = sklearn.svm.SVC(\cf6 kernel = 'linear'\cf0 ) - I saw straight lines\
+\pard\pardeftab720\partightenfactor0
+\cf0 SVMclf = sklearn.svm.SVC(\cf6 kernel='\ul rbf\ulnone '\cf0 , gamma=\cf5 1\cf0 ) - I saw curvy lines - example SVMclf = sklearn.svm.SVC(kernel=\cf4 '\ul rbf\ulnone '\cf0 , gamma=\cf5 1000\cf0 )\
 \pard\pardeftab720\partightenfactor0
 \cf0 \
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 \expnd0\expndtw0\kerning0
+\
+\
+\
+\
+\
+Kernel Trick - # 19 # 19\
 \pard\pardeftab720\partightenfactor0
-\cf0 \
+
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
 \
 \
 \
