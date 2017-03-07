@@ -12,7 +12,7 @@ Created on Mar 6, 2017
     Chris has label 1
 """
 # git add svm_author_id.py
-# git svm_author_id.py commit -m "Support VectorMachine Classifier - SVM, C Parameter, C=, kernel='linear', kernel='rbf', .fit, train, accuracy, **!!predict!!**" 
+# git commit svm_author_id.py -m "Support VectorMachine Classifier - SVM, C Parameter, C=, kernel=linear, kernel=rb', .fit, train, accuracy, predict" 
     
 import sys
 # from time import time
