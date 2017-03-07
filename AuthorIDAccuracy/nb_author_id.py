@@ -50,10 +50,14 @@ t0 = time()
 classifier.fit(features_train,labels_train)
 print("training time: - {}".format(round(time() - t0, 3)))
 # print "training time:", round(time()-t0, 3), "s"
+#        training time: - 1.217
+
 
 t0 = time()
 pred = classifier.predict(features_test)
 print("predict time: - {}\n".format(round(time() - t0, 3)))
+#      predict time: - 0.171
+
 
 print("pred - {}".format(pred))
 #      pred - [0 0 1 ..., 1 0 0]
