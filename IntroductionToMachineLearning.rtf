@@ -479,6 +479,7 @@ SVMclf = sklearn.svm.SVC(kernel = \cf4 'linear'\cf0 ) \
 \cf0 SVMclf.fit(features_train, labels_train) ** \cf2 fit - training features, training labels used\cf0  **\
 \pard\pardeftab720\partightenfactor0
 \cf0 \
+** \cf2 predict used in accuracy testing method 2 of 3, and 3 of 3 below \cf0 ** \
 # create \cf6 predict\cf0  - Support Vector Machines - SVM - Terrain Classifier\
 \pard\pardeftab720\partightenfactor0
 \cf0 SVMpred = SVMclf.predict(features_test)\
@@ -538,7 +539,7 @@ C parameter example, gamma parameter example\
 \cf9 *** Introduction to Machine Learning - \cf3 Support Vector Machines SVM\cf9  - \cf2 Kernel and Gamma\cf9  - 21 of 37 6 March 2017\
 \pard\pardeftab720\sl280\partightenfactor0
 \cf9 Random Support Vector Classifier (SVC) copied from the online documentation.\
-\cf2 C and gamma parameter example\cf9  \
+\cf2 C and gamma parameter example\cf9  ** \cf2 C parameter, C argument\cf9  **\
 Here the Support Vector Classifier (SVC) is being created, before \cf2 .fit\cf9  fitting or training the Classifier \
 \pard\pardeftab720\partightenfactor0
 
@@ -563,11 +564,15 @@ Here the Support Vector Classifier (SVC) is being created, before \cf2 .fit\cf9 
 
 \b Large C makes the cost of misclassification high 
 \b0 ('hard margin"), thus forcing the algorithm to explain the input data stricter and potentially overfit.\
-\cf6 I actually coded it - smaller C straighter line\
+\pard\pardeftab720\partightenfactor0
+\cf10 SupportVectorMachines/src/studentMain.py *\cf2 * manipulate, experiment with C parameter, C=\cf10  **\
+SupportVectorMachines/src/ClassifyNB.py *\cf2 * manipulate, experiment with C parameter, C=\cf10  **\
+\pard\pardeftab720\partightenfactor0
+\cf6 I actually coded it - smaller C straighter line, \cf2 C parameter effects on overplotting - \cf6 smaller C straighter line, instructor agrees\
 \pard\pardeftab720\partightenfactor0
 
 \f1\fs22 \cf6 \kerning1\expnd0\expndtw0 SVMclf = sklearn.svm.SVC(C=10) - \cf8 ** \cf6 \ul \ulc6 significantly straighter line\cf8 \ulnone  **\cf6 \
-SVMclf = sklearn.svm.SVC(C=10000) \cf0 ** \cf6 \ul \ulc6 more training points correct -\cf2  ** instructor **\cf0 \ulnone  **\cf6  \
+SVMclf = sklearn.svm.SVC(C=10000) \cf0 ** \cf6 \ul \ulc6 more training points correct -\cf2  ** instructor **\cf0 \ulnone  **\cf6  LESS STRAIGHT LINE\
 C parameter had no effect - my code - when kernel = linear - \cf0 SVMclf = sklearn.svm.SVC(\cf6 kernel = 'linear'\cf0 )\cf2  I actually tried it.\
 \
 \cf8 kernel : string, optional (\cf6 default=\'92\ul rbf\ulnone \'92\cf8 ) - \cf2 from documentation\cf8  - 
@@ -587,7 +592,7 @@ gamma=0.1 - random example \
 \
 overfitting - classifier line tries to \cf6 correctly\cf9  classify every point, 100% of the points correctly 100% of the time - \cf6 curvy decision boundary - hyperplane \cf9 lines (taking data too literally)\
 \
-\cf2 Now code gamma\
+\cf2 Now code gamma, gamma effects on overplaying\
 \pard\pardeftab720\partightenfactor0
 
 \f1\fs22 \cf0 \kerning1\expnd0\expndtw0 SVMclf = sklearn.svm.SVC(kernel=\cf4 '\ul rbf\ulnone '\cf0 , gamma=\cf5 1000\cf0 ) - curvy line - overfitting \
@@ -597,7 +602,7 @@ SVMclf = sklearn.svm.SVC(kernel=\cf4 '\ul rbf\ulnone '\cf0 , gamma=\cf5 1\cf0 ) 
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \f0\fs28 \cf2 \expnd0\expndtw0\kerning0
-Now code kernel
+Now code kernel, kernel effects on overplotting
 \f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 SVMclf = sklearn.svm.SVC(\cf6 kernel = 'linear'\cf0 ) - I saw straight lines\
@@ -605,18 +610,144 @@ Now code kernel
 \cf0 SVMclf = sklearn.svm.SVC(\cf6 kernel='\ul rbf\ulnone '\cf0 , gamma=\cf5 1\cf0 ) - I saw curvy lines - example SVMclf = sklearn.svm.SVC(kernel=\cf4 '\ul rbf\ulnone '\cf0 , gamma=\cf5 1000\cf0 )\
 \pard\pardeftab720\partightenfactor0
 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ***\
+*** 
+\fs28 \cf9 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 SVM\cf0  - 
+\fs28 \cf9 \expnd0\expndtw0\kerning0
+SVM Author ID Accuracy
+\fs24 \cf2 \kerning1\expnd0\expndtw0  27, 28, 29\cf0  of 37 -  6 March 2017 \
+***\
+
+\fs28 \cf9 \expnd0\expndtw0\kerning0
+Introduction To Machine Learning - SVM - Kernel Trick 19 of 37\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf9 Import, create, train and make predictions with the sklearn SVC classifier.\
+When creating the classifier, use a linear kernel (if you forget this step, you will be unpleasantly surprised by how long the classifier takes to train). What is the accuracy of the classifier?\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf3 \kerning1\expnd0\expndtw0 # This time using Support Vector Machines (SVM) - Support Vector Classifier (SVC)\cf0 \
+\cf3 # Last Time Used Naive \ul Bayes\ulnone  Classifier, Naive \ul Bayes\ulnone  Classifier ran much faster\cf0 \
+\cf3 # Last time - Introduction To Machine Learning - Naive \ul Bayes\ulnone  - Machine Learning For Author ID - 40 of 43\cf0 \
+\cf3 # Naive \ul Bayes\ulnone  took seconds, Support Vector Machines (SVM) - Support Vector Classifier (SVC) took minutes\cf0 \
+\cf3 # Naive \ul Bayes\ulnone  Accuracy - 0.973\cf0 \
+\cf3 # Support Vector Machines (SVM) - Support Vector Classifier (SVC) - accuracy - \cf0 \
+\cf3 # mySupportVectorMachineClassifierScore - 0.9840728100113766 using \cf0 sklearn.svm.SVC(kernel = \cf4 'linear'\cf0 )\
+\
+\cf3 # mySupportVectorMachineClassifier = sklearn.svm.SVC() # instructor says - "takes much longer" my timing - about 15 minutes \cf0 \
+\cf3 # mySupportVectorMachineClassifier - training time - .fit time - 915.65\
+\cf8 ** \cf0 Naive Bayes Timing - Support Vector Machines (SVM) - Support Vector Classifier (SVC) Timing Comparison **\
+\pard\pardeftab720\partightenfactor0
+\cf0 Naive Bayes - training time: - 1.217\
+Naive Bayes - predict time: - 0.171\
+\
+Support Vector Machines (SVM) - Support Vector Classifier (SVC)\
+\pard\pardeftab720\partightenfactor0
+\cf0 mySupportVectorMachineClassifier - training time - .fit time - 145.971\
+mySupportVectorMachineClassifier - predict time - 14.905\
+\
+\cf8 ** \cf6 instructor\cf8  conclusion - Support Vector Machines (SVM) - Support Vector Classifier (SVC) \cf6 SLOWER\cf8  than Naive Bayes  **\
+\
+** how to use \cf6 less data\cf8  when training the Classifier, \cf2 improve performance, less time\cf8  ** ** \cf0 sklearn.svm.SVC(\cf6 kernel = 'linear'\cf0 ) \cf8 **\
+# \cf6 only use 1%\cf8  of \cf2 features_train\cf8 , \cf2 labels_train\cf8  - \cf2 performance increases\cf8 , \cf2 time decreases\cf8 , \cf6 accuracy decreases\cf8 \
+\cf0 features_train = features_train[:round(len(features_train)/\cf5 100\cf0 )] \
+labels_train = labels_train[:round(len(labels_train)/\cf5 100\cf0 )]\
+mySupportVectorMachineClassifier = sklearn.svm.SVC(kernel = \cf4 'linear'\cf0 ) \cf8 \
+\cf3 #      mySupportVectorMachineClassifierScore - 0.9840728100113766 # using 100% of features_train and labels_train \cf8 ** ACCURACY / Performance **\
+** \cf6 instructor\cf8  says we used 1% of features_train, labels_train - \cf2 accuracy 0.8845278725824801\cf8  - \cf6 instructor says not bad\cf8  ** \cf0  ** sklearn.svm.SVC(\cf6 kernel = 'linear'\cf0 ) ** \cf2 Classifier / kernel used\cf0  **\cf8 \
+\cf3 #      mySupportVectorMachineClassifierScore - 0.8845278725824801 # accuracy dropped when \ul using\ulnone  1% of features_train and labels_train \cf0 ** ACCURACY / Performance **\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ***\
+*** 
+\fs28 \cf9 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 SVM\cf0  - 
+\fs28 \cf9 \expnd0\expndtw0\kerning0
+Deploy an RBF Kernel 
+\fs24 \cf2 \kerning1\expnd0\expndtw0  31\cf0  of 37 -  7 March 2017 \
+***
+\f1\fs22 \cf6 \
+
+\f0\fs28 \cf9 \expnd0\expndtw0\kerning0
+mySupportVectorMachineClassifier = sklearn.svm.SVC(kernel = '\cf6 rbf\cf9 ')  ** \cf2 radial basis function kernel\cf9  **\
+\pard\pardeftab720\partightenfactor0
+\cf9 ** accuracy dropped - mySupportVectorMachineClassifierScore - \cf6 0.61\cf9 60409556313993 ** accuracy - sklearn.svm.SVC(kernel = 'rbf') - \cf6 0.61\cf9 60409556313993\
+** \cf6 instructor\cf9  "\cf6 not great accuracy\cf9 "\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf9 \
+** Introduction to Machine Learning - SVM - \cf2 Optimize C Parameter\cf9  32 of 37 ** -  7 March 2017\
+** relationships between C parameter, C argument, Accuracy **\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 mySupportVectorMachineClassifier = \cf6 sklearn.svm.SVC(kernel = 'rbf')\cf9 \
+mySupportVectorMachineClassifierScore - \cf6 0.6160409556313993 \cf9 ACCURACY\
+\
+1% of the data
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+features_train = features_train[:round(len(features_train)/\cf5 100\cf0 )] \
+labels_train = labels_train[:round(len(labels_train)/\cf5 100\cf0 )]
+\f0\fs28 \cf9 \expnd0\expndtw0\kerning0
+\
+mySupportVectorMachineClassifier = \cf6 sklearn.svm.SVC(C=10000,kernel = 'rbf')\cf9   higher C, C= C Parameter, C argument, higher accuracy\
+mySupportVectorMachineClassifierScore - \cf6 0.8924914675767918 \cf9 ACCURACY\
+\
+mySupportVectorMachineClassifier = sklearn.svm.SVC(\cf6 C=1000\cf9 ,kernel = 'rbf') \
+mySupportVectorMachineClassifierScore - \cf6 0.8213879408418657\cf9  ACCURACY\
+\
+mySupportVectorMachineClassifier = sklearn.svm.SVC(\cf6 C=100\cf9 ,kernel = 'rbf') \
+mySupportVectorMachineClassifierScore - \cf6 0.6160409556313993\cf9  ACCURACY\
+\
+mySupportVectorMachineClassifier = sklearn.svm.SVC(\cf6 C=10\cf9 ,kernel = 'rbf') \
+mySupportVectorMachineClassifierScore - \cf6 0.6160409556313993\cf9  ACCURACY\
+\
+features_train, features_test, labels_train, labels_test = email_preprocess.preprocess() ** \cf2 full data set\cf9 , increases ACCURACY**\
+mySupportVectorMachineClassifier = sklearn.svm.SVC(C=10000,kernel = 'rbf')  ** \cf2 high C, C=, C Parameter, C argument, \cf8 increased ACCURACY\cf9  **\
+mySupportVectorMachineClassifierScore - 0.9908987485779295 ACCURACY\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 **\cf2  summary\cf9  **  C, C= C Parameter, C argument higher number more accurate, more curvy line, less straight line, **\cf2  summary\cf9  ** \
+\pard\pardeftab720\partightenfactor0
+\cf9 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
 \
 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf9 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9  \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf9 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \
+
+\f1\fs22 \cf8 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \f0\fs28 \cf9 \expnd0\expndtw0\kerning0
 \
-\
-\
-\
-\
-Kernel Trick - # 19 # 19\
 \pard\pardeftab720\partightenfactor0
 
 \f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
