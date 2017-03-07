@@ -52,9 +52,9 @@ def classify(classifierType, features_train, labels_train):
     # instructor saya - kernel = 'linear' 
     # (kernel = 'linear') - visibly STRAIGHTENS out the decision boundary 
     # SVMclf = sklearn.svm.SVC(kernel = 'linear')
-    # Experiment with the C parameter
+    # Experiment with, manipulate the C parameter
     # result - small C parameter - significantly straighter line
-    # SVMclf = sklearn.svm.SVC(C=10) # small C parameter - significantly straighter line
+    # SVMclf = sklearn.svm.SVC(C=10000) # small C parameter - significantly straighter line, successful C= manipulator
     # kernel : string, optional (default=’rbf’)
 
     SVMclf = sklearn.svm.SVC(kernel='rbf', gamma=1)
