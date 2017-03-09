@@ -36,6 +36,10 @@ print("type(labels_test) - {}\n".format(type(labels_test)))
 ### happens--fill in this function in the file 'classifyDT.py'!
 clf = classify(features_train, labels_train)
 
+# sklearn.tree.tree.DecisionTreeClassifier accuracy
+accuracy = clf.score(features_test,labels_test)
+print("accuracy - {}\n".format(accuracy))
+
 #### grader code, do not modify below this line
 prettyPicture(clf, features_test, labels_test)
 # output_image("test.png", "png", open("test.png", "rb").read())
