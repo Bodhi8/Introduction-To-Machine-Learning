@@ -1727,17 +1727,65 @@ What\'92s the accuracy when percentile = 10? \cf2 features - \cf6 3785\cf0 \uc0\
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
 What\'92s the accuracy when percentile = 1? \cf2 features - \cf6 379\cf0 \
-\ls5\ilvl0\kerning1\expnd0\expndtw0 		
+\ls5\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}
 \f1\fs22 myDecisionTreeClassifier\cf6 Accuracy\cf0  - 0.9670079635949943\
-\ls5\ilvl0
-\f7\fs30 \expnd0\expndtw0\kerning0
-\uc0\u8232 
-\f1\fs22 \cf6 \kerning1\expnd0\expndtw0 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \
+\pard\tx720\pardeftab720\sl400\partightenfactor0
 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Choose Your Own Algorithm\cf0  - 10 of 10 - 12 March 2017 \
+***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 myKNeighborsClassifier = sklearn.neighbors.KNeighborsClassifier()\
+myKNeighborsClassifier.\cf6 fit\cf0 (features_train,labels_train) ** train with (features_train,labels_train) **\
+pred = myKNeighborsClassifier.\cf6 predict\cf0 (features_test)\
+myKNeighborsClassifier_score = myKNeighborsClassifier.\cf6 score\cf0 (features_test,labels_test) \
+myKNeighborsClassifier_score - 0.92\
+\
+*** functions associated with generating, drawing the graphs, plots ***\
+\cf2 class_vis.py\
+def\cf0  prettyPicture(clf, X_test, y_test):\
+\cf2 def\cf0  output_image(name, \ul format\ulnone , \ul bytes\ulnone ):\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Datasets and Questionsm\cf0  - 35 of 35 - 12 March 2017 \
+***
+\f1\fs22 \
+\pard\tx720\pardeftab720\sl400\partightenfactor0
+\cf0 poi_names.txt\
 \pard\pardeftab720\partightenfactor0
 \cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
 \
 \
 \
