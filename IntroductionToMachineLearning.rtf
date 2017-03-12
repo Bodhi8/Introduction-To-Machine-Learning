@@ -1,10 +1,18 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\fmodern\fcharset0 Courier;
-\f3\fnil\fcharset0 Menlo-Regular;}
+\f3\fnil\fcharset0 Menlo-Regular;\f4\fnil\fcharset0 LucidaGrande;\f5\froman\fcharset0 TimesNewRomanPSMT;
+\f6\fmodern\fcharset0 Courier-Bold;\f7\fswiss\fcharset0 ArialMT;\f8\fmodern\fcharset0 CourierNewPSMT;
+}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green0\blue255;\red0\green170\blue0;
 \red128\green0\blue0;\red255\green0\blue0;\red201\green128\blue43;\red28\green28\blue28;\red38\green38\blue38;
 \red246\green246\blue246;\red26\green26\blue26;\red22\green23\blue26;\red231\green236\blue240;\red0\green0\blue0;
-}
+\red0\green0\blue0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
 \margl1440\margr1440\vieww28040\viewh17060\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -708,7 +716,7 @@ mySupportVectorMachineClassifierScore - \cf6 0.6160409556313993\cf8  ACCURACY\
 \
 features_train, features_test, labels_train, labels_test = email_preprocess.preprocess() ** \cf2 full data set\cf8 , increases ACCURACY**\
 mySupportVectorMachineClassifier = sklearn.svm.SVC(C=10000,kernel = 'rbf')  ** \cf2 high C, C=, C Parameter, C argument, \cf0 increased ACCURACY\cf8  **\
-mySupportVectorMachineClassifierScore - 0.9908987485779295 ACCURACY\
+mySupportVectorMachineClassifierScore - 0.9908987485779295 ACCURACY \
 \
 **\cf2  summary\cf8  **  C, C= C Parameter, C argument higher number more accurate, more curvy line, less straight line, **\cf2  summary\cf8  ** \
 \
@@ -722,14 +730,16 @@ Introduction to Machine Learning
 *** 
 \fs28 \cf8 \expnd0\expndtw0\kerning0
 Introduction to Machine Learning
-\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - Introduction 1, 2, 3, 4, 5, 6, 7, 8 of 41 - 8 March 2017 \
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - Introduction 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 of 41 - 8 March 2017 \
 ***\
 \
-\ul Supervised Classification Algorithms\ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \ul Examples of Supervised Classification Algorithms\ulnone \
 1.) Naive Bayes\
 2.) Supervised Vector Machines - SVM
 \fs28 \cf8 \expnd0\expndtw0\kerning0
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \fs24 \cf0 \kerning1\expnd0\expndtw0 3.) Decision Trees \
 \
@@ -740,7 +750,8 @@ Supervised Vector Machines - SVM used Kernel Trick\
 \
 Linear Decision Surface - like a Decision Boundary\
 \
-\ul Decision Tree Example\ulnone  \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \ul Decision Tree Example\ulnone  \
 			windy\
 	\cf2 yes\cf0 					\cf6 no\cf0  (\cf2 stops right here not going windsurfing, not windy\cf0 ) \
 			sunny (\cf2 if it is windy, yes, check for sunny\cf0 )\
@@ -750,22 +761,1044 @@ yes (\cf2 going windsurfing\cf0 ) 			\cf6 no\cf0  \
 
 \f1\fs22 \cf0 classifier.fit(features_train,labels_train) ** \cf2 fit - training features, training labels used\cf0  **
 \f0\fs24 \
+
+\f1\fs22 train or fit the sklearn.tree.tree.DecisionTreeClassifier using training data\
+\
 \pard\pardeftab720\partightenfactor0
 
-\f1\fs22 \cf14 train or fit the sklearn.tree.tree.DecisionTreeClassifier using training data
+\fs24 \cf0 ** \cf6 In general terms we look at the classifier parameters, arguments to INCREASE accuracy\cf0  **
+\fs22 \
+\pard\pardeftab720\partightenfactor0
+\cf6 a note in the video - min_impurity_split=50\cf0 \
+we used - \cf6 min_samples_split = n\
+\pard\pardeftab720\partightenfactor0
+\cf0 both are probably important, useful\cf3 \ul \ulc3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 \ulnone Relationship between accuracy and classifier instantiation with the min_samples_split parameter \
+\pard\pardeftab720\partightenfactor0
+\cf0     clf = tree.DecisionTreeClassifier(min_samples_split=\cf6 2\cf0 )\
+    \cf3 # accuracy - \cf6 0.912\cf3  - my data from local Eclipse IDE\cf0 \
+    \cf3 # accuracy - \cf6 0.908\cf3  - online udacity.com decision Tree Accuracy Quiz - probably different data \cf0 \
+    \
+    clf = tree.DecisionTreeClassifier(min_samples_split=\cf6 50\cf0 )\
+    \cf3 # accuracy - \cf6 0.912\
+\cf0     \cf3 # summary as min_samples_split increases so does accuracy\cf0  
 \f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - 41 - 8 March 2017 \
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - Data Impurity and Entropy 13, 14, 15, 16, 17, 18, 19, 20, 21 of 41 - 8 March 2017 \
+***\
+Decision Tree Parameters	- 10 of 41\
+Entropy Calculation Part 5	- 20 of 41\
+Information Gain - 21 of 41\
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+  
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 Entropy - measure of impurity in a bunch of examples, entropy is the opposite of purity\
+\pard\pardeftab720\partightenfactor0
+
+\fs36 \cf0 one extreme all examples same class - entropy = \cf6 0 
+\fs24 \cf0 ** verified **\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 examples evenly split between all available classes - entropy = \cf6 1 \cf0 ** verified **\cf6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+largest value for entropy is 1.0 (maximally impure, examples evenly split between the two class labels, example 2 \cf2 SLOW\cf8 , 2 \cf2 FAST\cf8  below.)\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+Controls how a Decision Tree decides where to split the data\
+all examples of the same class - entropy = \cf6 0\cf0  - 
+\i\fs28 \cf6 \expnd0\expndtw0\kerning0
+all observations are of the same class - Thrun!
+\i0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+examples evenly split between all classes - entropy = \cf6 1.0\cf2  mathematically maximal value\cf0 , 
+\fs28 \cf2 \expnd0\expndtw0\kerning0
+ maximally impure state\cf8 , \cf2 maximally impure sample
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+terrain bumpiness, and terrain grade, are examples of \cf2 features\
+\pard\pardeftab720\partightenfactor0
+\cf6 contamination\cf0  -\cf2  points\cf0  in the "\cf2 wrong\cf0 " box, class, classification\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+the log base 2 formula that we use will have a maximal value of 1. (\cf2 video quote)\cf8 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Entropy Formula
+\fs24 \cf0 \kerning1\expnd0\expndtw0  
+\f4\fs36 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+** \cf2 lower entropy points toward more organized data, and that a decision tree uses that as a way how to classify events\cf8  **\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 minus sign prefix big deal\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs48 \cf6 -\cf0 \uc0\u931  \cf6 -\cf0 P
+\f5\i\fs36 i
+\f4\i0  
+\fs48 log
+\fs36 2 
+\fs48 (p
+\f5\i\fs36 i
+\f4\i0\fs48 )
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+ - negative sign is correct per the instructor in the video
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f5\i\fs36 i
+\f4\i0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs48 \cf0 (p
+\f5\i\fs36 i
+\f4\i0\fs48 )
+\fs36  - 
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+fraction of examples in class
+\f4\fs36 \cf0 \kerning1\expnd0\expndtw0  
+\f5\i i \
+\pard\pardeftab720\partightenfactor0
+
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+10 March 2017\
+How to calculate
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 (p
+\f5\i\fs36 i
+\f4\i0\fs48 )
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+ an example \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs36 \cf8 \ul Parent Node Entropy Calculation Example
+\fs28 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \ulnone Parent Node - 1 \cf6 Node\cf8  - 4 \cf2 Entries\cf8  \cf2 SLOW, SLOW, FAST, FAST \cf0 ** top of decision tree **\cf2 \
+\cf8 Parent Node Entropy 1.0\
+Remember - examples evenly split between all available classes - entropy = \cf6 1\cf8  ** verified ** \
+2 SLOW, 2 FAST, 
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 p
+\f5\i\fs36 i - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+SLOW
+\f5\i\fs36 \cf0 \kerning1\expnd0\expndtw0  - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+0.50, 
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 p
+\f5\i\fs36 i - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+FAST
+\f5\i\fs36 \cf0 \kerning1\expnd0\expndtw0  - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+0.50
+\f5\i\fs36 \cf0 \kerning1\expnd0\expndtw0  
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+- meets the 
+\i \cf6 evenly split
+\i0 \cf8  criteria, the two 
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 p
+\f5\i\fs36 i
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+ are the SAME - \cf6 Entropy\cf8  of the Parent Node - 1.0\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 p
+\f5\i\fs36 i - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+SLOW
+\f5\i\fs36 \cf0 \kerning1\expnd0\expndtw0  - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+0.50, 
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 p
+\f5\i\fs36 i - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+FAST
+\f5\i\fs36 \cf0 \kerning1\expnd0\expndtw0  - 
+\f0\i0\fs28 \cf8 \expnd0\expndtw0\kerning0
+0.50
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 \
+-
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 0.5(log\sub 2\nosupersub (0.5)) ) 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 - 
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 0.5(log\sub 2\nosupersub (0.5)) )
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0  
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 0.5(
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+1) ) 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 - 
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 0.5(
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+1) ) - ** \cf2 watch the minus signs\cf0  **\
+ 0.5 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 - 
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 0.5(
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+1) )\
+ 0.5 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 - 
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+(
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+0.5)\
+ 0.5 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 + 
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+0.5\
+1.0 - Parent Node Entropy 1.0 (maximally impure state, examples evenly split, total 4, 2 SLOW, 2 FAST)\
+
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0  
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+\
+Grade Nodes - \cf6 2\cf8  Nodes, \cf2 STEEP, FLAT\
+\pard\pardeftab720\partightenfactor0
+\cf0 4 \cf6 Entries\cf0  (
+\i all 4 entries
+\i0 ) \cf6 inherited\cf0  from Parent Node - \cf2 SLOW, SLOW, FAST, FAST\cf0  \cf2 \
+\cf6 STEEP\cf2  Node - \cf0 3 Entries\cf2  SLOW, SLOW, FAST\cf0  - 3 of the 4 are here  
+\f4\fs48 \kerning1\expnd0\expndtw0 (p
+\f5\i\fs36 i
+\f4\i0\fs48 )
+\f0\fs28 \expnd0\expndtw0\kerning0
+ = 3/4\
+SLOW -> log\sub 2\nosupersub (2/3) -> log\sub 2\nosupersub (0.6666) 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -0.585107 
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+ \
+FAST -> log\sub 2\nosupersub (1/3) -> log\sub 2\nosupersub (0.333)  
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -1.585107\
+
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul Entropy Calculation\ulnone  for the \cf6 \ul \ulc6 STEEP\cf0 \ulnone  Node (bass only on the \cf6 3\cf0  entries here, \cf2 SLOW, SLOW, FAST\cf0 )\
+Entropy - STEEP Node - 2 SLOW (2/3), 1 FAST (1/3)\
+                 \cf2 2 SLOW (2/3)                       1 FAST (1/3)\cf0 \
+ 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -(0.666(-0.585107)) - (0.333(-1.585107)) xxx\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+ 
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -(0.666(-0.585107)) - (0.333(-1.585107))\
+		   -(-0.3897) - (-0.5278)\
+		   -(-0.3897) + 0.5278\
+		     + 0.3897 + 0.5278\
+\pard\pardeftab720\partightenfactor0
+\cf2 			0.9175 - Entropy Calculation - STEEP Node, \cf0 (child node)\cf2 , SLOW, SLOW, FAST ( 
+\f0\i\fs28 \cf6 \expnd0\expndtw0\kerning0
+video - instructor agrees, right answer - video says 0.9184
+\f4\i0\fs36 \kerning1\expnd0\expndtw0  \cf2 )\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 Weighted Average needed for Information gain below
+\fs36 \cf2 \
+
+\fs28 \cf0 Information Gain \cf6 Weighted\cf0  Average "\cf2 Grade (STEEP, FLAT)\cf0 " Children Entropy (4 total children) both the STEEP Node and the FLAT Node\
+STEEP Node - 3 of the 4 children here (3/4)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul percent of entries in that 1 node times the entropy for that 1 node\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ulnone 0.75 * 0.9175 = 0.688125
+\fs36 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul \ulc0 Entropy Calculation\ulnone  for the \cf6 \ul \ulc6 FLAT\cf0 \ulnone  Node - 1 entry \cf2 FAST\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs36 \cf0 \kerning1\expnd0\expndtw0 all examples of the same class - entropy = \cf6 0
+\fs24 \cf0  
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 FLAT\cf2     Node - \cf0 1 Entry \cf2 FAST \cf0  - 1 of the 4 are here  
+\f4\fs48 \kerning1\expnd0\expndtw0 (p
+\f5\i\fs36 i
+\f4\i0\fs48 )
+\f0\fs28 \expnd0\expndtw0\kerning0
+ = 1/4\
+Entropy - FLAT Node - 1 FAST (1/1)\
+\pard\pardeftab720\partightenfactor0
+\cf2 1 FAST (1/1)\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs36 \cf6 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 1(log\sub 2\nosupersub (1/1)) )
+\i \cf6 \
+
+\f4\i0\fs36 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 1(\cf6 0\cf0 ) )
+\i \cf6 \
+
+\f4\i0\fs36 \kerning1\expnd0\expndtw0 -
+\f0\fs28 \expnd0\expndtw0\kerning0
+0
+\i \
+\pard\pardeftab720\partightenfactor0
+
+\i0 \cf6 0 
+\f4\fs36 \cf2 \kerning1\expnd0\expndtw0  - Entropy Calculation - FLAT Node, \cf0 (child node)\cf2 , FAST\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 Information Gain \cf6 Weighted\cf0  Average "\cf2 Grade\cf0 " Children Entropy (4 total children)\
+FAST Node - 1 of the 4 children here (1/1)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul percent of entries in that 1 node times the entropy for that 1 node\ulnone \
+1 * 0 = 0
+\fs36 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf6 Child Information Gain Calculation\cf0  for the 4 Entries, 2 Grade Nodes (\cf2 STEEP, FAST\cf0 )
+\fs36 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 1 - 0.688125 - 0 = 0.311875
+\fs36 \
+
+\fs28  
+\f0 \cf8 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 minus sign prefix big deal\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs48 \cf6 - \cf0 \uc0\u931 
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+ - sum over all classes available
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+grade		bumpiness		speed		speed\
+					limit?\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 ----------------------------------------------------\
+steep		bumpy			yes			slow\
+steep		smooth		yes			slow\
+flat		bumpy			no			fast\
+steep		smooth		no			fast\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 from the speed column\cf8 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 SLOW SLOW FAST FAST (2 '
+\f5\i SLOW
+\f1\i0 ',2 '
+\f5\i FAST
+\f1\i0 ', 4 TOTAL)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs48 \cf0 p
+\f5\i\fs36 slow - 
+\f0\i0\fs28 \cf2 \expnd0\expndtw0\kerning0
+fraction of slow examples\cf8  - 2 / 4 = \cf6 0.50\cf8 \
+
+\f4\fs48 \cf0 \kerning1\expnd0\expndtw0 p
+\f5\i\fs36 fast - 
+\f0\i0\fs28 \cf2 \expnd0\expndtw0\kerning0
+fraction of slow examples\cf8  - 2 / 4 = \cf6 0.50\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 log\sub 2\nosupersub  of 0.5 = -1\
+\
+entropy formula examples sum sigma "log2"\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 example from google search\cf8 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 H=\uc0\u8722 0.4log2(0.4) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  0.6log2(0.6)\uc0\u8776 \u8722 0.4(\u8722 1.3) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  0.6(\uc0\u8722 0.7)=.52+.42=.94 bits\
+\
+Entropy calculation for parent \cf2 SLOW, SLOW, FAST, FAST\cf8 \
+\cf2 minus sign in the middle driven by \cf8 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf6 \kerning1\expnd0\expndtw0 minus sign prefix big deal\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs48 \cf6 - \cf0 \uc0\u931 
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+ - sum over all classes available\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 H= \uc0\u8722 0.5 log2(0.5) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  0.5 log2(0.5)\
+H= ( \uc0\u8722 0.5 (log2(0.5)) ) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  ( 0.5 (log2(0.5)) )\
+H= ( \uc0\u8722 0.5 ( -1) ) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  ( 0.5 (-1) )\
+H= ( 0.5) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  ( - 0.5)\
+H= ( 0.5) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  (0.5)\
+H= 1.0 entropy = 1.0
+\fs24 \cf2 \kerning1\expnd0\expndtw0 mathematically maximal value\cf0 , 
+\fs28 \cf2 \expnd0\expndtw0\kerning0
+ maximally impure state\cf8 , \cf2 maximally impure sample\
+examples evenly split between the two class labels, we have 4 total 2 fast, 2 slow - entropy = 1.0\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 Information Gain\
+information gain 
+\fs36 \cf6 =
+\fs28 \cf8  entropy (parent) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  [weighted average] entropy (children)\
+"\cf2 entropy of the parent\cf8 " \cf6 minus the\cf8  "\cf2 weighted average of the entropy of the children\cf8 "\
+\
+Decison Tree algorithm will maximize information gain\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs36 \cf8 \ul \ulc8 Parent Node Entropy Calculation Example
+\fs28 \ulnone  (\cf2 above\cf8 )\
+\pard\pardeftab720\partightenfactor0
+\cf6 *** \cf8 Entropy of Parent = \cf6 1.0 ***\
+\pard\pardeftab720\partightenfactor0
+\cf2 SLOW, SLOW, FAST, FAST \cf6 *** \cf8 Entropy of Parent = \cf6 1.0 ***\cf2 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul \ulc0 	grade steep flat first column\cf2 \ulnone \
+HOW MANY			HOW MANY\
+STEEP				FLAT\
+\pard\pardeftab720\partightenfactor0
+\cf6 	3					1\
+\cf8 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul 	parent column speed\cf2 \ulnone \
+HOW MANY			HOW MANY\
+SLOW				FAST\
+\pard\pardeftab720\partightenfactor0
+\cf6 	2					2\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul 	grade column\cf2 \ulnone \
+HOW MANY			HOW MANY\
+STEEP				FLAT\
+\pard\pardeftab720\partightenfactor0
+\cf6 	2
+\i slow ones
+\i0 			1
+\i fast ones \cf2 <----------- entropy of this node (both \cf6 FAST\cf2  and \cf6 FLAT\cf2  terrain) =\cf6  0 all observations, there is only 1, are of the same class
+\i0 \
+	1
+\i fast ones                                                      \cf2 entropy arrived at by definition, not calculation, all entries, in this case only 1, are in the SAME CLASS\
+\pard\pardeftab720\partightenfactor0
+\cf6 entropy\cf2  (2 slow, 1 fast node) -\cf6  
+\i0 0.9184
+\i \cf2                     entropy = 0 by definition - all examples are in the same class\
+\pard\pardeftab720\partightenfactor0
+
+\f4\i0\fs36 \cf6 \kerning1\expnd0\expndtw0                                                        -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 1(log\sub 2\nosupersub (1/1)) )
+\i \cf6 \
+
+\f4\i0\fs36 \kerning1\expnd0\expndtw0                                                        -
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+( 1(\cf6 0\cf0 ) )
+\i \cf6 \
+
+\f4\i0\fs36 \kerning1\expnd0\expndtw0                                                        -
+\f0\fs28 \expnd0\expndtw0\kerning0
+0
+\i \
+
+\f4\i0\fs36 \kerning1\expnd0\expndtw0                                                        
+\f0\fs28 \expnd0\expndtw0\kerning0
+0
+\i \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul Entropy calculations after the first Decision Tree Split\ulnone  (\cf2 SLOW
+\i0 \cf8  
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  
+\i \cf2 FAST\cf0 )\cf6 \
+\cf0 Entropy calculations for\cf2  SLOW
+\i0\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  
+\i \cf2 STEEP \cf0 (child left side)\cf6 \
+\cf0 left grade \cf2 STEEP\cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\i0 \cf8  \cf6 2 / 3\cf0  = \cf2 3 total STEEP\cf0  (2 SLOW ones, 1 FAST), hence 2 of the 3 total are SLOW or \cf6 2 / 3 \
+\cf8 \
+\pard\pardeftab720\partightenfactor0
+
+\i \cf0 left grade \cf2 STEEP\cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\i0 \cf8  \cf6 1 / 3\cf0  = \cf2 3 total STEEP\cf0  (2 SLOW ones, 1 FAST), hence 1 of the 3 total are FAST or \cf6 1 / 3 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 H=\uc0\u8722 0.4log2(0.4) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  0.6log2(0.6)\uc0\u8776 \u8722 0.4(\u8722 1.3) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  0.6(\uc0\u8722 0.7)=.52+.42=.94 bits - \cf2 google search example formula\cf8 \
+\
+Entropy calculation for the \cf2 SLOW\cf8  
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  \cf2 STEEP\cf8  node\
+2 class labels \cf2 SLOW, FAST\cf8 \
+H=\uc0\u8722 1/3(log2(1/3)) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  2/3(log2(2/3))\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (1/3(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1.585107)) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8   2/3(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.585107)\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.528369)
+\fs36 \cf6  \uc0\u8722 
+\fs28 \cf8  (
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.3900)\
+0.528369
+\fs36 \cf6  + 
+\fs28 \cf8 0.3900\
+0.918369 = Entropy calculation for the \cf2 SLOW\cf8  
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  \cf2 STEEP\cf8  node\
+\
+Entropy calculations using Eclipse / Python\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 myEntropy = scipy.stats.entropy([\cf5 2\cf0 ,\cf5 1\cf0 ],base=\cf5 2\cf0 ) \
+\pard\pardeftab720\partightenfactor0
+\cf2 print\cf0 (\cf7 "myEntropy - \{\}\\n"\cf0 .format(myEntropy))\
+myEntropy - 0.9182958340544894\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs36 \cf6 \expnd0\expndtw0\kerning0
+\ul \ulc6 Review
+\fs28 \cf8 \ulc8 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \ulnone What is the entropy of this node \cf2 SLOW, SLOW, FAST, FAST Entropy calculation for parent node \cf6 SLOW, SLOW FAST, FAST\cf2 \
+\
+0.5 SLOW, 0.5 FAST\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 H=
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.4log2(0.4) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  0.6log2(0.6)\uc0\u8776 \u8722 0.4(\u8722 1.3) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  0.6(\uc0\u8722 0.7)=.52+.42=.94 bits \cf2 example formula from google search\cf8 \
+\
+SLOW First left side of the  
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8   in the middle\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (0.5(log2(0.5)))
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs36 \cf6 \expnd0\expndtw0\kerning0
+\uc0\u8722 
+\fs28 \cf8 (0.5(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1))\
+0.5\
+\
+do not use the middle 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  here\
+Now FAST\
+(0.5(log2(0.5)))
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+(0.5(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1))\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.5\
+\
+use the middle 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  here\
+0.5 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  (\uc0\u8722 0.5) = 
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+0.5 
+\fs36 \cf6 + 
+\fs28 \cf8 0.5 = 1 - entropy one\
+\
+***\
+***\
+***\
+Calculate entropy for the 2 SLOW, 1 FAST NODE\
+STEEP NODE = 2 SLOW, 1 FAST\
+\
+SLOW\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (2/3(log\sub 2\nosupersub (2/3)))\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (2/3( 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.585107))\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (-0.3901)\
+0.3901\
+\
+FAST\
+(1/3(log\sub 2\nosupersub (1/3)))\
+1/3(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1.585107)\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.528369\
+\
+0.3901 
+\fs36 \cf6 \uc0\u8722  
+\fs28 \cf8 (
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 0.528369)\
+0.3901 
+\fs36 \cf6 + 
+\fs28 \cf8 0.528369\
+\cf6 0.9184\cf8  - entropy 2 SLOW, 1 FAST NODE\
+\
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf8 Information Gain\
+Information Gain Calculation Based on Grade \cf2 STEEP, FLAT\cf8 \
+Information Gain 
+\fs36 \cf6 =
+\fs28 \cf8  entropy (parent) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  [weighted average] entropy (children)\
+"\cf2 entropy of the parent\cf8 " \cf6 minus the\cf8  "\cf2 weighted average of the entropy of the children\cf8 "\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 \
+\pard\pardeftab720\partightenfactor0
+\cf8 Information Gain 
+\fs36 \cf6 =
+\fs28 \cf8  entropy (parent) 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  [weighted average] entropy (children)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 \
+\pard\pardeftab720\partightenfactor0
+\cf8 entropy (parent) (\cf6 SLOW, SLOW, FAST, FAST\cf8 ) = \cf6 1.0\cf8  calculations above\
+\
+next children based on grade - STEEP, FLAT \
+\
+STEEP NODE \
+SLOW	
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 	2 SLOW and 1 FAST - TOTAL 3\
+entropy - 0.9184\
+\
+FLAT NODE\
+FAST 	
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 	1 FAST - TOTAL 1\
+entropy - 0\
+\
+\
+[weighted average] entropy (children)\
+Children based on grade TOTAL examples - 4\
+\
+Parent node \cf2 SLOW, SLOW, FAST, FAST 4 \cf0 Total\cf8 \
+3/4 * (0.9184) = 0.6888\
+1/4 * 0 = 0\
+\
+information gain 
+\fs36 \cf6 =
+\fs28 \cf8   parent entropy 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  weighted children average\
+information gain 
+\fs36 \cf6 =
+\fs28 \cf8   1 - 0.6888 = \cf6 0.3112\cf2  right answer\cf8 \
+\
+*** Information Gain Calculation Part 7 Bumpiness 28 of 41  ** \cf6 DO NOT GO BACK\cf8  **\
+\
+
+\fs36 \ul Parent Node Entropy Calculation Example
+\fs28 \ulnone  (\cf2 above\cf8 )\
+\pard\pardeftab720\partightenfactor0
+\cf6 *** \cf8 Entropy of Parent = \cf6 1.0 ***\
+\pard\pardeftab720\partightenfactor0
+\cf2 SLOW, SLOW, FAST, FAST \cf6 *** \cf8 Entropy of Parent = \cf6 1.0 ***\cf2 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul \ulc0 	\ulnone bumpiness (bumpy, smooth)\cf2 \
+HOW MANY			HOW MANY\
+bumpy				smooth\
+\pard\pardeftab720\partightenfactor0
+\cf6 2					2\
+slow, fast				slow, fast\cf0  - 4 from parent\cf6 \
+\cf8 \
+slow 1 of 2				slow 1 of 2\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (0.5(log2(0.5)))
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 			
+\f0\fs36 \cf6 \expnd0\expndtw0\kerning0
+\uc0\u8722 
+\fs28 \cf8 (0.5(log2(0.5)))
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs36 \cf6 \expnd0\expndtw0\kerning0
+\uc0\u8722 
+\fs28 \cf8 (0.5(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1))				
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (0.5(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1))\
+0.5						0.5\
+\
+fast 1 of 2				fast 1 of 2\
+
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (0.5(log2(0.5)))			
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (0.5(log2(0.5)))
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs36 \cf6 \expnd0\expndtw0\kerning0
+\uc0\u8722 
+\fs28 \cf8 (0.5(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1))				
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 (0.5(
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8 1))\
+0.5						0.5\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 entropy for this node		entropy for this node\cf8 		\
+0.5 + 0.5 = 1				0.5 + 0.5 = 1\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 information gain 
+\fs36 \cf6 =
+\fs28 \cf8   parent entropy 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  weighted children average\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 \
+1.0 - 1/2(1) - 1/2(1) = 0 information gain \cf2 correct answer\
+\
+\cf0 Information Gain Speed Limit\
+\
+Parent Node \cf2 SSFF\cf0  \
+Parent Node Entropy Calculations Above\cf8 \
+\cf0 Parent Node Entropy - 1.0\
+\
+speed limit - YES\
+slow, slow\cf8 \
+entropy - 0\
 \cf0 \
+speed limit - No\
+fast, fast\cf8 \
+entropy - 0\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 information gain 
+\fs36 \cf6 =
+\fs28 \cf8   parent entropy 
+\fs36 \cf6 \uc0\u8722 
+\fs28 \cf8  weighted children average entropy\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 1.0 - 1/2(0) - 1/2(0) = 1\
+1 - Best Information Gain possible - this is definitely where we want to make the split\
+\
+\cf6 Entropy\cf8  and \cf6 Information Gain\cf8  as it relates to \cf6 DecisionTreeClassifier,\cf8  \cf6 Decision Tree Classifier\cf8  creation, instantiation  \
+\pard\pardeftab720\partightenfactor0
+
+\i \cf11 \cb10 class 
+\f2\i0\fs26 sklearn.tree.
+\f6\b\fs28 DecisionTreeClassifier
+\f0\b0\fs34 (
+\i\fs28 \cf6 criterion='gini'
+\i0 \cf11 ,\
+\pard\pardeftab720\parhyphenfactor20\partightenfactor0
+\cf12 \cb1 The function to measure the quality of a split. Supported criteria are \'93gini\'94 for the Gini impurity and \cf6 \'93entropy\'94 for the information gain\cf12 .\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - Bias-Variance Dilemma 33 of 41 - 11 March 2017 \
+***\
+\
+\cf2 Bias Variance Dilema -	\cf0 \
+Machine Learning Term - \cf2 Bias\
+High Bias - practically ignores the data, the training, almost no capacity  to learn anything
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 Machine Learning Term - \cf2 Variance - High Variance - Only replicate stuff it has seen before.\
+Bias-Variance tradeoff - algorithm with some authority to generalize, still listens to the data \
+\
+\cf0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - Decision Trees Strengths and Weaknesses  34 of 41 - 11 March 2017 \
+***\
+\
+Decision Trees Prone to Overfitting\
+Sebastian says amazing \
+\
+***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - Decision Tree Mini-Project Video 35 of 41 - 11 March 2017 \
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Decision Trees\cf0  - Decision Tree Mini-Project 36 of 41 - 11 March 2017 \
+***\
+\
+How to access the first row of an 
+\f1\fs22 numpy.ndarray\
+\pard\pardeftab720\partightenfactor0
+\cf2 print\cf0 (\cf4 "type(features_train) - \{\}"\cf0 .format(type(features_train)))
+\f0\fs24 \
+
+\f1\fs22 type(features_train) - <class '\cf6 numpy.ndarray\cf0 '>\
+\
+first row\
+\cf2 print\cf0 (\cf4 "features_test[0] - \{\}"\cf0 .format(features_test[\cf6 0\cf0 ]))\
+features_test[0] - [ 0.  0.  0. ...,  0.  0.  0.]\
+\
+length first row\
+\cf2 print\cf0 (\cf4 "\cf4 \ul \ulc4 len\cf4 \ulnone (features_test[\cf6 0\cf4 ]) - \{\}"\cf0 .format(\cf6 len\cf0 (features_test[\cf6 0\cf0 ])))\
+\cf6 len\cf0 (features_test[0]) - \cf6 3785\
+\
+lower \cf0 percentile=\cf6 1 - ** faster training time ** \
+\cf0 selector = SelectPercentile(f_classif, percentile=\cf6 10\cf0 ) ** \cf2 out of box sklearn.tree.DecisionTreeClassifier \cf6 .fit, training time - about 60 seconds \cf0 **\
+selector = SelectPercentile(f_classif, percentile=\cf6 1\cf0 ) ** percentile=\cf6 1\cf5  \cf14 ** \cf2 dropped \cf6 .fit, training time from about 60 seconds to about 4 seconds\cf14  **\
+\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
+\ls1\ilvl0
+\f7\fs30 \cf15 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec15 Change 
+\f8 percentile
+\f7  from 10 to 1.
+\f1\fs22 \cf14 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
+\ls2\ilvl0
+\f7\fs30 \cf15 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec15 What\'92s the number of features now?\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf14 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 selector = SelectPercentile(f_classif, \cf6 percentile=10\cf2 ), \cf6 percentile=10 down, train time down, features down from \cf2 3785 to 379 \cf14 \
+\cf0 selector = SelectPercentile(f_classif, \cf6 percentile=10\cf0 ) 
+\fs48 \cf6 -
+\fs22 \cf0  \cf6 len\cf0 (features_test[0]) - \cf6 3785\cf14 \
+\cf0 selector = SelectPercentile(f_classif, \cf6 percentile=1\cf0 ) 
+\fs48 \cf6 -
+\fs22 \cf0  len(features_test[0]) - \cf6 379\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
+\ls3\ilvl0
+\f7\fs30 \cf15 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec15 Would a large value for percentile lead to a more complex or less complex decision tree, all other things being equal? -\cf2  my guess more complex\cf15 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 	\
+\pard\tx720\pardeftab720\sl400\partightenfactor0
+\cf15 \
+How many features are in the data -\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 myDecisionTreeClassifier = sklearn.tree.DecisionTreeClassifier(min_samples_split = \cf5 40\cf0 ) ** \cf2 so far stayed the same\cf0  **\
+\pard\tx720\pardeftab720\sl400\partightenfactor0
+
+\f7\fs30 \cf15 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
+\ls4\ilvl0\cf0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+What\'92s the accuracy when percentile = 10? \cf2 features - \cf6 3785\cf0 \uc0\u8232 
+\f1\fs22 \kerning1\expnd0\expndtw0 selector = SelectPercentile(f_classif, percentile=\cf5 10\cf0 )\
+{\listtext	\'95	}myDecisionTreeClassifier\cf6 Accuracy\cf0  - 0.9772468714448237\
+\pard\tx720\pardeftab720\sl400\partightenfactor0
+
+\f7\fs30 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs22 \cf0 myDecisionTreeClassifier = sklearn.tree.DecisionTreeClassifier(min_samples_split = \cf5 40\cf0 ) ** \cf2 so far stayed the same\cf0  **
+\f7\fs30 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+What\'92s the accuracy when percentile = 1? \cf2 features - \cf6 379\cf0 \
+\ls5\ilvl0\kerning1\expnd0\expndtw0 		
+\f1\fs22 myDecisionTreeClassifier\cf6 Accuracy\cf0  - 0.9670079635949943\
+\ls5\ilvl0
+\f7\fs30 \expnd0\expndtw0\kerning0
+\uc0\u8232 
+\f1\fs22 \cf6 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 \
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\
+\cf2 \
 \
 \
 \
 
 \fs28 \cf8 \expnd0\expndtw0\kerning0
- \cf8  
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 \
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 \
+\
+\
+ \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
 \f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
 \
 \pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf6  
+\fs28 \cf8 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf8 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
 \cf0 \
+\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
