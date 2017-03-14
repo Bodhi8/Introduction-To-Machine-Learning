@@ -11,8 +11,9 @@
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
 {\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
-{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}}
 \margl1440\margr1440\vieww28040\viewh17060\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -1862,17 +1863,76 @@ Introduction to Machine Learning
 
 \f0\fs28 \cf8 \expnd0\expndtw0\kerning0
 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - 47 of 47 - 12 March 2017 \
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - Continuous Output Quiz  1, 2, 3, 4, 5, 6, 7, 8, 9 of 47 - 13 March 2017 \
+***
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+ \
+\
+Continuous Supervised Learning \
+train Continuous Classifier - working with order, as in \cf2 Income, Age, Speed (mph)\cf8  ...\
+train Discreet Classifier - no order, as in\cf2  Fast, Slow, Short, Tall\cf8  ...\
+Input Dimension - X axis\
+Output Dimension - Y axis - previous constraint -> no arbitrary values, only discreet values like \cf2 FAST, SLOW\cf8 \
+Arbitrary input variables, shown on the X axis. Output tends to be binary - SLOW, FAST as an example \
+SLOW, FAST output, Y axis -\cf2  discreet\cf14  output\
+Output may be \cf2 continuous\cf14  and NOT \cf2 discreet\cf14  \
+Examples \
+input - X axis - \cf6 Height\cf14  - this too is \cf2 continuous\cf6  \cf14 \
+output Y axis - \cf6 Weight \cf2 continuous\cf14 , not\cf6  \cf2 discreet\cf8 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls6\ilvl0\cf8 Previously the output variable has been constrained to binary values in previous steps. Output on the Y axis.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf8 Continuous Supervised Learning Example - X axis \cf2 Height\cf8 , Y axis \cf2 Weight\cf8  both metrics, both the X and Y scale are continuous, not discreet like TALL, SHORT, FAST, SLOW\
+\cf6 \ul \ulc6 Continuous\cf14 \ulnone  - refers to the output\
+\cf6 Age\cf14  - number of seconds since birth - \cf6 Continuous\cf14  metric - use a \cf2 Continuous Classifier\cf14  - not a \cf2 Discreet Classifier\cf14  \
+Weather - Sunny versus Rainy use a - \cf2 Discreet Classifier\
+\cf14 Who wrote an email - \cf2 Discreet Classifier\cf14  - there is no relationship between any 2 emails, there is no order - therefore \cf2 Discreet Classifier\cf14  - if order does not exist, \cf2 Discreet Classifier\cf14  better \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf14 Phone number - train a\cf2  Discreet Classifier\
+\cf14 Income - train a \cf2 Continuous Classifier\cf14 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f0\fs28 \cf14 \expnd0\expndtw0\kerning0
+\ul \ulc14 Equation of the Regression Line\
 \
 \pard\pardeftab720\partightenfactor0
-
-\f0\fs28 \cf8 \expnd0\expndtw0\kerning0
+\cf0 \ulnone Y = MX + B\
 \
+In the example change in Income, Y axis - Change in Y is 500 RISE\
+In the example change in Age, X axis - Change in X is 80 - RUN\
+500 / 80 = 6.25 - SLOPE - M\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+B - Y intercept - in the Example 0\
+\
+Y = MX + B\
+Y = 6.25 * 80 + 0\
+Y = 500       + 0\
+Y = 0 when X is 80 \
+\
+Left Side - Target Variable - \cf6 Y\cf0  Net Worth - Output or the Metric you are trying to \cf6 predict - Y\cf14  axis\cf0   \
+Right Side - Age - 80 is the Input variable - X axis\
+M - 6.25 - SLOPE\
+B - Y Intercept \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf8 \
-\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
