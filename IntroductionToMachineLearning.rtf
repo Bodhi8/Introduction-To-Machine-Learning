@@ -1874,7 +1874,7 @@ Introduction to Machine Learning
 *** 
 \fs28 \cf8 \expnd0\expndtw0\kerning0
 Introduction to Machine Learning
-\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - Continuous Output Quiz  1, 2, 3, 4, 5, 6, 7, 8, 9 of 47 - 13 March 2017 \
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - Continuous Output Quiz  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 of 47 - 13 March 2017 \
 ***
 \fs28 \cf8 \expnd0\expndtw0\kerning0
  \
@@ -1927,6 +1927,58 @@ Left Side - Target Variable - \cf6 Y\cf0  Net Worth - Output or the Metric you a
 Right Side - Age - 80 is the Input variable - X axis\
 M - 6.25 - SLOPE\
 B - Y Intercept \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf8 \
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - \ul Coding it Up 17\ulnone  of 47 - 13 March 2017    Age/Net Worth Regression in sklearn\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - Age/Net Worth Regression in sklearn 18 of 47 - 13 March 2017\
+***\
+\
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+http://scikit-learn.org/stable/modules/linear_model.html \
+1.1. Generalized Linear Models\
+\
+historically .fit looked like this \
+classifier.fit(\cf6 features_train\cf8 ,\cf2 labels_train\cf8 ) ** fit - training features, training labels used **\
+\
+now .fit looks like this\
+reg.fit (ages_train, net_worths_train)\
+\
+therefore it appears \
+ages_train maps to features_train, and \
+net_worths_train maps to labels_train\
+\
+accessing first two rows of an numpy.ndarray, bracket notation, colon\
+\cf6 ages_train\cf8  maps to \cf6 features_train\cf8  - located on the\cf6  X axis\cf8  - X axis label - ages\
+type(ages_train) - <class 'numpy.ndarray'>\
+\pard\pardeftab720\partightenfactor0
+\cf8 ages_train[0:2] - \
+[[22]\
+ [63]]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf8 accessing first two rows of an numpy.ndarray, bracket notation, colon\
+\pard\pardeftab720\partightenfactor0
+\cf2 net_worths_train\cf8  maps to \cf2 labels_train\cf8  - located on the \cf2 Y axis\cf8  - X axis label - net worths \
+\pard\pardeftab720\partightenfactor0
+\cf8 type(net_worths_train) - <class 'numpy.ndarray'>\
+net_worths_train[0:2] - \
+[[  66.97839379]\
+ [ 373.01919127]]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf8 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
