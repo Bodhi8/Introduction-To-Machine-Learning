@@ -12,8 +12,9 @@
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
 {\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
 {\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
-{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}}
 \margl1440\margr1440\vieww28040\viewh17060\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -1934,10 +1935,6 @@ B - Y Intercept \
 *** 
 \fs28 \cf8 \expnd0\expndtw0\kerning0
 Introduction to Machine Learning
-\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - \ul Coding it Up 17\ulnone  of 47 - 13 March 2017    Age/Net Worth Regression in sklearn\
-*** 
-\fs28 \cf8 \expnd0\expndtw0\kerning0
-Introduction to Machine Learning
 \fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions \cf0 - Age/Net Worth Regression in sklearn 18 of 47 - 13 March 2017\
 ***\
 \
@@ -1973,26 +1970,164 @@ type(ages_train) - <class 'numpy.ndarray'>\
 net_worths_train[0:2] - \
 [[  66.97839379]\
  [ 373.01919127]]\
+\
+the .score or dot score - looks like the \cf6 r-squared score\cf8  according to Introduction To Machine Learning - Regressions 47 of 47 - Extracting Information from sklearn \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
-\cf8 \
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning - Regressions - \cf3 Linear Regression Errors\cf8  - 22 0f 47 - 15 March 2017
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+***
+\fs28 \expnd0\expndtw0\kerning0
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 error = Actual Net Worth - Predicted Net Worth\
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 \
-\pard\pardeftab720\partightenfactor0
-\cf0 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf8 \
+Perform Linear Regression - Minimizing the Sum of the Squared Errors\
+\
+\cf3 sum of all errors\cf0  \
+
+\f5\fs72 \uc0\u931  
+\f0\fs28 (actual value - predicted value )\super 2\nosupersub  \
+all\
+training\
+points\
+\
+- actual values - training data, training points \
+- predicted values - from regression - y = mx + b\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 ***\
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning -
+\fs24 \cf3 \kerning1\expnd0\expndtw0  Regressions 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+- \cf0 Errors and Fit Quality\cf8  - 24 0f 47 - 15 March 2017
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+***\
+\
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+What will a \cf2 good fit\cf8  minimize?
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+sum absolute value of error - 
+\b \cf6 \ul \ulc6 several lines
+\b0 \cf2 \ulnone  may, could meet this criteria\cf0  
+\fs28 \expnd0\expndtw0\kerning0
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\fs36 \cf6  
-\fs28 \cf8 \
+\f5\fs72 \cf0 \uc0\u931 
+\f0\fs28  absolute value of error ** (see above \cf3 sum of all errors formula\cf0  formula) ** for ALL data points - absolute value symbol ||\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 sum absolute value of error ** \cf6 squared \cf14 ** 
+\b \cf6 \ul \ulc6  only 1 line
+\b0 \cf14 \ulnone  meets this criteria **\cf6  best practices\cf14  ** - ** \cf6 use squared\cf14  **\cf0  \cf6 only 1 line, the best line
+\fs28 \cf0 \expnd0\expndtw0\kerning0
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf6 \
+
+\f5\fs72 \cf0 \uc0\u931 
+\f0\fs28  (absolute value of error)\cf6 \super 2\cf0 \nosupersub  ** \cf6 squared\cf0  ** ** (see above \cf3 sum of all errors formula\cf0  formula) ** for ALL data points - absolute value symbol || \
+\cf2 This method\cf0  - \cf6 How Linear Regressions are Calculated\cf0 .\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf8 ** Introduction to Machine Learning -
+\fs24 \cf3 \kerning1\expnd0\expndtw0  Regressions 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+- \cf0 Minimizing the SUM of Squared Errors - 25 of 47 **\
+\
+Best Regression Is One That Minimizes Sum The Squared Errors 	\
+\cf6 Sum Of Squared Errors\cf0  is - \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f5\fs72 \cf0 \uc0\u931  
+\f0\fs28 (actual value - predicted value )\super 2\nosupersub  \
+all\
+training\
+points\
+\
+- actual values - training data, training points \
+- predicted values - from regression - y = \cf6 m\cf0 x + \cf6 b\cf0 \
+\
+** FIND M and B That Minimize The \cf6 Sum Of Squared Errors ** important\cf14  **\
+\cf0 ** Downside \cf6 Sum Of Squared Errors \cf0 influenced by the number of data points.**\
+** Two scenarios both look similar both "fit" lines look OK, about the same, one scenario has more data, more data points **\
+** The mere fact of having more data will bump (raise) the \cf6 SUM - \cf2 (Sum Of Squared Errors)\cf14  - however fit may indeed by AOK\cf2  **\cf0   \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf8 \
+*** \
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 *** \ul \ulc0 Extracting Source Data from sklearn 20 of 47\ulnone \
+*** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions
+\fs28 \cf0 \expnd0\expndtw0\kerning0
+ - Algorithms for Minimizing Squared Errors  26 of 47 - 15 March 2017
+\fs24 \kerning1\expnd0\expndtw0 \
+***
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls7\ilvl0\cf8 Methods To Minimize the SUM of the Squared Errors in Regression\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls7\ilvl0\cf8 1.) Ordinary Least Squares (OLS) - \cf2 used in the sklearn Linear Regression algorithm\cf8  \
+2.) Gradient Descent \
+\
+\ls7\ilvl0\cf14 ** Introduction to Machine Learning - \cf3 Regressions\cf14  - Why Minimize SSE The Sum of Squared Errors - 27 of 47 - 15 March 2017\
+Minimizing the SUM of Squared Errors best way to think about Regression.\
+\
+** Introduction to Machine Learning - \cf3 Regressions\cf14  - R Squared Metric for Regression - \ul 31 of 47\ulnone  - 15 March 2017\cf8 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+
+\fs28 \ul r\super 2\nosupersub  ("r squared") of a regression\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+\ulnone r\super 2 - r squared \cf0 - Popular Evaluation Method for Describing The Goodness of Fit For A Linear Regression\kerning1\expnd0\expndtw0 \nosupersub \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf2 \expnd0\expndtw0\kerning0
+r\super 2 - r squared \cf0 - answers the question \
+"How much of my change in the output (Y) is explained by the change in my input (X)?"\
+\pard\pardeftab720\partightenfactor0
+\cf0 \nosupersub Values \cf2 r\super 2\cf0 \nosupersub  - \cf2 r squared\cf0   can take on will be between \cf6 0\cf0  and \cf6 1\cf0 .\
+\
+Higher values better\
+Regression Line doing a good job of describing relationship between input (X) and output (Y).\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 r\super 2\nosupersub  - r squared\cf0  - Independent of the number of training points.\
+\cf2 r\super 2\nosupersub  - r squared\cf0  - Not impacted, influenced by the number of data points, which is a downside to the Sum of Squared Errors Metric.\
+\cf2 r\super 2\nosupersub  - r squared\cf0  - More reliable than the \cf2 Sum Of Squared Errors\cf0  Metric \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \super next visualizing regression - push github\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \nosupersub \
+\
+
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+\
+ \
+\
+\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 \cf8 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
