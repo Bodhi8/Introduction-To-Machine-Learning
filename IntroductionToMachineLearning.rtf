@@ -13,9 +13,11 @@
 {\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
 {\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
 {\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
-{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}}
-\margl1440\margr1440\vieww28040\viewh17060\viewkind0
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}
+{\list\listtemplateid8\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid701\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid8}
+{\list\listtemplateid9\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid801\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid9}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}{\listoverride\listid8\listoverridecount0\ls8}{\listoverride\listid9\listoverridecount0\ls9}}
+\margl1440\margr1440\vieww28040\viewh11460\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
@@ -2115,17 +2117,69 @@ Regression Line doing a good job of describing relationship between input (X) an
 \cf2 r\super 2\nosupersub  - r squared\cf0  - Independent of the number of training points.\
 \cf2 r\super 2\nosupersub  - r squared\cf0  - Not impacted, influenced by the number of data points, which is a downside to the Sum of Squared Errors Metric.\
 \cf2 r\super 2\nosupersub  - r squared\cf0  - More reliable than the \cf2 Sum Of Squared Errors\cf0  Metric \
-\
 \pard\pardeftab720\partightenfactor0
-\cf0 \super next visualizing regression - push github\
+\cf0 \super \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \nosupersub *** 
+\fs28 \cf8 \expnd0\expndtw0\kerning0
+Introduction to Machine Learning
+\fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Regressions
+\fs28 \cf0 \expnd0\expndtw0\kerning0
+ - Visualizing Regression  33 of 47 - 16 March 2017 ***\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 # visualize regression on top of scatter points - the black line\cf0 \
+\cf3 #        ages_test - X values - features\cf0 \
+\cf3 #                   reg.predict(ages_test) Y values, predictions for the ages given by the Regression - reg.predict -  \cf0 \
+plt.plot(ages_test, reg.predict(ages_test), color=\cf4 "black"\cf0 , linewidth = \cf5 0.5\cf0 )
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \expnd0\expndtw0\kerning0
+\super \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \fs24 \cf0 \kerning1\expnd0\expndtw0 \nosupersub \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls8\ilvl0
+\fs28 \cf0 \expnd0\expndtw0\kerning0
+** Introduction to Machine Learning - \cf3 Regressions\cf0  - Comparing Classification and Regression - 35 of 47 - 16 March 2017
+\fs36 \kerning1\expnd0\expndtw0 \ul \ulc0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Quick Comparison Between Classification and Regression\
+\
+Supervised Classification\
+
+\fs28 \cf2 \ulnone output type\cf0  - discreet (class labels - \cf2 examples\cf0  - Male, Female, Fast, Slow)\
+\cf2 What are you trying to find?\cf0  - decision boundary - delimiter for class assignment, used to assign a class label\
+\cf2 evaluate\cf0  - \cf6 how good of a job did it do\cf0  - accuracy - class label assignment correct or not on test set\
 \
 
-\fs28 \cf8 \expnd0\expndtw0\kerning0
+\fs36 \ul Regression\
+
+\fs28 \cf2 \ulnone output type\cf0  - continuous - predicting a number using Regression\
+\cf2 What are you trying to find?\cf0  - "best fit line"\
+\cf2 evaluate\cf0  - \cf6 how good of a job did it do\cf14  -  \cf0 1.) Sum Of Squared Error,  2.) r squared, r\super 2\
 \
- \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls9\ilvl0\cf0 \expnd0\expndtw0\kerning0
+\nosupersub ** Introduction to Machine Learning - \cf3 Regressions\cf0  - Multivariate Regression Quiz - 36 of 47 - 16 March 2017\
+\
+age - net worth - exactly \cf6 1 input\cf0  variable (age) -\cf6  1 output\cf0  (net worth) \
+\
+\ls9\ilvl0\cf6 \ul \ulc6 Multivariate Regression\cf0 \ulnone \
+Form of Regression with many different input variables\
+1.) \cf2 IQ\cf0 \
+2.) \cf2 AGE\cf0                               \cf6 ------------------>\cf0  the 3 JOINTLY predict \cf2 net worth\cf0 \
+3.) \cf2 Education\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf8 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8  \
 \
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
