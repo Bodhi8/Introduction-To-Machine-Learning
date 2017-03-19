@@ -191,7 +191,7 @@ except NameError:
     pass
 
 reg.fit(feature_test, target_test)
-print("\nreg.coef_ 'slope' - {}".format(reg.coef_))
+print("reg.coef_ 'slope' - {}".format(reg.coef_))
 
 plt.plot(feature_train, reg.predict(feature_train), color="b") 
 
