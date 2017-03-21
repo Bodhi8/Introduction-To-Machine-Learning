@@ -38,7 +38,7 @@ print("\ntype(net_worths_train) - {}".format(type(net_worths_train)))
 print("net_worths_train.shape - {}".format(net_worths_train.shape))
 print(net_worths_train[0:2, 0:1]) # get the first two rows, 1 column 
 
-print("41\nreg.coef_ - {}\n".format(reg.coef_))
+print("\nreg.coef_ - {}\n".format(reg.coef_))
 
 # all previous examples - .score(features_test,labels_test)
 # current example -    reg.score(feature_train, target_train)
@@ -57,7 +57,7 @@ print("\ntype(net_worths_test) - {}".format(type(net_worths_test)))
 print("net_worths_test.shape - {}".format(net_worths_test.shape))
 print(net_worths_test[0:2, 0:1]) # get the first two rows, 1 column 
 
-print("60reg.score(ages_test, net_worths_test) - regression score - {}\n".format(reg.score(ages_test, net_worths_test)))
+print("reg.score(ages_test, net_worths_test) - regression score - {}\n".format(reg.score(ages_test, net_worths_test)))
 
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
@@ -94,8 +94,8 @@ if len(cleaned_data) > 0:
     ### refit your cleaned data!
     try:
         reg.fit(ages, net_worths)
-        print("97\nreg.coef_ - {}\n".format(reg.coef_))
-        print("98reg.score(ages_test, net_worths_test) - regression score - {}\n".format(reg.score(ages_test, net_worths_test)))
+        print("\nreg.coef_ - {}\n".format(reg.coef_))
+        print("reg.score(ages_test, net_worths_test) - regression score - {}\n".format(reg.score(ages_test, net_worths_test)))
 
         plt.plot(ages, reg.predict(ages), color="blue")
     except NameError:

@@ -24,12 +24,13 @@ def outlierCleaner(predictions, ages, net_worths):
     # print("\ttype(ages) - {}".format(type(ages)))
     #          type(ages) - <class 'numpy.ndarray'>
     # print("\ttype(net_worths) - {}".format(type(net_worths)))
-    # type(net_worths) - <class 'numpy.ndarray'>
+    # type(net_worths) -     
 
     # predictions.shape - (90, 1), [[ 314.65206822], [ 314.65206822]]
     # ages_train.shape - (90, 1), [[57], [57]]
     # net_worths_train.shape - (90, 1), [[ 338.08951849], [ 344.21586776]]
     
+    # merge multiple <class 'numpy.ndarray'> into a zip of tuples
     myZippedUpInput = zip(predictions, ages, net_worths)
     # print("\ttype(myZippedUpInput) - {}\n".format(type(myZippedUpInput)))
     #           type(myZippedUpInput) - <class 'zip'>
