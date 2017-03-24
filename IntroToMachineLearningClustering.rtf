@@ -1,25 +1,29 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
 }
-{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red0\green0\blue0;\red26\green26\blue26;
-\red246\green246\blue246;\red255\green0\blue0;\red33\green100\blue145;}
-\margl1440\margr1440\vieww16100\viewh9900\viewkind0
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red26\green26\blue26;\red246\green246\blue246;
+\red255\green0\blue0;\red33\green100\blue145;}
+\margl1440\margr1440\vieww23040\viewh9900\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs36 \cf0 \
-How many clusters?\
+\f0\fs24 \cf0 	
+\fs36 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 How many clusters?\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf2 K-Means\
 \
 K-Means - 2 steps\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf3 1.) Assign - (Associate)\
+\cf0 1.) Assign - (Associate)\
 2.) Optimize, Optimizing Centers  \
-	\cf0 Minimizing Total Quadratic Distance\
+	Minimizing Total Quadratic Distance\
 	Total Quadratic Error Minimized \
 \
-\ul Sklearn\
-\ulnone Clustering\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ul \ulc0 Sklearn\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ulnone Clustering\
 http://scikit-learn.org/stable/modules/clustering.html\
 K-MEANS Clustering\
 http://scikit-learn.org/stable/modules/clustering.html#k-means\
@@ -28,19 +32,19 @@ http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#skl
 \
 \pard\pardeftab720\partightenfactor0
 
-\i\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\i\fs28 \cf3 \cb4 \expnd0\expndtw0\kerning0
 class 
 \f1\i0\fs26 sklearn.cluster.
 \f2\b\fs28 KMeans
 \f0\b0\fs34 (
-\i\fs28 \cf6 n_clusters=8
-\i0 \cf4 , 
+\i\fs28 \cf5 n_clusters=8
+\i0 \cf3 , 
 \i init='k-means++'
 \i0 , 
-\i \cf6 n_init=10
-\i0 \cf4 , 
-\i \cf6 max_iter=300
-\i0 \cf4 , 
+\i \cf5 n_init=10
+\i0 \cf3 , 
+\i \cf5 max_iter=300
+\i0 \cf3 , 
 \i tol=0.0001
 \i0 , 
 \i precompute_distances='auto'
@@ -55,7 +59,7 @@ class
 \i0 , 
 \i algorithm='auto'
 \i0\fs34 ){\field{\*\fldinst{HYPERLINK "https://github.com/scikit-learn/scikit-learn/blob/14031f6/sklearn/cluster/k_means_.py#L704"}}{\fldrslt 
-\fs28 \cf7 \cb1 \
+\fs28 \cf6 \cb1 \
 \
 }}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -72,12 +76,14 @@ Introduction To Machine Learning - Clustering K-Means Clustering Mini-Project 18
 The Enron dataset can be found here. (url)\
 https://github.com/udacity/ud120-projects\
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs28 The starter code can be found in k_means/k_means_cluster.py, which reads in the email + financial (E+F) dataset and gets us ready for clustering. You\'92ll start with performing k-means based on just two financial features--take a look at the code, and determine which features the code uses for clustering.\
+\fs28 \cf0 The starter code can be found in k_means/k_means_cluster.py, which reads in the email + financial (E+F) dataset and gets us ready for clustering. You\'92ll start with performing k-means based on just two financial features--take a look at the code, and determine which features the code uses for clustering.\
 \
 Run the code, which will create a scatterplot of the data. Think a little bit about what clusters you would expect to arise if 2 clusters are created.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs36 \
+\fs36 \cf0 \
 \
 \
 \
