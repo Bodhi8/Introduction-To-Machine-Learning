@@ -54,6 +54,9 @@ bag_of_words = vectorizer.fit(email_list)
 bag_of_words = vectorizer.transform(email_list)
 print('bag_of_words - ')
 print(bag_of_words)
+# print("type(bag_of_words) - {}\n".format(type(bag_of_words)))
+#        type(bag_of_words) - <class 'scipy.sparse.csr.csr_matrix'>
+
 print()
 
 # - representation used in machine learning algorithm -

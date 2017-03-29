@@ -96,6 +96,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         temp_counter += 1
         # if temp_counter < 200: FIX
         if temp_counter < 1000000: # FIX
+        # if temp_counter < 30: # FIX
             
             # print("path -")
             # print(path)
@@ -134,50 +135,149 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
 
             ### use str.replace() to remove any instances of the words
             ### ["sara", "shackleton", "chris", "germani"]
+            remove_words = ["sara", "shackleton", "chris", "germani"]
             # testString ='firstS sara last shackleton firstC chris country germani' 
             
-            stopwords = ["sara", "shackleton", "chris", "germani"]
+            # do not use stopwords variable name - conflict with out of box variable nltk.corpus
+            stop_words_local = ["sara", "shackleton", "chris", "germani"]
 
             fixedString = ''
             
+            # thank chris 7138534743 - thank 7138534743
+            #                             - 1 space left behind
             for testWord in text.split():
             # for testWord in testString.split(): # testing only
-                if testWord in stopwords:
+                if testWord in stop_words_local:
                     pass
-                    # print("testWord - {}".format(testWord))
+                    # print("stop_words_local - {}".format(stop_words_local))
                 else:
+                    # print("testWord -XX{}XX".format(testWord))
                     fixedString = fixedString + testWord + ' '
+                    # fixedString = fixedString + testWord
                     
-            print("fixedString - {}".format(fixedString))
-            print("text - {}\n".format(text))
+            # print("fixedString - {}".format(fixedString))
             
-            
+            # thank chris 7138534743
+            # thank  7138534743 - TWO SPACES left behind .replace leaves two spaces behind 
+            #      12 
+            # instructions said do it this way
+            for e in remove_words:
+                text =  text.replace(e,"")
+            # print("text - {}\n".format(text))
+
             ### append the text to word_data
+            # append the 'fixed' text of this email 
             # print("type(word_data) - {}".format(type(word_data)))
             #        type(word_data) - <class 'list'>
-            word_data.append(fixedString)
-            print("word_data - {}".format(word_data))
+            # word_data.append(fixedString)
+            word_data.append(text)
+            # print("word_data - {}".format(word_data))
             print("len(word_data) - {}\n".format(len(word_data)))
             
-            if len(word_data) > 10000:
-                temp_counter = 1000000
+            if len(word_data) > 200:
+                # temp_counter = 1000000
                 print(word_data[152])
 
             ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris            
             # print("type(from_data) - {}".format(type(from_data)))
             #        type(from_data) - <class 'list'>
             
-            print("name - {}\n".format(name))
+            # print("name - {}\n".format(name))
             if name == 'sara':
                 from_data.append(0)
             if name == 'chris':
                 from_data.append(1)
                 
-            print("from_data - {}\n".format(from_data))
-            
+            #print("from_data - {}\n".format(from_data))
             email.close()
 
-print()
+            
+# stemming completed in parse_out_email_text.py
+# from nltk.stem.snowball import SnowballStemmer
+# this code for example only not needed here 
+# 
+# # done BEFORE bag_of_words - stemming done first
+# myStemmer = SnowballStemmer('english')
+# print("myStemmer - {}\n".format(myStemmer))
+# print("type(myStemmer) - {}\n".format(type(myStemmer)))
+# 
+for myString in word_data:
+    # print("myString - {}".format(myString))
+    # print("type(myString) - {}".format(type(myString)))
+    #        type(myString) - <class 'str'>
+    myStemmedWordList = myString.split()
+      # print("myListOfWords - {}".format(myListOfWords))
+      # print("type(myListOfWords) - {}".format(type(myListOfWords)))
+      #        type(myListOfWords) - <class 'list'>
+    for myStemmedWord in myStemmedWordList:
+        # print("myStemmedWord - {}".format(myStemmedWord))  
+        # print("type(myWord) - {}".format(type(myWord)))
+        pass
+    # print()
+    
+
+from nltk.corpus import stopwords    # instructions said do not use 
+# myStopWords = stopwords.words('english') # nltk stop words do not use !!
+# print("myStopWords - {}".format(myStopWords))
+# print("type(myStopWords) - {}\n".format(type(myStopWords)))
+#        type(myStopWords) - <class 'list'>
+
+# from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer # instructions said use this vectorizer 
+# vectorizer = CountVectorizer(stop_words = myStopWords, lowercase = True)
+vectorizer = TfidfVectorizer(stop_words = 'english', lowercase = True) # sklearn stop_words - do it this way!! 
+
+# print("vectorizer - {}".format(vectorizer))
+# vectorizer - CountVectorizer(analyzer='word', binary=False, decode_error='strict',
+#         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+#         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+#         ngram_range=(1, 1), preprocessor=None,
+#         stop_words=['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself', 'it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', '...aven', 'isn', 'ma', 'mightn', 'mustn', 'needn', 'shan', 'shouldn', 'wasn', 'weren', 'won', 'wouldn'],
+#         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+#         tokenizer=None, vocabulary=None) 
+# print("type(vectorizer) - {}\n".format(type(vectorizer)))
+#        type(vectorizer) - <class 'sklearn.feature_extraction.text.CountVectorizer'>
+
+# bag_of_words = vectorizer.fit(word_data)
+# print("bag_of_words - {}".format(bag_of_words))
+# bag_of_words - CountVectorizer(analyzer='word', binary=False, decode_error='strict',
+#         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+#         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+#         ngram_range=(1, 1), preprocessor=None,
+#         stop_words=['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself', 'it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', '...aven', 'isn', 'ma', 'mightn', 'mustn', 'needn', 'shan', 'shouldn', 'wasn', 'weren', 'won', 'wouldn'],
+#         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+#         tokenizer=None, vocabulary=None)
+# print("type(bag_of_words) - {}\n".format(type(bag_of_words)))
+#        type(bag_of_words) - <class 'sklearn.feature_extraction.text.CountVectorizer'>
+
+vectorizer.fit_transform(word_data) # fit transform convenience 
+# print("transformed_bag_of_words - {}\n".format(transformed_bag_of_words))
+#     (0, 91)     1
+#     (0, 230)    1
+#     (0, 242)    2
+# print("type(transformed_bag_of_words) - {}\n".format(type(transformed_bag_of_words)))
+#        type(transformed_bag_of_words) - <class 'scipy.sparse.csr.csr_matrix'>
+
+# myShape = transformed_bag_of_words.get_shape()
+# print("myShape - {}".format(myShape))
+# print("type(myShape) - {}\n".format(type(myShape)))
+#      type(my_feature_names) - <class 'list'>
+
+
+# print("transformed_bag_of_words.nnz - {}\n".format(transformed_bag_of_words.nnz))
+# print("type(transformed_bag_of_words.nnz) - {}\n".format(type(transformed_bag_of_words.nnz)))
+#        type(transformed_bag_of_words.nnz) - <class 'int'>
+
+my_feature_names = vectorizer.get_feature_names() # call the get_feature_names() function on the vectorizer!!  
+# print("my_feature_names - {}".format(my_feature_names))
+#        my_feature_names - ['000', '004', '012246', '0152', '0153', '01
+# print("type(my_feature_names) - {}\n".format(type(my_feature_names)))
+#      type(my_feature_names) - <class 'list'>
+print("len(my_feature_names) - {}\n".format(len(my_feature_names)))
+
+print('my_feature_names[34597]')
+print(my_feature_names[34597])
+
 print("emails processed")
 # print "emails processed"
 from_sara.close()

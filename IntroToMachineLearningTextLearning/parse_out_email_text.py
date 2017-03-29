@@ -16,6 +16,7 @@ def parseOutText(f):
         example use case:
         f = open("email_file_name.txt", "r")
         text = parseOutText(f)
+        f - one eamil passed in 
         
         """
 
@@ -23,24 +24,25 @@ def parseOutText(f):
     f.seek(0)  ### go back to beginning of file (annoying)
     all_text = f.read()
     print("all_text - begin .............................")
-    print(all_text)
+    # print(all_text)
     print("all_text - end .............................\n")
     # print("type(all_text) - {}\n".format(type(all_text)))
     # type(all_text) - <class 'str'>
 
     ### split off metadata
     
-    content = all_text.split("X-FileName:")
-    print("len(content) - {}\n".format(len(content)))
+    content = all_text.split("X-FileName:") # split on text in email
+    # example from email -    X-FileName: Stokley, Chris (Non-Privileged).pst
+
+    #print("len(content) - {}\n".format(len(content)))
 
     # print("content[0] - {}".format(content[0]))
     # print("type(content[0]) - {}".format(type(content[0])))
     #        type(content[0]) - <class 'str'>
 
-    
     # content[1] - With original punctuation from email 
     print("content[1] - begin .....")
-    print(content[1])
+    # print(content[1])
     print("content[1] - end .....\n")
     # print("type(content[1]) - {}".format(type(content[1])))
     #        type(content[1]) - <class 'str'>
@@ -66,16 +68,16 @@ def parseOutText(f):
         
         # Without original punctuation from email
         print("text_string (punctuation stripped out) - ")
-        print(text_string)
-        print()
+        # print(text_string)
+        # print()
         # print("type(text_string) - {}\n".format(type(text_string)))
         #        type(text_string) - <class 'str'>
 
         ### project part 2: comment out the line below
         words = text_string
         print("words - ")
-        print(words)
-        print()
+        # print(words)
+        # print()
         # print("type(words) - {}\n".format(type(words)))
         #        type(words) - <class 'str'>
 
@@ -84,7 +86,7 @@ def parseOutText(f):
         ### space between each stemmed word)
         
         mySplitOutput = text_string.split()
-        print("mySplitOutput - {}\n".format(mySplitOutput))
+        # print("mySplitOutput - {}\n".format(mySplitOutput))
         #      mySplitOutput - ['Hi', 'Everyone', 'If', 'you', 'can', 'read', 'this', 'message', 'youre', 'properly', 'using', 'parseOutText', 'Please', 'proceed', 'to', 'the', 'next', 'part', 'of', 'the', 'project']
         # print("type(mySplitOutput) - {}\n".format(type(mySplitOutput)))
         #        type(mySplitOutput) - <class 'list'>
@@ -104,9 +106,9 @@ def parseOutText(f):
             # print("myStemmedWord - {}\n".format(myStemmedWord))
             # print("type(myStemmedWord) - {}\n".format(type(myStemmedWord)))
             #        type(myStemmedWord) - <class 'str'>
-            print("{} - {}".format(myWord, myStemmedWord))
+            # print("{} - {}".format(myWord, myStemmedWord))
             myReturnString = myReturnString + myStemmedWord + ' '
-        print()
+        # print()
             
     return myReturnString
     # return words
