@@ -6,7 +6,7 @@
 {\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green0\blue255;\red0\green170\blue0;
 \red128\green0\blue0;\red255\green0\blue0;\red201\green128\blue43;\red28\green28\blue28;\red38\green38\blue38;
 \red246\green246\blue246;\red26\green26\blue26;\red22\green23\blue26;\red231\green236\blue240;\red0\green0\blue0;
-\red0\green0\blue0;\red64\green11\blue217;}
+\red64\green11\blue217;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
@@ -1107,9 +1107,8 @@ FAST Node - 1 of the 4 children here (1/1)\
 
 \fs28 \cf6 Child Information Gain Calculation\cf0  for the 4 Entries, 2 Grade Nodes (\cf2 STEEP, FAST\cf0 )
 \fs36 \
-\pard\pardeftab720\partightenfactor0
 
-\fs28 \cf0 1 - 0.688125 - 0 = 0.311875
+\fs28 1 - 0.688125 - 0 = 0.311875
 \fs36 \
 
 \fs28  
@@ -1631,13 +1630,22 @@ Introduction to Machine Learning
 \
 \cf2 Bias Variance Dilema -	\cf0 \
 Machine Learning Term - \cf2 Bias\
-High Bias - practically ignores the data, the training, almost no capacity  to learn anything
+High Bias - practically ignores the data, the training, almost no capacity  to learn anything - pays little attention to the data - high error on training set (low r\super 2\nosupersub ) large SSE Sum of Squared Residual Errors\
+High Bias associated with FEW features used to train
 \fs28 \cf8 \expnd0\expndtw0\kerning0
 \
 
-\fs24 \cf0 \kerning1\expnd0\expndtw0 Machine Learning Term - \cf2 Variance - High Variance - Only replicate stuff it has seen before.\
-Bias-Variance tradeoff - algorithm with some authority to generalize, still listens to the data \
+\fs24 \cf0 \kerning1\expnd0\expndtw0 Machine Learning Term - \cf2 Variance - High Variance - Only replicate stuff it has seen before. - pays too much attention to the data - does not generalize well, overfits the data - memorizes training data - high error on test set \
+High Variance associated with many or too many training features - lots of features - risk of overfitting - wiggly line - too many features - does not generalize well\
+Bias-Variance tradeoff - algorithm with some authority to generalize, still listens to the data  \
+\cf6 sweet spot - looking for - best practices - 1.) few features - 2.) large r\super 2  \nosupersub 3.) low Sum of Squared Residual Errors \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf2 regularization - automatic form of feature selection 	\
+\
+\cf14 \ul \ulc14 How Regularization works In Regressions\cf2 \ulnone \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 \cf0 ***\
 *** 
 \fs28 \cf8 \expnd0\expndtw0\kerning0
@@ -1664,58 +1672,61 @@ How to access the first row of an
 \pard\pardeftab720\partightenfactor0
 \cf2 print\cf0 (\cf4 "type(features_train) - \{\}"\cf0 .format(type(features_train)))
 \f0\fs24 \
+\pard\pardeftab720\partightenfactor0
 
-\f1\fs22 type(features_train) - <class '\cf6 numpy.ndarray\cf0 '>\
+\f1\fs22 \cf0 type(features_train) - <class '\cf6 numpy.ndarray\cf0 '>\
 \
 first row\
+\pard\pardeftab720\partightenfactor0
 \cf2 print\cf0 (\cf4 "features_test[0] - \{\}"\cf0 .format(features_test[\cf6 0\cf0 ]))\
 features_test[0] - [ 0.  0.  0. ...,  0.  0.  0.]\
 \
 length first row\
-\cf2 print\cf0 (\cf4 "\cf4 \ul \ulc4 len\cf4 \ulnone (features_test[\cf6 0\cf4 ]) - \{\}"\cf0 .format(\cf6 len\cf0 (features_test[\cf6 0\cf0 ])))\
+\cf2 print\cf0 (\cf4 "\ul \ulc4 len\ulnone (features_test[\cf6 0\cf4 ]) - \{\}"\cf0 .format(\cf6 len\cf0 (features_test[\cf6 0\cf0 ])))\
+\pard\pardeftab720\partightenfactor0
 \cf6 len\cf0 (features_test[0]) - \cf6 3785\
 \
 lower \cf0 percentile=\cf6 1 - ** faster training time ** \
 \cf0 selector = SelectPercentile(f_classif, percentile=\cf6 10\cf0 ) ** \cf2 out of box sklearn.tree.DecisionTreeClassifier \cf6 .fit, training time - about 60 seconds \cf0 **\
-selector = SelectPercentile(f_classif, percentile=\cf6 1\cf0 ) ** percentile=\cf6 1\cf5  \cf14 ** \cf2 dropped \cf6 .fit, training time from about 60 seconds to about 4 seconds\cf14  **\
+selector = SelectPercentile(f_classif, percentile=\cf6 1\cf0 ) ** percentile=\cf6 1\cf5  \cf0 ** \cf2 dropped \cf6 .fit, training time from about 60 seconds to about 4 seconds\cf0  **\
 \
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
 \ls1\ilvl0
-\f7\fs30 \cf15 {\listtext	\'95	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec15 Change 
+\f7\fs30 \cf0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Change 
 \f8 percentile
 \f7  from 10 to 1.
-\f1\fs22 \cf14 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f1\fs22 \kerning1\expnd0\expndtw0 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
 \ls2\ilvl0
-\f7\fs30 \cf15 {\listtext	\'95	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec15 What\'92s the number of features now?\
+\f7\fs30 \cf0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+What\'92s the number of features now?\
 \pard\pardeftab720\partightenfactor0
 
-\f1\fs22 \cf14 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
-\cf2 selector = SelectPercentile(f_classif, \cf6 percentile=10\cf2 ), \cf6 percentile=10 down, train time down, features down from \cf2 3785 to 379 \cf14 \
-\cf0 selector = SelectPercentile(f_classif, \cf6 percentile=10\cf0 ) 
+\cf2 selector = SelectPercentile(f_classif, \cf6 percentile=10\cf2 ), \cf6 percentile=10 down, train time down, features down from \cf2 3785 to 379 \cf0 \
+selector = SelectPercentile(f_classif, \cf6 percentile=10\cf0 ) 
 \fs48 \cf6 -
-\fs22 \cf0  \cf6 len\cf0 (features_test[0]) - \cf6 3785\cf14 \
-\cf0 selector = SelectPercentile(f_classif, \cf6 percentile=1\cf0 ) 
+\fs22 \cf0  \cf6 len\cf0 (features_test[0]) - \cf6 3785\cf0 \
+selector = SelectPercentile(f_classif, \cf6 percentile=1\cf0 ) 
 \fs48 \cf6 -
 \fs22 \cf0  len(features_test[0]) - \cf6 379\
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
 \ls3\ilvl0
-\f7\fs30 \cf15 {\listtext	\'95	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec15 Would a large value for percentile lead to a more complex or less complex decision tree, all other things being equal? -\cf2  my guess more complex\cf15 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 	\
+\f7\fs30 \cf0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Would a large value for percentile lead to a more complex or less complex decision tree, all other things being equal? -\cf2  my guess more complex\cf0 \kerning1\expnd0\expndtw0 	\
 \pard\tx720\pardeftab720\sl400\partightenfactor0
-\cf15 \
+\cf0 \
 How many features are in the data -\
 \pard\pardeftab720\partightenfactor0
 
 \f1\fs22 \cf0 myDecisionTreeClassifier = sklearn.tree.DecisionTreeClassifier(min_samples_split = \cf5 40\cf0 ) ** \cf2 so far stayed the same\cf0  **\
 \pard\tx720\pardeftab720\sl400\partightenfactor0
 
-\f7\fs30 \cf15 \
+\f7\fs30 \cf0 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
 \ls4\ilvl0\cf0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
 What\'92s the accuracy when percentile = 10? \cf2 features - \cf6 3785\cf0 \uc0\u8232 
@@ -1753,6 +1764,7 @@ myKNeighborsClassifier_score = myKNeighborsClassifier.\cf6 score\cf0 (features_t
 myKNeighborsClassifier_score - 0.92\
 \
 *** functions associated with generating, drawing the graphs, plots ***\
+\pard\pardeftab720\partightenfactor0
 \cf2 class_vis.py\
 def\cf0  prettyPicture(clf, X_test, y_test):\
 \cf2 def\cf0  output_image(name, \ul format\ulnone , \ul bytes\ulnone ):\
@@ -1771,6 +1783,7 @@ Introduction to Machine Learning
 \fs24 \cf0 \kerning1\expnd0\expndtw0  - \cf3 Datasets and Questions \cf0 - 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 of 35 - 12 March 2017 \
 ***\
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \fs28 \cf6 \expnd0\expndtw0\kerning0
 git clone\cf8  https://github.com/udacity/ud120-projects\
@@ -1782,12 +1795,12 @@ accuracy - more data better result than a super fine tuned algorithm \
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f3\fs22 \cf16 \kerning1\expnd0\expndtw0 \CocoaLigature0 $ \cf0 pwd\
+\f3\fs22 \cf15 \kerning1\expnd0\expndtw0 \CocoaLigature0 $ \cf0 pwd\
 /Users/Menfi/Documents/junk/enronData\
-\cf16 \
+\cf15 \
 
 \fs26 \cf6 y, n
-\fs22 \cf16  \cf14 actually have the inbox\cf16  \
+\fs22 \cf15  \cf0 actually have the inbox\cf15  \
 $ \cf0 head poi_names.txt \
 http://usatoday30.usatoday.com/money/industries/energy/2005-12-28-enron-participants_x.htm\
 \
@@ -1803,7 +1816,8 @@ http://usatoday30.usatoday.com/money/industries/energy/2005-12-28-enron-particip
 
 \f0\fs28 \cf8 \expnd0\expndtw0\kerning0
 \CocoaLigature1 \
-\ul Enron Data From The Web\ulnone \
+\pard\tx720\pardeftab720\sl400\partightenfactor0
+\cf8 \ul Enron Data From The Web\ulnone \
 https://www.cs.cmu.edu/~./enron/\
 \cf2 https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tgz\cf8 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
@@ -1816,8 +1830,8 @@ https://www.cs.cmu.edu/~./enron/\
 \CocoaLigature1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f3\fs22 \cf16 \kerning1\expnd0\expndtw0 \CocoaLigature0 $ \cf6 gunzip\cf0  enron_mail_20150507\cf6 .tgz \cf0 \
-\cf16 $ \cf0 ls -l\
+\f3\fs22 \cf15 \kerning1\expnd0\expndtw0 \CocoaLigature0 $ \cf6 gunzip\cf0  enron_mail_20150507\cf6 .tgz \cf0 \
+\cf15 $ \cf0 ls -l\
 -rw-r--r--  1 Menfi  staff  1823016960 Mar 12 05:04 enron_mail_20150507\cf6 .tar\cf0 \
 \
 $ ls -l /Users/Menfi/Documents/junk/enronData/one/\
@@ -1828,11 +1842,11 @@ $ ls -l /Users/Menfi/Documents/junk/enronData/one/\
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\fs28 \cf14 \ul \ulc14 \CocoaLigature1 Types of Data\
+\f0\fs28 \cf0 \ul \ulc0 \CocoaLigature1 Types of Data\
 \ulnone numerical - numerical values - numbers \
 categorical - limited number of discrete values - gender \
 time series - temporal value (date, timestamp)\
-text - words\cf0 \CocoaLigature0 \
+text - words\CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
 salary - numerical\
@@ -1860,14 +1874,14 @@ Introduction to Machine Learning
 \f1\fs22 \cf2 \kerning1\expnd0\expndtw0 import\cf0  pickle
 \f0\fs28 \cf8 \expnd0\expndtw0\kerning0
 \
+\pard\pardeftab720\partightenfactor0
 
-\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 enron_data = pickle.load(open(\cf4 "../final_project/final_project_dataset.pkl"\cf0 , \cf4 "\cf4 \ul \ulc4 rb\cf4 \ulnone "\cf0 ))\
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 enron_data = pickle.load(open(\cf4 "../final_project/final_project_dataset.pkl"\cf0 , \cf4 "\ul \ulc4 rb\ulnone "\cf0 ))\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \f0\fs28 \cf8 \expnd0\expndtw0\kerning0
 \
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \fs24 \cf0 \kerning1\expnd0\expndtw0 ***\
 *** 
@@ -1888,28 +1902,28 @@ train Discreet Classifier - no order, as in\cf2  Fast, Slow, Short, Tall\cf8  ..
 Input Dimension - X axis\
 Output Dimension - Y axis - previous constraint -> no arbitrary values, only discreet values like \cf2 FAST, SLOW\cf8 \
 Arbitrary input variables, shown on the X axis. Output tends to be binary - SLOW, FAST as an example \
-SLOW, FAST output, Y axis -\cf2  discreet\cf14  output\
-Output may be \cf2 continuous\cf14  and NOT \cf2 discreet\cf14  \
+SLOW, FAST output, Y axis -\cf2  discreet\cf0  output\
+Output may be \cf2 continuous\cf0  and NOT \cf2 discreet\cf0  \
 Examples \
-input - X axis - \cf6 Height\cf14  - this too is \cf2 continuous\cf6  \cf14 \
-output Y axis - \cf6 Weight \cf2 continuous\cf14 , not\cf6  \cf2 discreet\cf8 \
+input - X axis - \cf6 Height\cf0  - this too is \cf2 continuous\cf6  \cf0 \
+output Y axis - \cf6 Weight \cf2 continuous\cf0 , not\cf6  \cf2 discreet\cf8 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
 \ls6\ilvl0\cf8 Previously the output variable has been constrained to binary values in previous steps. Output on the Y axis.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 \cf8 Continuous Supervised Learning Example - X axis \cf2 Height\cf8 , Y axis \cf2 Weight\cf8  both metrics, both the X and Y scale are continuous, not discreet like TALL, SHORT, FAST, SLOW\
-\cf6 \ul \ulc6 Continuous\cf14 \ulnone  - refers to the output\
-\cf6 Age\cf14  - number of seconds since birth - \cf6 Continuous\cf14  metric - use a \cf2 Continuous Classifier\cf14  - not a \cf2 Discreet Classifier\cf14  \
-Weather - Sunny versus Rainy use a - \cf2 Discreet Classifier\
-\cf14 Who wrote an email - \cf2 Discreet Classifier\cf14  - there is no relationship between any 2 emails, there is no order - therefore \cf2 Discreet Classifier\cf14  - if order does not exist, \cf2 Discreet Classifier\cf14  better \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
-\cf14 Phone number - train a\cf2  Discreet Classifier\
-\cf14 Income - train a \cf2 Continuous Classifier\cf14 \
+\cf6 \ul \ulc6 Continuous\cf0 \ulnone  - refers to the output\
+\cf6 Age\cf0  - number of seconds since birth - \cf6 Continuous\cf0  metric - use a \cf2 Continuous Classifier\cf0  - not a \cf2 Discreet Classifier\cf0  \
+Weather - Sunny versus Rainy use a - \cf2 Discreet Classifier\
+\cf0 Who wrote an email - \cf2 Discreet Classifier\cf0  - there is no relationship between any 2 emails, there is no order - therefore \cf2 Discreet Classifier\cf0  - if order does not exist, \cf2 Discreet Classifier\cf0  better \
+Phone number - train a\cf2  Discreet Classifier\
+\cf0 Income - train a \cf2 Continuous Classifier\cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \
 
-\f0\fs28 \cf14 \expnd0\expndtw0\kerning0
-\ul \ulc14 Equation of the Regression Line\
+\f0\fs28 \expnd0\expndtw0\kerning0
+\ul \ulc0 Equation of the Regression Line\
 \
 \pard\pardeftab720\partightenfactor0
 \cf0 \ulnone Y = MX + B\
@@ -1926,7 +1940,7 @@ Y = 6.25 * 80 + 0\
 Y = 500       + 0\
 Y = 0 when X is 80 \
 \
-Left Side - Target Variable - \cf6 Y\cf0  Net Worth - Output or the Metric you are trying to \cf6 predict - Y\cf14  axis\cf0   \
+Left Side - Target Variable - \cf6 Y\cf0  Net Worth - Output or the Metric you are trying to \cf6 predict - Y\cf0  axis  \
 Right Side - Age - 80 is the Input variable - X axis\
 M - 6.25 - SLOPE\
 B - Y Intercept \
@@ -1956,6 +1970,7 @@ ages_train maps to features_train, and \
 net_worths_train maps to labels_train\
 \
 accessing first two rows of an numpy.ndarray, bracket notation, colon\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 \cf6 ages_train\cf8  maps to \cf6 features_train\cf8  - located on the\cf6  X axis\cf8  - X axis label - ages\
 type(ages_train) - <class 'numpy.ndarray'>\
 \pard\pardeftab720\partightenfactor0
@@ -1967,8 +1982,7 @@ type(ages_train) - <class 'numpy.ndarray'>\
 \cf8 accessing first two rows of an numpy.ndarray, bracket notation, colon\
 \pard\pardeftab720\partightenfactor0
 \cf2 net_worths_train\cf8  maps to \cf2 labels_train\cf8  - located on the \cf2 Y axis\cf8  - X axis label - net worths \
-\pard\pardeftab720\partightenfactor0
-\cf8 type(net_worths_train) - <class 'numpy.ndarray'>\
+type(net_worths_train) - <class 'numpy.ndarray'>\
 net_worths_train[0:2] - \
 [[  66.97839379]\
  [ 373.01919127]]\
@@ -1991,6 +2005,7 @@ Introduction to Machine Learning - Regressions - \cf3 Linear Regression Errors\c
 \
 Perform Linear Regression - Minimizing the Sum of the Squared Errors\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf3 sum of all errors\cf0  \
 
 \f5\fs72 \uc0\u931  
@@ -2031,15 +2046,16 @@ sum absolute value of error -
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
-\fs24 \cf0 \kerning1\expnd0\expndtw0 sum absolute value of error ** \cf6 squared \cf14 ** 
-\b \cf6 \ul \ulc6  only 1 line
-\b0 \cf14 \ulnone  meets this criteria **\cf6  best practices\cf14  ** - ** \cf6 use squared\cf14  **\cf0  \cf6 only 1 line, the best line
+\fs24 \cf0 \kerning1\expnd0\expndtw0 sum absolute value of error ** \cf6 squared \cf0 ** 
+\b \cf6 \ul  only 1 line
+\b0 \cf0 \ulnone  meets this criteria **\cf6  best practices\cf0  ** - ** \cf6 use squared\cf0  ** \cf6 only 1 line, the best line
 \fs28 \cf0 \expnd0\expndtw0\kerning0
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f5\fs72 \cf0 \uc0\u931 
 \f0\fs28  (absolute value of error)\cf6 \super 2\cf0 \nosupersub  ** \cf6 squared\cf0  ** ** (see above \cf3 sum of all errors formula\cf0  formula) ** for ALL data points - absolute value symbol || \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf2 This method\cf0  - \cf6 How Linear Regressions are Calculated\cf0 .\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
@@ -2049,6 +2065,7 @@ sum absolute value of error -
 - \cf0 Minimizing the SUM of Squared Errors - 25 of 47 **\
 \
 Best Regression Is One That Minimizes Sum The Squared Errors 	\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 \cf6 Sum Of Squared Errors\cf0  is - \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
@@ -2061,13 +2078,14 @@ points\
 - actual values - training data, training points \
 - predicted values - from regression - y = \cf6 m\cf0 x + \cf6 b\cf0 \
 \
-** FIND M and B That Minimize The \cf6 Sum Of Squared Errors ** important\cf14  **\
-\cf0 ** Downside \cf6 Sum Of Squared Errors \cf0 influenced by the number of data points.**\
+** FIND M and B That Minimize The \cf6 Sum Of Squared Errors ** important\cf0  **\
+** Downside \cf6 Sum Of Squared Errors \cf0 influenced by the number of data points.**\
 ** Two scenarios both look similar both "fit" lines look OK, about the same, one scenario has more data, more data points **\
-** The mere fact of having more data will bump (raise) the \cf6 SUM - \cf2 (Sum Of Squared Errors)\cf14  - however fit may indeed by AOK\cf2  **\cf0   \
+** The mere fact of having more data will bump (raise) the \cf6 SUM - \cf2 (Sum Of Squared Errors)\cf0  - however fit may indeed by AOK\cf2  **\cf0   \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 \cf8 \
 *** \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \fs24 \cf0 \kerning1\expnd0\expndtw0 *** \ul \ulc0 Extracting Source Data from sklearn 20 of 47\ulnone \
 *** 
@@ -2082,19 +2100,20 @@ Introduction to Machine Learning
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
 \ls7\ilvl0\cf8 Methods To Minimize the SUM of the Squared Errors in Regression\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
-\ls7\ilvl0\cf8 1.) Ordinary Least Squares (OLS) - \cf2 used in the sklearn Linear Regression algorithm\cf8  \
+1.) Ordinary Least Squares (OLS) - \cf2 used in the sklearn Linear Regression algorithm\cf8  \
 2.) Gradient Descent \
 \
-\ls7\ilvl0\cf14 ** Introduction to Machine Learning - \cf3 Regressions\cf14  - Why Minimize SSE The Sum of Squared Errors - 27 of 47 - 15 March 2017\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls7\ilvl0\cf0 ** Introduction to Machine Learning - \cf3 Regressions\cf0  - Why Minimize SSE The Sum of Squared Errors - 27 of 47 - 15 March 2017\
 Minimizing the SUM of Squared Errors best way to think about Regression.\
 \
-** Introduction to Machine Learning - \cf3 Regressions\cf14  - R Squared Metric for Regression - \ul 31 of 47\ulnone  - 15 March 2017\cf8 \
+** Introduction to Machine Learning - \cf3 Regressions\cf0  - R Squared Metric for Regression - \ul 31 of 47\ulnone  - 15 March 2017\cf8 \
 \pard\pardeftab720\partightenfactor0
 
 \fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
 
-\fs28 \ul r\super 2\nosupersub  ("r squared") of a regression\
+\fs28 \cf0 \ul r\super 2\nosupersub  ("r squared") of a regression\
 \
 \pard\pardeftab720\partightenfactor0
 \cf2 \expnd0\expndtw0\kerning0
@@ -2148,7 +2167,7 @@ plt.plot(ages_test, reg.predict(ages_test), color=\cf4 "black"\cf0 , linewidth =
 \ls8\ilvl0
 \fs28 \cf0 \expnd0\expndtw0\kerning0
 ** Introduction to Machine Learning - \cf3 Regressions\cf0  - Comparing Classification and Regression - 35 of 47 - 16 March 2017
-\fs36 \kerning1\expnd0\expndtw0 \ul \ulc0 \
+\fs36 \kerning1\expnd0\expndtw0 \ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 Quick Comparison Between Classification and Regression\
 \
@@ -2163,7 +2182,7 @@ Supervised Classification\
 
 \fs28 \cf2 \ulnone output type\cf0  - continuous - predicting a number using Regression\
 \cf2 What are you trying to find?\cf0  - "best fit line"\
-\cf2 evaluate\cf0  - \cf6 how good of a job did it do\cf14  -  \cf0 1.) Sum Of Squared Error,  2.) r squared, r\super 2\
+\cf2 evaluate\cf0  - \cf6 how good of a job did it do\cf0  -  1.) Sum Of Squared Error,  2.) r squared, r\super 2\
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
 \ls9\ilvl0\cf0 \expnd0\expndtw0\kerning0
@@ -2171,6 +2190,7 @@ Supervised Classification\
 \
 age - net worth - exactly \cf6 1 input\cf0  variable (age) -\cf6  1 output\cf0  (net worth) \
 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
 \ls9\ilvl0\cf6 \ul \ulc6 Multivariate Regression\cf0 \ulnone \
 Form of Regression with many different input variables\
 1.) \cf2 IQ\cf0 \
