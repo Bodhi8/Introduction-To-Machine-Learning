@@ -1,0 +1,45 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green0\blue0;\red0\green0\blue0;
+}
+\margl1440\margr1440\vieww22560\viewh13420\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs36 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+vector - vectorization - feature selection integration - code examples\
+relationship between vector - vectorization - and feature selection - code examples   \
+\
+\
+A clear candidate for feature reduction is text learning, since the data has such high dimension.\
+We actually did feature selection in the Sara/Chris email classification problem during the first few mini-projects; \
+you can see it in the code in tools/email_preprocess.py . \
+\
+ ### text vectorization--go from strings to lists of numbers\
+    \cf2 from sklearn.feature_extraction.text import TfidfVectorizer\cf0 \
+    vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5, \cf3 stop_words='english'\cf0 )\
+    \cf2 features_train_transformed\cf0  = vectorizer.fit_transform(features_train)\
+    \cf2 features_test_transformed\cf0   = vectorizer.transform(features_test)\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3     max_df=0.5\cf4  - if word occurs in more than 50% (0.5) percent of documents do not use it\
+    \cf2 We are looking at a high frequency word (instructor - 'so common') that will probably not help us classify\cf4  - max_df IS the parameter for \cf0 TfidfVectorizer\
+    vectorizer = TfidfVectorizer(sublinear_tf=True,\cf3  max_df=0.5\cf0 , stop_words='english')\
+\cf3 1 of 2 ditch the common words\cf0  \
+\
+    ### feature selection, because text is super high dimensional and \
+    ### can be really computationally chewy as a result\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf0     \cf2 from sklearn.feature_selection import SelectPercentile, f_classif\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0     selector = SelectPercentile(f_classif, \cf3 percentile=10\cf0 ) - 
+\fs28 \cf3 accept - use the best 10% of the features
+\fs36  - 2 of 2 grab the best words\cf0 \
+    selector.fit(features_train_transformed, labels_train)\
+    features_train_transformed = selector.transform(\cf2 features_train_transformed\cf0 ).toarray()\
+    features_test_transformed  = selector.transform(\cf2 features_test_transformed\cf0 ).toarray()\
+\
+\
+\
+}
