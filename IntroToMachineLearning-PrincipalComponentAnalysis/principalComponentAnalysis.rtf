@@ -7,19 +7,17 @@
 
 \f0\fs36 \cf0 \
 \
-Principal Component Analysis - PCA \
+Principal Component Analysis - PCA    \
 1.) Systematic way of transforming input features into principal components.\
 2.) Use Principal Components (size, and neighborhood below) as \cf2 new features\cf0 . Use the new features INSTEAD of the originals.\
 3.) Principal Components are directions in data that maximize variance, minimize information loss, when you project / compression down into them.\
 4.) More variance of data along a Principal Component, the higher that Principal Component is ranked. Most variance - first Principal Component. \
 5.) Principal Components are all perpendicular to each other, second  Principal Component is mathematically guaranteed to not overlap at all with the first Principal Component.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 most variance - most information - first Principal Component\
+most variance - most information - first Principal Component\
 second most variance - second most information - second Principal Component (\cf3 no overlap with the first Principal Component\cf0 )\
 therefore Principal Components are independent features  \
 maximum number of Principal Components = number of input features (\cf3 features NOT training points\cf0 ) \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
+\
 Feature Set Compression \
 \
 Given features of a home predict price - algorithm - Linear Regression  \
@@ -95,10 +93,8 @@ pca.explained_variance_ratio_\
 \cf3 print\cf0 ()\
 \
 \cf3 print\cf0 (\cf5 'pca.explained_variance_ratio_[0]'\cf0 )\
-\pard\pardeftab720\partightenfactor0
 
-\fs22 \cf0 pca.explained_variance_ratio_[0]\
-\pard\pardeftab720\partightenfactor0
+\fs22 pca.explained_variance_ratio_[0]\
 
 \fs36 \cf3 print\cf0 (pca.explained_variance_ratio_[\cf6 0\cf0 ])\
 \pard\pardeftab720\partightenfactor0
@@ -107,33 +103,30 @@ pca.explained_variance_ratio_\
 \fs36 \
 \pard\pardeftab720\partightenfactor0
 \cf3 print\cf0 (\cf5 'pca.explained_variance_ratio_[1]'\cf0 )\
-\pard\pardeftab720\partightenfactor0
 
-\fs22 \cf0 pca.explained_variance_ratio_[1]
+\fs22 pca.explained_variance_ratio_[1]
 \fs36 \
-\pard\pardeftab720\partightenfactor0
 \cf3 print\cf0 (pca.explained_variance_ratio_[\cf6 1\cf0 ])\
+\pard\pardeftab720\partightenfactor0
 
 \fs22 \cf2 0.151168464426
 \fs36 \cf0 \
 \
-\pard\pardeftab720\partightenfactor0
-\cf0 Introduction To Machine Learning - Principal Component Analysis - Selecting A Number of Principal Components\
+Introduction To Machine Learning - Principal Component Analysis - Selecting A Number of Principal Components\
 What is a good way to figure out how many Principal Components to use?\
 Train on different number of Principal Components (n-components) and see how accuracy responds.\
 Cut off when it becomes apparent that adding more Principal Components does not buy you more discrimination.\
+\
+\
+\
+\
+\
+\
+\
+\
 \pard\pardeftab720\partightenfactor0
-\cf0 \
-\
-\
-\
-\
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf0 \
 
-\f0 \
+\f0 \cf0 \
 \
 \
 \
