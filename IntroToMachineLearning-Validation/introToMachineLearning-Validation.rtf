@@ -1,0 +1,97 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red246\green246\blue246;\red83\green83\blue83;
+\red29\green111\blue63;\red0\green0\blue255;\red255\green0\blue0;}
+\margl1440\margr1440\vieww22060\viewh13800\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+Benefits of Testing\
+Review: Why Use Training and Testing Data?\
+\
+testing data gives you an assessment of performance of your Classifier or Regression, prevents overfitting. \
+splitting your data between training and testing sets using sklearn tools \
+\
+first two features\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+X_train, X_test, y_train, y_test \cf4 =\cf2  cross_validation.train_test_split(iris\cf4 .\cf2 data, iris\cf4 .\cf2 target, test_size\cf4 =\cf5 0.4\cf2 , random_state\cf4 =\cf5 0\cf2 )\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 X_train - feature\
+X_test - feature\
+y_train - label\
+y_test - label\
+\
+\
+clf - classifier\
+SVM - Support Vector Machine - trained on training data \
+clf = svm.SVC(kernel = 'linear', C = 1, X_train, y_train)\
+clf.score(X_test, y_test) # related to accuracy\
+\
+train/test ----->     PCA     ----->     SVM (Support Vector Machine)\
+split\
+\
+Principal Component Analysis - feature transform (think square footage, number of rooms -> size)\
+\cf6 train\cf2 \
+	.fit - finds the Principal Components of the Data - \cf7 use training-features -\cf2  look for patterns using training data\
+	.transform - transform data into Principal Components representation \cf7 use training-features - \
+\cf6 test\
+\cf2 	.fit - NOT DONE HERE - NOT DONE HERE\
+	.transform - transform data into Principal Components representation \cf7 use testing-features!!! - \
+\cf2 \
+\
+Next leading Principal Component input to - SVM (Support Vector Machine) - Classification Algorithm \
+SVM (Support Vector Machine) (Support Vector Classifier)\
+	.fit - fit (train) on some of the data - \cf7 use training-features\cf2 \
+	.predict - make predictions on another set of the data - \cf7 use testing-features\cf2 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 *** K-Fold Cross Validation ***\
+\
+partition data set into k bins of equal size \
+data set size = 200\
+k = 10\
+dat points per bin - 20 \
+\
+run k separate learning experiments - in this case \cf7 10\cf2  - \cf7 10 runs!\cf2 \
+	pick one of the 10 k subsets one of the 10 bins as your \cf7 testing\cf2  set \
+	other 9 bins (k -1 used for testing) - make up the \cf7 training\cf2  set for that run\
+\
+Average 10 different testing set performances, average test results \
+Maximize accuracy use - 	K-Fold Cross Validation\
+		  \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
