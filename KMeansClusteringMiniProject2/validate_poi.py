@@ -6,7 +6,7 @@
 
     Start by loading/formatting the data
 
-    After that, it's not our code anymore--it's yours!
+    After that, it's not our code anymore--it's yours! 
 """
 
 import pickle
@@ -33,7 +33,7 @@ data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "rb")
 # 'from_this_person_to_poi': 27, 
 # 'loan_advances': 'NaN', 
 # 'long_term_incentive': 375304, 
-# 'email_address': 'kevin.garland@enron.com', 
+# 'email_address': 'kevin.garland@enron.com',
 # 'total_stock_value': 896153, 
 # 'total_payments': 1566469, 
 # 'director_fees': 'NaN',
