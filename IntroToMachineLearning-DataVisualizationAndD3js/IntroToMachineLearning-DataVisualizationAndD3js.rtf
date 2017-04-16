@@ -1,0 +1,905 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fmodern\fcharset0 Courier;\f4\fmodern\fcharset0 Courier-Bold;\f5\fnil\fcharset0 LucidaGrande;
+}
+{\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red0\green0\blue255;\red0\green0\blue0;
+\red255\green0\blue255;\red0\green0\blue0;\red64\green11\blue217;\red115\green0\blue109;}
+\margl1440\margr1440\vieww23920\viewh12460\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 https://github.com/d3/d3-scale/blob/master/README.md#scaleLinear\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ** D3 - Data Driven Documents ** JavaScript **\
+\cf2 /Users/Menfi/Documents/mike/data_vis_demo\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Data Visualization and D3.js\
+client side JavaScript library \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 open JavaScript console - safari - option - command - c\
+open JavaScript console - firefox - option - command - k\
+\
+open JavaScript console - \cf2 Chrome\cf0  - \cf3 Command - Option - J\cf4  - Open JavaScript Console\
+View - Developer - JavaScript Console \
+\cf0 JavaScript Console and HTML Inspector\
+\cf4 \
+Elements tab on left - HTML Inspector - DOM nodes on page here\cf0  - Document Object Module\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 DOM - \cf3 Abstract Representation of HTML Source\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ** D3 - Data Driven Documents ** \
+Data Driven HTML\
+Data Driven Pages \
+Data - some information we are trying to visualize, CSV, JSON, JavaScript Objects, JavaScript Variables \
+\
+Documents - HTML, CSS, JavaScript, and SVG (Scalable Vector Graphics)\
+<HTML>\
+<BODY>\
+<SVG>\
+</SVG>\
+</BODY>\
+</HTML>\
+\
+DOM - Document Object Module - \cf3 Abstract Representation of HTML Source\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+When does the DOM (Document Object Module) get created?\
+After the source is returned from server. instructor - During page load.\
+\
+How can the DOM (Document Object Module) be accessed?\
+Programmatically using JavaScript. instructor Javascript, API Application Programming Interface\
+\
+The DOM (Document Object Module) is a specification of an interface, it is an Hierarchical object. \
+\cf4 DOM - \cf3 Abstract Representation of HTML Source\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+http://www.vizwiz.com/2013/01/alberto-cairo-three-steps-to-become.html\
+\
+Computer Science (Domain) - Data Wrangling Class - MongoDB\
+acquire - parse (munging data)\
+Extract Transform Load data - ETL\
+\
+Statistics and DataMining (Domain)\
+filter mine\
+modeling, data mining, exploratory data analysis 	\
+\
+Graphic Design (Domain)\
+represent refine\
+visual representation of data - how presented graphically \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Data Visualization \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Interactive Data Visualization (Domain) - final product\
+Infovis (Information Visualization) and HCI - Human Computer Interaction\
+interact\
+Data Visualization \
+\
+***\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Anscombe's quartet - graph or visualize EARLY on do not rely on summary statistics (numbers) alone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0  They were constructed in 1973 by the statistician Francis Anscombe to demonstrate both the importance of graphing data before analyzing it and the effect of outliers on statistical properties. \
+Python - matplotlib - ggplot in R used for plotting - SEE visual patterns hidden when looking at summary statistics alone  \
+\
+Quantitative Data - Numerical Data - \cf3 Not Ordered in Time\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Retinal Variables - Visual Encodings - \cf3 Size\cf0 , \cf3 Orientation\cf0 , and \cf3 Color Saturation\cf0  not good for Qualitative or Numerical data.\cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 	life expectancy - quantitative \cf4 \
+	year\cf0 \
+	\cf3 discreet\cf0  data or variable - countable - \cf2 total population\cf0  - number of home runs (\cf3 whole numbers\cf0  - can't have 1.2 home runs) \
+		distinct values\
+		number of home runs \
+	\cf3 continuous\cf0  data or variable - \cf2 income per person\cf0  anywhere in a range - any number within range - .357, .511\
+		batting average 0 - 1000\
+		income per person\
+		\cf3 spending per person - quantitative\cf0 \
+		any value within a range 	\
+		\
+\
+Categorical Data - could be numbers without mathematical meaning \
+	nominal data (groups) - graphical region\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 	Retinal Variables - Visual Encodings - Color Hue, Shape Texture good for \cf3 Nominal\cf0  values\
+	Retinal Variables - Visual Encodings - \cf3 Color Hue\cf0  \cf5 geographical Regions\cf0  sub Saharan Africa group blue - America's group yellow\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 		\cf3 Has Universal Healthcare - Nominal\cf0 \
+		America's group yellow\
+		sub Saharan Africa group blue  \
+		right handed - left handed\
+		hometown\
+		caution - may be numbers that correlate to the category 1 - first baseman 2 - second baseman \
+			number - no mathematical meaning - sum, average not meaningful  \
+\
+\
+Ordered Data - similar to Categorical Data \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Retinal Variables - \cf3 Size\cf0 , \cf3 Orientation\cf0 , and \cf3 Color Saturation\cf0  good for \cf3 ordered\cf0  data.   \
+Retinal Variable example -\cf3  size\cf0  (size of dot at X, Y coordinate) - good for \cf3 ordered\cf0  data\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 doctor visits per year - ordered \cf0 \
+for plotting purposes Ordinal Data treated like Categorical Data\
+	Categories are ordered or ranked \
+	Example - populations of countries split into bins\
+	example bins \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 		0 - 10 million\
+		10 - 100 million\
+		100 - 500 million\
+		greater than 500 million\
+	Another example of Ordered Data - Class Difficulty Beginner - Intermediate - Advanced there IS an order here.\
+	Movie ranking number of stars 1 - 5 Stars\
+\
+Time Series Data - repeated measurements - \cf3 Time Ordered\cf0  \
+	average home runs per player for a number of years \
+\
+All of the above data types can be encoded visually.  \
+\
+Visual Encodings \
+Mapping from data to display elements.\
+X axis, Y axis - good for two variables \
+Retinal Variables - Visual Encodings - good for additional variables - different size red circles \
+Retinal Variable - Visual Encodings example -\cf3  size\cf0  (size of dot at X, Y coordinate) - good for \cf3 ordered\cf0  dat\
+Retinal Variable - Visual Encodings example -\cf3  color\cf0  (color of dot at X, Y coordinate)\
+Retinal Variable - Visual Encodings example -\cf3  color saturation\cf0  - think fill % \
+Orientation, Shape, Texture - all examples of Retinal Variables - Visual Encodings \
+Retinal Variables - Visual Encodings - \cf3 Size\cf0 , \cf3 Orientation\cf0 , and \cf3 Color Saturation\cf0  good for \cf3 ordered\cf0  data. \
+Retinal Variables - Visual Encodings - \cf3 Size\cf0 , \cf3 Orientation\cf0 , and \cf3 Color Saturation\cf0  not good for Qualitative or Numerical data.   \
+Retinal Variables - Visual Encodings - Color Hue, Shape Texture good for \cf3 Nominal\cf0  values\
+\
+***\
+\
+most effective at communicating quantitative data \
+	position - \cf3  on x axis\cf0 \
+	length - \cf3 length of stick\cf0  \
+	angle or slope\
+	Area - \cf3 size of scatterplot dot\cf0  \
+	Volume - \cf3 size of cube\cf0 \
+	Color - Color Saturation or Density (think fill %) - \cf3 light blue, versus light light blue scatterplot dot\cf0 \
+least effective at communicating quantitative data \
+\
+***\
+\
+Decomposing Visualizations\
+double encoding - 1.) Y axis - company value, ALSO - 2.) size or radius of circle, scatterplot dot \
+\
+***Visualization Fundamentals \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 Spectrum of Visualization Technologies 26 of 29\
+HTML5 Canvas\
+WebGL\
+SVG (Scalable Vector Graphics)\
+D3.js\
+NVD3\
+Dimple.js\
+Rickshaw\
+Chartio\
+RAW\
+\
+RAW (Predefined Charts), Chartio (similar to Tableau, Dashboards, Charts) little flexibility, predefined charts - think Excel works for 90%+ of the use cases \
+NVD3 (High Level Charting Libraries) - Dimple.js (High Level Charting Libraries) - Rickshaw (Time Series, Real Time Streaming Data) - think Python Ruby\
+D3.js - Data Driven Documents - JavaScript - think C / C++\
+WebGL - HTML5 Canvas - SVG (Scalable Vector Graphics)  - think low level assembly language of visualizations very flexible \
+What technologies does D3.js leverage? - CSS, HTML, JavaScript, SVG (Scalable Vector Graphics) - Open Web Standards \
+D3.js stands on the shoulders of HTML, CSS, JavaScript, and SVG\
+D3.js client side JavaScript library\
+\
+***\
+\
+Load D3.js in the JavaScript Console procedure  \
+add d3.js to udacity.com \
+View - Developer - JavaScript Console - \cf3 Command - Option - J\cf0 \
+** required d3 setup - worked **\
+var script = document.createElement('script');\
+script.type = 'text/javascript';\
+script.src="https://d3js.org/d3.v4.min.js";\
+document.head.appendChild(script);\
+** required d3 setup - worked **\
+	\
+Elements - head - scroll down - D3 seen\
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>\
+\
+\cf2 data-vis-demo.zip\cf4  - from Lesson Resources\cf0 \
+Menfi mike $ ls -lR data_vis_demo/\
+total 24\
+drwxr-xr-x@ 11 Menfi  staff   374 Apr 14 04:40 assets\
+-rw-r--r--@  1 Menfi  staff  1293 May 13  2016 d3_demo.css\
+-rw-r--r--@  1 Menfi  staff  5443 Jul 25  2016 \cf2 d3_demo.html\cf0  - DOM Document Object Module, HTML Elements - \cf3 Abstract Representation of HTML Source\cf0 \
+drwxr-xr-x@  6 Menfi  staff   204 Apr 14 04:44 lib\
+\
+data_vis_demo//assets:\
+total 88\
+-rw-r--r--@ 1 Menfi  staff    340 May 12  2016 facebook.svg\
+-rw-r--r--@ 1 Menfi  staff   6518 May 12  2016 favicon.ico\
+-rw-r--r--@ 1 Menfi  staff    438 May 12  2016 google_plus.svg\
+-rw-r--r--@ 1 Menfi  staff    467 May 12  2016 linkedin.svg\
+-rw-r--r--@ 1 Menfi  staff    550 May 12  2016 twitter.svg\
+-rw-r--r--@ 1 Menfi  staff   3509 May 12  2016 udacity.svg\
+-rw-r--r--@ 1 Menfi  staff   1563 May 12  2016 udacity_apple_icon.png\
+-rw-r--r--@ 1 Menfi  staff  10788 May 12  2016 udacity_white.png\
+\
+data_vis_demo//lib:\
+total 760\
+-rw-r--r--@ 1 Menfi  staff  121260 Nov 24  2015 bootstrap.min.css\
+-rw-r--r--@ 1 Menfi  staff   36868 Nov 24  2015 bootstrap.min.js\
+-rw-r--r--@ 1 Menfi  staff  139112 May 12  2016 \cf2 d3.v3.js.min\cf0 \
+-rw-r--r--@ 1 Menfi  staff   85659 May 12  2016 jquery-2.2.3.min.js\
+\
+See Elements top of Console\
+View - Developer - JavaScript Console\
+3 Dots Top Right - Show Console Draw - escape key -  Console goes away - only see DOM nodes - top right panel\
+Left Pane - Web Page Pane - View Source - HTML file browser receives  \
+View - Developer - JavaScript Console\
+\cf2 Elements\cf0  Top Right - \cf2 DOM\cf0  Document Object Module\
+\
+What technology allows us to inspect elements through the developer tools and see the HTML element highlighted on the web page?\
+DOM Document Object Module - \cf3 Abstract Representation of HTML Source\
+\
+shift return, tab\
+function say_hello() \{\
+   return 'Hello, World';\
+\}\
+\
+clear()\
+\
+document - HTML page \
+window - browser window\
+div - defines a section in a document \
+\
+\cf4 HTML DOM getElementById() Method\cf3 \
+document.getElementById('footer')\
+<div id=\uc0\u8203 "footer">\u8203 \'85\u8203 </div>\u8203 \
+\
+Right click footer left pane - see <div id="footer"> - DOM Module - top right\
+\
+\cf0 HTML DOM\cf3 \
+document.querySelector('.main'); - search class name of main - dot prefix to class name \
+\cf2 returns DOM node\cf3  \
+\
+document.querySelector('\cf2 .main\cf3 '); - query\
+<div class=\uc0\u8203 "main">\u8203 \'85\u8203 </div>\u8203  - returned \
+                      \
+\cf0 HTML DOM\cf3 			     1 of 2,                  2 of 2\
+document.querySelector('\cf2 .navbar-static-top\cf5 .navbar\cf3 '); - boolean and - \cf2 .navbar-static-top   \cf5 .navbar\cf3 \
+<nav class=\uc0\u8203 "navbar navbar-inverse navbar-static-top">\u8203 \'85\u8203 </nav>\u8203 \
+\
+both return the "same" thing - ** DOM node ** 
+\f1\fs24 \cf0 <div class=\uc0\u8203 "footer">\u8203 \'85\u8203 </div>\u8203 \
+document.querySelector('.footer')\
+<div class=\uc0\u8203 "footer">\u8203 \'85\u8203 </div>\u8203 \
+\
+document.getElementById('footer')\
+<div id=\uc0\u8203 "footer">\u8203 \'85\u8203 </div>\u8203 \
+\
+
+\f0\fs36 \cf3 both return the "same" thing - ** DOM node **  
+\f1\fs24 \cf0 <div class=\uc0\u8203 "footer">\u8203 \'85\u8203 </div>\u8203 \
+document.getElementById('navbar')\
+<div id=\uc0\u8203 "navbar" class=\u8203 "collapse navbar-collapse">\u8203 \'85\u8203 </div>\
+\uc0\u8203 \
+document.querySelector('.navbar')\
+<nav class=\uc0\u8203 "navbar navbar-inverse navbar-static-top">\u8203 \'85\u8203 </nav>\u8203 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf0 \CocoaLigature0 \
+d3_demo.css\
+\cf2 .main\cf0  \{\
+    margin-bottom: 24px;\
+\}\
+\
+page source\
+
+\f3\fs24 \cf6 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec6 <div class="main">
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf3 \CocoaLigature1 \
+\ul get D3 object back\ulnone  not Document Object Module --- JavaScript Console bottom right \
+\
+my_returned_array = d3.select('.main') - returns an Array of D3 objects 	\
+[Array(1)]\
+\
+my_returned_array\
+[Array(1)]\
+\
+my_returned_array[0]\
+[div.main, parentNode: html]\
+\
+myElem - D3 object \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0  \
+\cf2 var\cf0  myElem = d3.select('
+\fs48 \cf2 .
+\fs24 \cf3 navbar\cf0 ') - \cf2 note var\cf0  - \cf2 note dot\
+\cf4 var myElem = d3.select('
+\fs48 \cf2 .
+\fs24 \cf4 navbar-static-top')\cf0 \
+\
+returned DOM node encapsulated in D3 Array \
+\
+myElem\
+\
+[Array(1)]\
+0: Array(1)\
+0: nav
+\fs48 \cf2 .
+\fs24 \cf3 navbar\cf0 .navbar-inverse.navbar-static-top - \cf2 hover here\cf0  - \cf3 highlights navbar in left panel\cf0 \
+parentNode: html\
+length: 1\
+__proto__: Array(0)\
+length: 1\
+__proto__: Array(0)\
+\
+*** echo background-color *** get set \cf3 CSS\cf0  style properties \
+myElem.style('background-color')\
+"rgb(\cf2 28\cf0 , \cf2 38\cf0 , \cf2 47\cf0 )"\
+\
+\cf3 CSS class lookup\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf7 \CocoaLigature0 $ \cf0 pwd\
+/Users/Menfi/Documents/mike/data_vis_demo\
+\cf7 $ \cf0 ls -l \cf2 d3_demo.css\cf0  \
+-rw-r--r--@ 1 Menfi  staff  1293 May 13  2016 \cf2 d3_demo.css\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf0 \CocoaLigature0 .navbar-inverse \{\
+    background-image: none;\
+    \cf2 background-color: #1c262f\cf0 ;\
+    border-color: #1c262f;\
+\}\
+\
+\cf3 hex conversion\
+\cf4 #1c262f (\cf3 black\cf4 )\cf0 \
+1c = 16 + 12 = 
+\f1\fs24 \cf2 \CocoaLigature1 28	r
+\f2\fs22 \cf0 \CocoaLigature0 \
+26 = 32 + 6 = 
+\f1\fs24 \cf2 \CocoaLigature1 38		g
+\f2\fs22 \cf0 \CocoaLigature0 \
+2F = 32 + 15 = 
+\f1\fs24 \cf2 \CocoaLigature1 47	b\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 #757c81 (\cf3 grey\cf0 )	\
+75 = 117				r\
+7c = 124				g\
+81 = 129				b\
+\
+myElem.style(\{'background-color':'#ff0000'\}) - # works!!\cf3 \
+\cf4 myElem.style(
+\fs36 \cf2 \{
+\fs24 \cf4 'background-color':'#1c262f'
+\fs36 \cf2 \}
+\fs24 \cf4 ) \cf0 - # works!!\cf4 \
+myElem.style(
+\fs36 \cf2 \{
+\fs24 \cf4 'background-color':'#757c81'
+\fs36 \cf2 \}
+\fs24 \cf4 )\cf0  - # works!!\cf4 \
+myElem.style('background-color'
+\fs36 \cf2 ,
+\fs24 \cf4  '#ff0000') - this syntax works too \
+\
+\cf3 \ul \ulc3 alternative syntax  no var, no variable \cf4 \ulnone \
+d3.select('.navbar-static-top').style('\cf2 background\cf4 ')\
+"rgb(255, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box"\
+\
+d3.select('.navbar-static-top').style('\cf2 background-color\cf4 ')\
+"rgb(255, 0, 0)"\
+\
+\cf0 d3.select('.navbar-static-top').style('background-color', '#00ff00') - # works!!\cf3 \
+d3.select('.navbar-static-top').style(
+\fs36 \cf2 \{
+\fs24 \cf3 'background-color' 
+\fs36 \cf2 :
+\fs24 \cf3  '#ff0000'
+\fs36 \cf2 \}
+\fs24 \cf3 ) \cf0  - # works!!\cf3 \
+\
+\cf4 selectAll - in this case same thing returned - only 1 - the navbar\cf3 \
+d3.selectAll('.navbar') - 
+\fs36 \cf2 .
+\fs24 \cf3 navbar\cf4  - CSS class\
+\cf0 d3.select\cf2 All\cf0 ('img') - returns all 4 - note the select\cf2 All\
+\
+\cf3 view HTML source. \cf2 instructor\cf3  - right click \cf2 inspect \cf3 the title \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 <h1 class="\cf2 main-title\cf6 ">Data Visualization and D3.js</h1>\
+d3.select('
+\fs36 \cf2 \outl0\strokewidth0 .
+\fs24 \outl0\strokewidth0 \strokec6 main-title\cf6 ').text('Gapminder World: China')
+\fs36 \cf2 ;\
+\cf4 \
+<\cf2 img\cf4  src="./assets/\cf3 udacity\cf4 .svg" alt="logo"> \cf2 img\cf4  tag \
+\cf3 no class name, no id \cf4 \
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 no class name
+\f3 \cf4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs24 \cf8 \strokec8 <nav \cf6 \strokec6 class\cf8 \strokec8 ="\cf6 \strokec6 navbar navbar-inverse navbar-static-top\cf8 \strokec8 ">
+\f1 \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 no id\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\fs24 \cf6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 <div id="footer">\
+\
+a - link \
+<a class="\cf2 navbar-brand logo\cf6 " id="header-logo" href="https://classroom.udacity.com"> \cf2 PARENT\cf6 \
+	<img src="./assets/udacity.svg" alt="logo"> \cf2 IMG NESTED WIITIN PARENT\cf6 \
+</a>\
+\
+d3.select('
+\fs36 \cf2 .
+\fs24 \cf3 \outl0\strokewidth0 navbar-brand
+\fs36 \cf2 .
+\fs24 \cf3 logo'\cf6 \outl0\strokewidth0 \strokec6 ) - using CSS class names see \cf2 \outl0\strokewidth0 navbar-brand logo above\cf6 \outl0\strokewidth0 \strokec6 \
+d3.select('.navbar-brand.logo')\cf3  - works\cf6 \
+\
+d3.select('header-logo') using the id\cf2  - does not work\cf6 \
+d3.select('
+\fs36 \cf2 #
+\fs24 \cf6 header-logo') instructor says 
+\fs36 \cf2 \outl0\strokewidth0 # does work \
+\
+parentElement = d3.select('.navbar-brand.logo')\
+parentElement.select('img') - now get the image nested within the parent \
+\
+works !!\
+parentElement.select('img').attr('src')\
+"./assets/udacity.svg"\
+works !!\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 works !! \cf3 edit alt: tag value\cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 parentElement.select('img').attr('alt', 'Udacity')\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 works !!\
+\
+works !!     
+\fs24 \cf3 parent stuff
+\fs36 \cf2 \
+d3.select('#header-logo img').attr('alt', 'logo')\
+works !!\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs24 \cf6 \outl0\strokewidth0 \strokec6 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs36 \cf2 \outl0\strokewidth0 works !! 
+\fs24 \cf3 parent stuff\cf6 \outl0\strokewidth0 \strokec6 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf6 d3.select('.navbar-brand.logo img').attr('alt', 'Udacity');\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs36 \cf2 \outl0\strokewidth0 works !!\
+\
+\cf3 html guidance - hints - <img src="./assets/udacity.svg" alt="logo">\
+\cf2                              *** parent stuff *** \cf3 img nested here\cf2  \
+<a class="navbar-brand logo" id="header-logo" href="https://classroom.udacity.com">\
+\
+
+\fs24 \cf3                 parent stuff                                      change the src attr
+\fs36 \cf2 \
+d3.select('#header-logo img').attr('src', './assets/
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 udacity_white.png
+\f3\fs36 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ')
+\f4\b ;
+\f3\b0 \
+
+\fs24 \cf3                                 get the nested img
+\fs36 \cf2 \
+          \
+\cf3 View Page Source\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 <div class="row">  - get the row of interest
+\f3\fs36 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 d3.select('.main');
+\f0\fs24 \cf0 \
+
+\f3\fs36 \cf2 d3.select('.main').html(); - gets the HTML associated with that row, nested under that row
+\f0\fs24 \cf0 \
+
+\f3\fs36 \cf2 d3.select('.main').html(null); - null out the HTML make room on the page, JavaScript keyword null\
+** all of these worked to clear out the HTML **
+\f0\fs24 \cf0 \
+
+\f3\fs36 \cf2 d3.select('.main').html(null);\
+d3.select('.main').html(undefined);\
+d3.select('.main').html('');\
+** all of these worked to clear out the HTML **
+\f0\fs24 \cf6 \outl0\strokewidth0 \strokec6 \
+
+\f3\fs36 \cf2 \outl0\strokewidth0 \
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 logarithm review\
+\pard\pardeftab720\partightenfactor0
+\cf0 The equation 2
+\f5 \uc0\u8308 
+\f0  = 16 can be rewritten as log 2 16 = 4 and pronounced \'93log to the base 2 of 16 is 4.\'94\'a0\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3 \cf2 \expnd0\expndtw0\kerning0
+\
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 China 2015\
+13,300 - GDP Per Capita - X coordinate - center of circle - log scale\
+	input	output	\
+map	13,300	X pixels\
+\pard\pardeftab720\partightenfactor0
+\cf0 X axis range - 250 - 200,000\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+77 - Life Expectancy - Y coordinate - center of circle - linear scale \
+	input	output	\
+map	77		Y pixels\
+\cf2 Y values increase going DOWN\cf4 \
+\cf0 High Life Expectancy Values - China for example, map to \cf2 LOWER\cf0  Pixel Values\
+This is the Y axis - Higher Life Expectancy Values map to Lower Pixel Values, Not Higher Pixel Values \
+Low Life Expectancy Values - China for example, map to \cf2 HIGHER\cf0  Pixel Values\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 Life Expectancy (years) Y axis\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+Life Expectancy Scale 15 - 90  \
+Corresponding Pixel Value Range 0 - 250\
+\
+Highest Life Expectancy - 90 - Maps to 0 Pixels\
+Lowest Life Expectancy - 15 - Maps to 250 Pixels\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 domain - input values 
+\f1\fs24 \
+
+\f0\fs72 \cf2 .
+\fs36 \cf5 domain([15, 90])\cf0  - inclusive all values in between \
+Corresponding Pixel Values 0 - 250 range - 
+\fs72 \cf2 .
+\fs36 \cf5 range(250, 0)\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf5 d3.scale.linear()\
+\
+\cf4 d3 uses .domain, .range, and .linear to transform each \cf2 Life Expectancy Value \cf4 into its corresponding \cf2 Pixel Value\cf4  \cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+1.38 Billion\
+d3.scale \
+linear scales, log scales, square root scales\
+Use scales to convert data values to pixel values.
+\f3 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs24 \cf6 \outl0\strokewidth0 \strokec6 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0  SVG Canvas (Scalable Vector Graphics)\
+\
+origin 0\cf2 ,\cf0  0, Y values increase going \cf3 DOWN\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Top Level Generic SVG Element\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 Summary\
+d3.select('.main').html(null); - remove html, make room\
+operates on - \cf3 <div class="main">\
+\cf4 \
+append SVG (Scalable Vector Graphics) element (plotting region) where we made room\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 d3.select('.main').append('svg') - default dimensions - 300 width (X) - 150 height (Y) - add it\
+d3.select('.main svg').remove('svg') - remove it if needed\
+\
+d3.select('.main').append('svg') - put it back\
+d3.select('.main svg').attr('width', '600').attr('height', '300'); - change the size, dimensions \
+<svg width="600" height="300"></svg>\
+\
+\cf3 Life Expectancy (years) Y axis\cf4 \
+Create instance of Life Expectancy \cf2 Function\cf4 , Y axis Function \
+\cf3 scale\cf4  is a \cf2 Function\cf4  that maps domain to range\
+lifeExpectancyFun = d3.scaleLinear().domain([15, 90]).range([250, 0]);\
+\
+\cf0 In this case the height (Y) of the - SVG element (plotting region) - \cf3 300\cf0  - is greater than the range of the Y axis Function - \cf3 250\cf0  - extra room at top \
+\cf4 \
+Now test it - \cf3 domain\cf4  input to \cf2 Function\cf4  - \cf3 range\cf4  output from \cf2 Function\cf4 \
+lifeExpectancyFun(15)\
+250\
+\
+lifeExpectancyFun(90)\
+0\
+\
+lifeExpectancyFun(52.5)\
+125\
+\cf0 \
+\cf3 Income Per Person X axis\
+scale\cf0  is a \cf2 Function\cf0  that maps domain to range\
+Create instance of Income \cf2 Function\cf0 , X axis Function \cf4 \
+d3.scale.log().domain([250, 100000]).range([0, 600]); - old syntax quiz answer\
+\cf0 d3.scaleLog().domain([250, 100000]).range([0, 600]); - new syntax - works in Chrome browser\
+\
+Create instance of Income Function, X axis Function \
+incomeLogFun = d3.scaleLog().domain([250, 100000]).range([0, 600]);\
+\
+\cf4 Income Per Person \cf2 X axis \cf4 or width\cf0 \
+note - <svg width="600" height="300"></svg>\
+In this case the width (X axis) of the - SVG element (plotting region) - \cf3 600\cf0  - \cf2 equals\cf0  the range of the X axis function - \cf3 600\cf0  -\
+\
+Now test it - \cf3 domain\cf0  input to \cf2 Function\cf0  - \cf3 range\cf0  output from \cf2 Function\cf0 \
+incomeLogFun(250)\
+0\
+incomeLogFun(100000)\
+600\
+\
+***\
+echo functions - make sure they are still there \
+lifeExpectancyFun (Y axis)\
+incomeLogFun (X axis)\
+\
+\ul Mapping circle radius to population\ulnone \
+area of circle = 
+\fs72 \cf2 \uc0\u960 
+\fs36 \cf0  r\super 2\nosupersub \
+area of circle corresponds to China population - 1.38 billion\
+China population = Area = 
+\fs72 \cf2 \uc0\u960 
+\fs36 \cf0  r\super 2\
+\cf3 \nosupersub divide both sides by\cf0  
+\fs48 \cf2 \uc0\u960 
+\fs36 \cf0  \
+	China population / 
+\fs48 \cf2 \uc0\u960 
+\fs36 \cf0   = Area = 
+\fs48 \cf2 \uc0\u960 
+\fs36 \cf0  r\super 2 / 
+\fs48 \cf2 \nosupersub \uc0\u960 
+\fs36 \cf0 \
+\cf3 simplify right side of equation\cf0   \
+	China population / 
+\fs48 \cf2 \uc0\u960 
+\fs36 \cf0   = Area = r\super 2\nosupersub  \
+\cf3 square root both sides\cf0  \
+
+\fs72 \cf4 \uc0\u8730 
+\fs36 \cf0 China population / 
+\fs72 \cf2 \uc0\u960 
+\fs36 \cf0  = r\
+\
+relationship between \cf3 population\cf0  and \cf3 circle size (radius)\cf0  is square root - therefore use d3.\cf3 scaleSqrt\cf0 ()\
+\cf3 square root of countries population corresponds to the radius of the circle\cf0  - \cf2 instructor\cf0   \
+instantiate the Function\
+Marshall Islands population - 52070\
+China population - 1380,000,000	1380000000\
+\cf3 range of pixels\cf0  - 10 pixels - 50 pixels \
+circleFun = d3.scaleSqrt().domain([52070, 1380000000]).range([10, 50]);\
+ \
+Now test it - \cf3 domain\cf0  input to \cf2 Function\cf0  - \cf3 range\cf0  output from \cf2 Function\cf0 \
+circleFun(52070)\
+10\
+circleFun(1380000000)\
+50\
+\
+older version of D3 - online quiz right answer\
+var r = d3.scale.sqrt().domain([52070, 1380000000]).range([10, 50]);\
+\
+\cf2 \ul \ulc2 recap - summary so far\
+\cf0 \ulnone null out HTML - make room for plotting region\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 d3.select('.main').html(null); - remove html, make room\
+\
+append SVG (Scalable Vector Graphics) element (plotting region) where we made room\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 d3.select('.main').append('svg') - default dimensions - 300 width (X) - 150 height (Y) - add it\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 d3.select('.main svg').attr('width', '600').attr('height', '300'); - change the size, dimensions \
+\
+X axis Function\
+incomeLogFun = d3.scaleLog().domain([250, 100000]).range([0, 600]);\
+\
+Y axis Function\
+lifeExpectancyFun = d3.scaleLinear().domain([15, 90]).range([250, 0]);\
+\
+Function map population to pixel, r scale, radius scale \
+circleFun = d3.scaleSqrt().domain([52070, 1380000000]).range([10, 50]);\
+\
+Append China population Circle to SVG (Scalable Vector Graphics)\
+All 3 Scales, All 3 Functions needed.\
+China 2015 - Life Expectancy \cf2 77\cf0  years, Income \cf2 13330\cf0 , Population 1.38 billion \cf2 1380000000\cf0  1,380,000,000\
+\
+Check out the individual pieces for the China red dot.\
+Data value Function input.\
+Pixel value Function output. \
+\cf3 Y axis\cf0 \
+lifeExpectancyFun(\cf2 77\cf0 )\
+\cf2 43\cf0 .33333333333334 - Y axis pixel value 43...\
+\
+\cf3 X axis\
+\cf0 incomeLogFun(\cf2 13330\cf0 )\
+\cf2 398\cf0 .1976156961322 - X axis pixel value 398 ...\
+\
+\cf3 Radius\cf0 \
+circleFun(\cf2 1380000000\cf0 )\
+\cf2 50\cf4  pixels\cf0 \
+\
+			 Y axis					   X axis	                       Radius\
+console.log(lifeExpectancyFun(77), incomeLogFun(13330), circleFun(1380000000))\
+                   43.33333333333334       398.1976156961322     50\
+\
+			 X axis					   Y axis	                       Radius\
+console.log(incomeLogFun(13330), lifeExpectancyFun(77), circleFun(1380000000))\
+                    398.1976156961322      43.33333333333334      50\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 instantiate the SVG (Scalable Vector Graphics) object nested in main \
+append SVG (Scalable Vector Graphics) element (plotting region) where we made room\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 d3.select('.main').append('svg') - default dimensions - 300 width (X) - 150 height (Y) - add it\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 var svg = d3.select('.main').append('svg') - instructor code - creates variable\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 SVG (Scalable Vector Graphics)  - change the size, dimensions \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 d3.select('.main svg').attr('width', '600').attr('height', '300');\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+svg.append('circle') - instructor code\
+\
+add the red China population circle\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 d3.select('.main svg').append('circle') - \cf3 worked\cf0  circle now nested within the (Scalable Vector Graphics) object\
+<svg width="600" height="300">\
+	<circle></circle>\
+</svg>\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 instructor code\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs32 \cf0 svg.append('circle').attr('fill', 'red').attr('r', 
+\f0\fs36 circleFun(1380000000)
+\f1\fs32 ).attr('cx', 
+\f0\fs36 incomeLogFun(\cf2 13330\cf0 )
+\f1\fs32 ).attr('cy', 
+\f0\fs36 lifeExpectancyFun(\cf2 77\cf0 )
+\f1\fs32 )\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 d3.select('.main svg')\
+drilling down \cf2 multiple\cf0  levels, traversing nested HTML\
+d3.select('.main svg circle') - works selects the circle nested in the svg object, nested within the main object class\
+ \
+beginning - we get piece of circle top left of, nested within - <svg width="600" height="300">\
+TOP LEFT of our svg (Scalable Vector Graphics) plotting area \
+default X, Y is the origin, 0, 0 again TOP LEFT
+\f1\fs32 \
+d3.select('.main svg circle').attr('fill', 'red').attr('r', circleFun(1380000000))\
+
+\f0\fs36  \
+added X axis 
+\f1\fs32 \
+d3.select('.main svg circle').attr('fill', 'red').attr('r', circleFun(1380000000)).attr('cx', incomeLogFun(13330));
+\f0\fs36 \
+
+\f1\fs32 \
+added Y axis - problem top of red circle lopped off\
+d3.select('.main svg circle').attr('fill', 'red').attr('r', circleFun(1380000000)).attr('cx', incomeLogFun(13330)).attr('cy', 
+\f0\fs36 lifeExpectancyFun(\cf2 77\cf0 ))
+\f1\fs32 ;\
+\
+fix chopped off red circle, first remove it\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 d3.select('.main svg circle').remove('circle') - remove it if needed - \cf3 worked!!\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+first attempt at radius Function\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 circleFun = d3.scaleSqrt().domain([52070, 1380000000]).range([10, \cf3 50\cf0 ]);\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 problem red China population circle lopped off\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 circleFun = d3.scaleSqrt().domain([52070, 1380000000]).range([10, \cf3 40\cf0 ]);\
+\
+put the deleted circle back\
+d3.select('.main svg').append('circle') - \cf3 worked !!\
+\
+\cf4 Check out the 'new' radius Function - returns a smaller radius now - 40 not 50 \cf3 \
+circleFun(1380000000)\
+\cf2 40\
+\
+red China population circle looks good!!\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f1\fs32 \cf0 d3.select('.main svg circle').attr('fill', 'red').attr('r', circleFun(1380000000)).attr('cx', incomeLogFun(13330)).attr('cy', 
+\f0\fs36 lifeExpectancyFun(\cf2 77\cf0 ))
+\f1\fs32 ;\
+<div class="main">\
+	<svg width="600" height="300">\
+		<circle fill="red" r="40" cx="398.1976156961322" cy="43.33333333333334">\
+		</circle>\
+	</svg>\
+</div>\
+\
+notes as 
+\f0\fs36 lifeExpectancyFun(\cf2 77\cf0 ) DECREASED (22 not 77) circle moved LOWER - DROPPED\cf2 \
+
+\f1\fs32 \cf0 notes as incomeLogFun(13330)
+\f0\fs36  DECREASED (
+\f1\fs32 1333 not 13330
+\f0\fs36 ) circle moved LEFT\
+\
+\cf3 summary of steps\
+\cf0 d3.select('.main svg circle').remove('circle') - \cf2 remove old circle\cf0 \
+\
+d3.select('.main svg').append('circle') - \cf2 append circle\cf0 \
+\
+\cf2 edit circle attributes\
+\cf0 d3.select('.main svg circle').attr('fill', 'red').attr('r', circleFun(1380000000)).attr('cx', incomeLogFun(13330)).attr('cy', lifeExpectancyFun(77));\
+\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \
+\cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0  \
+\
+\
+\
+
+\f1\fs32 \
+
+\f0\fs36 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+  \
+\
+\
+\
+\
+\cf4 \
+\
+\
+\
+\
+\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+\
+ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+}
