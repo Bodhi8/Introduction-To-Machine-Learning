@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+
+  <style>
+      circle.dimple-series-1 {
+      fill: red;
+  }
+      h2 {
+      text-align: center;
+  }
+
+  </style>
+
     <script type="text/javascript">
       function draw(data) {
 
@@ -17,6 +28,10 @@
           var margin = 75,
               width = 1400 - margin,
               height = 600 - margin;
+
+          d3.select("body")
+              .append("h2")
+              .text("World Cup Attendance")
 
 	  debugger;
 
@@ -41,7 +56,12 @@
 	  x.timeInterval = 4;
 
           /* myChart.addSeries(null, dimple.plot.bar); */
-          myChart.addSeries('stage', dimple.plot.bar);
+          /* stage changes the vertical bars, see addSeries documentation for the first argument, null, or in thi case column heading stage */
+          /* myChart.addSeries('stage', dimple.plot.bar); */
+          /* myChart.addSeries(null, dimple.plot.scatter); */
+          // myChart.addSeries('stage', dimple.plot.scatter); 
+          myChart.addSeries(null, dimple.plot.line);
+          myChart.addSeries(null, dimple.plot.scatter);
 
           myChart.draw();
         };
