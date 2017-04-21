@@ -4,7 +4,7 @@
 \f6\fnil\fcharset129 AppleSDGothicNeo-Regular;}
 {\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red0\green0\blue255;\red255\green0\blue255;
 \red64\green11\blue217;\red115\green0\blue109;\red115\green0\blue126;\red25\green25\blue25;\red26\green26\blue26;
-\red181\green0\blue19;}
+\red181\green0\blue19;\red0\green0\blue0;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\})}{\leveltext\leveltemplateid201\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}
@@ -24,7 +24,7 @@ Documentation - https://github.com/PMSI-AlignAlytics/dimple/wiki/dimple.chart\
 https://github.com/d3/d3-scale/blob/master/README.md#scaleLinear\
 ** D3 - Data Driven Documents ** JavaScript **\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf2 /Users/Menfi/Documents/mike/data_vis_demo     \cf0 \
+\cf2 /Users/Menfi/Documents/mike/data_vis_demo\cf0 \
 \
 \
 Data Visualization and D3.js\
@@ -1541,21 +1541,11 @@ myChart.addSeries('\cf4 stage\cf8 ', dimple.plot.bar);\
 \cf0 \kerning1\expnd0\expndtw0 ** Documentation here - https://github.com/PMSI-AlignAlytics/dimple/wiki/dimple.chart **\cf8 \expnd0\expndtw0\kerning0
 \
 ** stage data now on vertical bars of bar chart  **\
-\
-\
-\cf0 \kerning1\expnd0\expndtw0 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 \
-\
-\
-\
-\
-\
 \pard\tx720\tx1440\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 \
-\
+\cf0 \kerning1\expnd0\expndtw0 \
 \ul Miscellaneous \
 \ulnone grade as in 9th grade, 10th grade - grade is an example of a categorical variable\
+comments - //, /*comment */ \
 \
 ** dimple.js 35 of 35 - 20 April 2017\
 http://dimplejs.org\
@@ -1565,8 +1555,103 @@ gentle learning curve\
 designed for analysts \
 exposes native d3 objects - developer can drill down into lower level \
 \
+bar chart\
+X axis world cup year - intrinsically ordered variable, 1932 comes before 1933 etc.\
+bar chart best suited to represent categorical data - labels, groups, example - state New York, example - Country USA, example Continent \
+sine the X axis is time, there is a natural order to time, bar chart not optimal\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 Data Visualization and D3.js - Dimple.js - \cf3 Changing the Chart Type\cf0  28 of 35 \
+\
+$ pwd\
+/Users/Menfi/Documents/data/basic_charts\
+\
+$ ls -l basic_charts.html\
+-rw-r--r--@ 1 Menfi  staff  1335 Apr 21 05:36 basic_charts.html\
+myChart.addSeries(null, dimple.plot.\cf4 bar\cf0 ); \cf3 bar chart\cf0  \
+\
+$ ls -l basic_charts1.html \
+-rw-r--r--@ 1 Menfi  staff  1647 Apr 21 15:59 basic_charts1.html\
+myChart.addSeries(null, dimple.plot.\cf4 scatter\cf0 ); \cf3 scatterplot\cf0  \
+\
+instructor says X axis time - time series data - sequential year of work cup - ideal chart type choice - \cf4 line plot\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 myChart.addSeries(null, dimple.plot.\cf4 line\cf0 );\
+\
+add the \cf4 dots\cf0  to the \cf4 line\cf0  chart - pretty cool - just have both lines in basic_charts1.html file.\
+myChart.addSeries(null, dimple.plot.line);\
+myChart.addSeries(null, dimple.plot.scatter);\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 EDA\cf0  - Exploratory Data Analysis - '\cf3 yourself\cf0 ' looking at data\
+\
+\cf2 Sketching\cf0  - the interactive plotting, different plots, edits to the X and Y axis etc  \
+'\cf3 others\cf0 ' - communicating data to audience \
+\
+Data Visualization and D3.js - Dimple.js - \cf3 Customizing a Dimple Chart\cf0  31 of 35 - 21 April 2017 \
+\
+\cf2 make scatter dots red use CSS\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf3 \CocoaLigature1 CSS
+\f2\fs22 \cf0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \CocoaLigature1 <style>\
+      \cf2 circle\cf0 .\cf4 dimple-series-1\cf0  \{\
+      fill: red;\
+  \}\
+  </style>\
+\
+<\cf2 circle\cf0  id="All_Mon Jan 01 1934 00:00:00 GMT-0600 (CST)__" class="\cf4 dimple-series-1\cf0  dimple-bubble dimple-all dimple-mon-jan-01-1934-00-00-00-gmt-0600--cst-" cx="193.0000000004033" cy="492.6" r="5" opacity="0.8" fill="#80B1D3" stroke="#6b94b0"></circle>\
+\
+Data Visualization and D3.js - Dimple.js - \cf3 Adding a Title Using D3 \cf0 33 of 35 - 21 April 2017 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 CSS\cf0 \
+<style>\
+      circle.dimple-series-1 \{\
+      fill: red;\
+  \}\
+      \cf2 h2\cf0  \{  \cf2 note h2 here\cf0 \
+      text-align: center;  \cf4 only thing it does is CENTER the title\cf0 \
+  \}\
+\
+note select \cf2 first\cf11 , then chained\cf0 \
+  d3.select("body")\
+              .append("\cf2 h2\cf0 ") \cf2 note h2 here\cf0 \
+              .text("World Cup Attendance")\
+\
+global price distribution of a dozen eggs - chart choice - Frequency Polygon, Histogram\
+\
+The designer of the following visualization relies on \cf3 pre-attentive processing\cf0  a fast cognitive process that draws the readers eyes to the names Bae Kim and Frederick Chandler\
+example - http://www.perceptualedge.com/blog/wp-content/uploads/2012/10/dashboard-competition-winner.png \cf2 note red dots\
+\cf11 show precise values, allow lookup of \cf2 exact values\cf11  - best 'chart' \cf2 table\
+\cf11  \
+\ul Color best parctices\
+\ulnone 	Avoid too many colors for categorical data\
+	Design your graphic in grayscale first to see contrast\
+	Use color rarely or deliberately to communicate better \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \
 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 \
+\cf0 \
+\
+\
+\
+\
+	 	\
+\pard\tx720\tx1440\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \
 \
 \
