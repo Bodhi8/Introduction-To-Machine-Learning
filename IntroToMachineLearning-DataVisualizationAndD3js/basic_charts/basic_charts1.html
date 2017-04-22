@@ -35,6 +35,7 @@
 
 	  debugger;
 
+          // Scalable Vector Graphics
           var svg = d3.select("body")
             .append("svg")
               .attr("width", width + margin)
@@ -46,6 +47,7 @@
         Dimple.js Chart construction code
       */
 
+          // binds data from file to svg created above - Scalable Vector Graphics
           var myChart = new dimple.chart(svg, data);
 
           var x = myChart.addTimeAxis("x", "year"); 
