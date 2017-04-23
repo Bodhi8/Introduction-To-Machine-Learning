@@ -29,31 +29,48 @@
               width = 1400 - margin,
               height = 600 - margin;
 
-          d3.select("body")
-              .append("h2")
-              .text("World Cup Attendance")
 
-	  debugger;
+          // comment out header for transition from dimplejs to D3
+          // d3.select("body")
+          //   .append("h2")
+          //   .text("World Cup Attendance")
+
+	  // debugger;
 
           // Scalable Vector Graphics
           var svg = d3.select("body")
-            .append("svg")
-              .attr("width", width + margin)
-              .attr("height", height + margin)
-            .append('g')
-                .attr('class','chart');
+                      .append("svg")
+                      .attr("width", width + margin)
+                      .attr("height", height + margin)
+                      .append('g')
+                      .attr('class','chart');
 
       /*
         Dimple.js Chart construction code
       */
 
           // binds data from file to svg created above - Scalable Vector Graphics
-          var myChart = new dimple.chart(svg, data);
+          // Create, instantiate chart object
+          // var myChart = new dimple.chart(svg, data); // commnet out dimplejs code, replace with D3 code
+
+          debugger
+
+          // d3 code replacing  dimplejs code 
+          d3.select('svg')
+            .selectAll('circle')
+            .data(data)
+            .enter()
+            .append('circle')
+
+          debugger
 
           var x = myChart.addTimeAxis("x", "year"); 
           myChart.addMeasureAxis("y", "attendance");
 
+          // specify parse format as only the year
+          // dimple automatically aggregated all the games for a given year and summed the attendances  
           x.dateParseFormat = '%Y'
+
 	  x.tickFormat = '%Y';
 	  x.timeInterval = 4;
 
