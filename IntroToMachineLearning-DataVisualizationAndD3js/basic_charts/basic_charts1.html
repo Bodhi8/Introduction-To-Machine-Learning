@@ -18,7 +18,7 @@
     <script type="text/javascript">
       function draw(data) {
 
-	  /* debugger; */
+          // debugger; 
       
       /*
         D3.js setup code
@@ -28,7 +28,6 @@
           var margin = 75,
               width = 1400 - margin,
               height = 600 - margin;
-
 
           // comment out header for transition from dimplejs to D3
           // d3.select("body")
@@ -53,7 +52,7 @@
           // Create, instantiate chart object
           // var myChart = new dimple.chart(svg, data); // commnet out dimplejs code, replace with D3 code
 
-          debugger
+          // debugger
 
           // d3 code replacing  dimplejs code 
           d3.select('svg')
@@ -64,15 +63,50 @@
 
           debugger
 
-          var x = myChart.addTimeAxis("x", "year"); 
-          myChart.addMeasureAxis("y", "attendance");
+          var time_extent = d3.extent(data, function(d) {
+              return d['date'];
+          }); 
+          // time_extent console - extent - minimum and maximum 
+          // ["1-06-1934 (16:45 h)", "9-07-2014 (17:00 h)"]
+
+
+          // var t_start = new Date("Mon Jan 01 1928 16:00:00 GMT+0200 (CEST)"); 
+          var t_start = new Date(1934, 5, 1, 16, 45);
+          //                           m  d
+          var t_end   = new Date(2014, 6, 9, 17, 0);
+
+
+          var count_extent = d3.extent(data, function(d) {
+              return d['attendance'];
+          }); 
+          // count_extent console - extent - minimum and maximum 
+          // ["10000", "9973"]
+
+          var time_scale = d3.time.scale()
+            .range([margin, width])
+            // .domain(time_extent);	
+            .domain([t_start, t_end]);	
+
+          // how to test time_scale function in Chrome JavaScript Console 
+	  // time_scale(new Date(2014, 0, 0));
+
+          var count_scale = d3.scale.linear() 
+            .range([height, margin])
+            // .domain([10000, 9973]);	
+            .domain(count_extent);	
+
+          debugger
+
+          // comment out dimplejs code for D3 code
+          // var x = myChart.addTimeAxis("x", "year"); // comment out dimplejs code for D3 code 
+          // myChart.addMeasureAxis("y", "attendance"); // comment out dimplejs code for D3 code
 
           // specify parse format as only the year
           // dimple automatically aggregated all the games for a given year and summed the attendances  
-          x.dateParseFormat = '%Y'
+          // x.dateParseFormat = '%Y' // comment out dimplejs code for D3 code 
 
-	  x.tickFormat = '%Y';
-	  x.timeInterval = 4;
+	  // x.tickFormat = '%Y'; // comment out dimplejs code for D3 code
+	  // x.timeInterval = 4; // comment out dimplejs code for D3 code 
 
           /* myChart.addSeries(null, dimple.plot.bar); */
           /* stage changes the vertical bars, see addSeries documentation for the first argument, null, or in thi case column heading stage */
@@ -87,12 +121,36 @@
       </script>
   </head>
 <body>
+
   <script type="text/javascript">
   /*
     Use D3 (not dimple.js) to load the TSV file
     and pass the contents of it to the draw function
     */
-  d3.tsv("world_cup.tsv", draw);
+
+    // d3.tsv("world_cup.tsv", draw); // original syntax - load the data file
+    // d3.tsv("world_cup_geo.tsv", draw); // load the world_cup_geo.tsv instead - has longitude, latitude 
+
+/*
+    // load the data - call a function on each row of the input file, input tsv file - date formatting
+    // each row of the data array -  
+    // Object {ilove: "data visualization"}
+    d3.tsv("world_cup_geo.tsv", function(d) {
+        return {
+            'ilove' : 'data visualization'
+        };
+    }, draw);
+*/
+
+    // re-format date string in tsv file  
+    format = d3.time.format('%d-%m-%Y (%H:%M h)');
+
+    d3.tsv("world_cup_geo.tsv", function(d) {
+        // if (error) throw error; // big problem
+        d['date'] = format.parse(d['date']);
+        return d;
+    }, draw);
+
   </script>
 </body>
 </html>
