@@ -29,6 +29,9 @@
               width = 1400 - margin,
               height = 600 - margin;
 
+          var radius = 3;
+          var color = 'blue';
+
           // comment out header for transition from dimplejs to D3
           // d3.select("body")
           //   .append("h2")
@@ -61,39 +64,63 @@
             .enter()
             .append('circle')
 
-          debugger
-
+          // Find range of date column
           var time_extent = d3.extent(data, function(d) {
               return d['date'];
           }); 
           // time_extent console - extent - minimum and maximum 
-          // ["1-06-1934 (16:45 h)", "9-07-2014 (17:00 h)"]
-
+          // ["1-06-1934 (16:45 h)", "9-07-2014 (17:00 h)"] - before required change - string -> Date object
+          // [Sun Jul 13 1930 15:00:00 GMT-0500 (CDT), Sun Jul 13 2014 16:00:00 GMT-0500 (CDT)] - after change to Date object 
 
           // var t_start = new Date("Mon Jan 01 1928 16:00:00 GMT+0200 (CEST)"); 
           var t_start = new Date(1934, 5, 1, 16, 45);
           //                           m  d
           var t_end   = new Date(2014, 6, 9, 17, 0);
 
-
+          // Find range of attendance column
           var count_extent = d3.extent(data, function(d) {
               return d['attendance'];
           }); 
           // count_extent console - extent - minimum and maximum 
-          // ["10000", "9973"]
+          // [2000, 179854]
 
           var time_scale = d3.time.scale()
-            .range([margin, width])
-            // .domain(time_extent);	
-            .domain([t_start, t_end]);	
+            .range([margin, width + 200])
+            .domain(time_extent);	
+            // .domain([t_start, t_end]);	
 
           // how to test time_scale function in Chrome JavaScript Console 
 	  // time_scale(new Date(2014, 0, 0));
 
           var count_scale = d3.scale.linear() 
             .range([height, margin])
-            // .domain([10000, 9973]);	
             .domain(count_extent);	
+
+          debugger 
+
+          // Create x-axis scale mapping dates -> pixels
+          var time_axis = d3.svg.axis()
+            .scale(time_scale)
+            .ticks(d3.time.years, 2);
+
+          // Create y-axis scale mapping attendance -> pixels
+          var count_axis = d3.svg.axis()
+            .scale(count_scale)
+            .orient('left');
+
+          d3.select('svg')
+            .append('g')
+            .attr('class', 'x axis')
+            .attr('transform', 'translate(0,' + height + ')')
+            // .attr('transform', "translate(0," + height + ")")
+            // .attr('transform', "translate(0, 525 )") // 525 worked 
+            .call(time_axis);
+
+          d3.select('svg')
+            .append('g')
+            .attr('class', 'y axis')
+            .attr('transform', 'translate(' + margin + ', 0)')
+            .call(count_axis);
 
           debugger
 
@@ -113,10 +140,23 @@
           /* myChart.addSeries('stage', dimple.plot.bar); */
           /* myChart.addSeries(null, dimple.plot.scatter); */
           // myChart.addSeries('stage', dimple.plot.scatter); 
-          myChart.addSeries(null, dimple.plot.line);
-          myChart.addSeries(null, dimple.plot.scatter);
+          // myChart.addSeries(null, dimple.plot.line); // remove dimple code
+          // myChart.addSeries(null, dimple.plot.scatter); // remove dimple code
 
-          myChart.draw();
+          // myChart.draw(); // remove dimple code
+
+/*
+          d3.selectAll("circle")
+            .attr("cx", function(d) {
+                return time_scale(d["date"]);
+            })
+            .attr("cy", function(d) {
+                return count_scale(d["attendance"]);
+            })
+            .attr("r", radius)
+            .attr("fill", color);
+*/
+
         };
       </script>
   </head>
@@ -147,7 +187,17 @@
 
     d3.tsv("world_cup_geo.tsv", function(d) {
         // if (error) throw error; // big problem
+
+        // date in file is a string - transform - format as a Date object 
+        // from string to Date 
         d['date'] = format.parse(d['date']);
+
+        //  attendance in file is a string - transform - format as an integer 
+        //  from string to integer  
+        d['attendance'] = +d['attendance'];
+
+       // debugger
+
         return d;
     }, draw);
 
