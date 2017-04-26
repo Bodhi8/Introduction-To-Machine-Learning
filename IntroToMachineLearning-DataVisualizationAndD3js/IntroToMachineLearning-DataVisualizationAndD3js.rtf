@@ -5,7 +5,7 @@
 {\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red0\green0\blue255;\red255\green0\blue255;
 \red64\green11\blue217;\red115\green0\blue109;\red115\green0\blue126;\red25\green25\blue25;\red26\green26\blue26;
 \red181\green0\blue19;\red0\green0\blue0;\red200\green20\blue201;\red25\green25\blue25;\red115\green0\blue126;
-\red181\green0\blue19;\red20\green0\blue196;\red26\green26\blue26;}
+\red181\green0\blue19;\red20\green0\blue196;\red26\green26\blue26;\red128\green0\blue128;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\})}{\leveltext\leveltemplateid201\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}
@@ -1118,14 +1118,20 @@ Map chart definition X and a Y coordinate combined with some geographic context,
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 Typically with a map chart you have either the size or color of some geographic region or some points to plot.\
 \
-\
 \pard\pardeftab720\sl280\partightenfactor0
 \cf0 cartogram is a combination of geography and size\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 cartogram - distorts area, shapes, and sizes depending on a variable, data value\
+\
 choropleth is a combination of geography and color\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 choropleth = geographic 
 \fs48 \cf2 +
 \fs36 \cf0  color \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 choropleth - color area such a countries on a map\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 represents some value by color, plotted geographically across region\
 different colored USA States based on a value, unemployment for example   \
 \
@@ -1521,7 +1527,7 @@ console.log(data[0])
 \b0\fs36 \cf0 \
 console.table(data)
 \b\fs48 \cf2 ;
-\b0\fs36 \cf0  - nice table of cvs file loaded in \
+\b0\fs36 \cf0  - nice table of cvs file loaded in  \
 console.log(data.slice(0,10))
 \b\fs48 \cf2 ;
 \b0\fs36 \cf0  - get only a few of them\
@@ -1843,12 +1849,86 @@ length: 2__proto__: Array(0)\
 \
 geo_data['features'][0].geometry.coordinates[0][0]\
 [61.210817, 35.650072]0: 61.2108171: 35.650072length: 2__proto__: Array(0)\
+\
+** first effort - note \cf2 chart\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 \
+\cf18 see basiccharts.html and basiccharts1.html\cf11 \
+// Scalable Vector Graphics\
+          var svg = d3.select("body")\
+                      .append("svg")\
+                      .attr("width", width + margin)\
+                      .attr("height", height + margin)\
+                      .append('g')\
+                      .attr('class','\cf2 chart\cf11 ');\
+/* myChart.addSeries(null, dimple.plot.\cf2 bar\cf11 ); */ bar chart\
+// myChart.addSeries(null, dimple.plot.\cf2 line\cf11 ); \
+ /* myChart.addSeries(null, dimple.plot.\cf2 scatter\cf11 ); */ added scatter plot to line chart\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 ** first effort - note \cf2 chart\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf11 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 \
+\cf0 ** second effort - note \cf2 map\
+\cf0 $ pwd\
+/Users/Menfi/Documents/data/Data_Vis_Complete_Code_Files/lesson4/mikeWorking\
+ls -l\
+ -rwxr-xr-x  1 Menfi  staff     751 Apr 24 23:35 \cf2 01_globe.html\cf0 \
+-rwxr-xr-x@ 1 Menfi  staff  252486 Apr 24 03:42 world_countries.json\cf11 \
+       var svg = d3.select("body")\
+            .append("svg")\
+            .attr("width", width + margin)\
+            .attr("height", height + margin)\
+            .append('g')\
+            .attr('class', '\cf2 map\cf11 ');\
+\cf0 ** second effort - note \cf2 map\
+\cf0 Chrome - View Developer - JavaScript Console\
+\
+** drilling down through geo_data JSON file \
+geo_data\
+Object \{type: "FeatureCollection", features: Array(177)\}\
+\
+geo_data.features[0]\
+Object \{type: "Feature", properties: Object, geometry: Object, id: "AFG"\}\
+\
+geo_data.features[0].properties\
+Object \{name: "Afghanistan"\}\
+\
+geo_data.features[0].properties.name\
+"\cf4 Afghanistan\cf0 "\
+\
+geo_data.features[0].geometry.type\
+"\cf4 Polygon\cf0 "\
+\
+longitude - latitude  \
+longitude first\
+array of longitude - \cf3 latitude pairs represents the border of the country\cf0  \
+geo_data.features[0].geometry.coordinates[0][1]\
+[\cf4 62.230651\cf0 , \cf4 35.270664\cf0 ]\
+geo_data.features[0].geometry.coordinates[0][2]\
+[\cf4 62.984662\cf0 , \cf4 35.404041\cf0 ]\
+\
+// Chrome - View Developer - JavaScript Console\
+// type the function name without parenthesis, a function is returned\
+// my_path\
+// function n(n)\{return n&&("function"==typeof a&&u.pointRadius(+a.apply(this,arguments)),o&&o.valid||(o=i(u)),ao.geo.stream(n,o)),u.result()\}\
+\
+// This is 1 example of the data that IS passed to the function\
+// geo_data.features[0]\
+// Object \{type: "Feature", properties: Object, geometry: Object, id: "AFG"\}\
+\
+// pass the data to the function to see what is returned\
+// pass the to the my_path function\
+// my_path(geo_data.features[0])\
+// "M640.2495441728577,149.98855387948902L642.9194633414253,151.2080391403686L644.8934595233635,150.77999654318842L645.4402956126228,149.32047420626\
+\
+Graduated Symbol Map - symbol - 'circles' - size, radius based on World Cup attendance. \
+\
+\
+\
+\
+\
+\
+\
 \
 \
 \
@@ -1869,10 +1949,8 @@ geo_data['features'][0].geometry.coordinates[0][0]\
 \
 \
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf4 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 \
+\
+\
 \
 \
 \
@@ -1894,6 +1972,4 @@ geo_data['features'][0].geometry.coordinates[0][0]\
 \cf0 \
 \
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
-
-\f1\fs32 \cf0  }
+ }
