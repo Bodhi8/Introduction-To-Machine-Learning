@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  // <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style>
+    </style>
+    <script type="text/javascript">  
+      function draw(geo_data) {
+        "use strict";
+        var margin = 75,
+            width = 1400 - margin,
+            height = 600 - margin;
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", width + margin)
+            .attr("height", height + margin)
+            .append('g')
+            .attr('class', 'map');
+
+        // mercator input - longitude latitude  from JSON file - output or returns x, y pixel 
+        // var projection = d3.geo.mercator();
+
+        var projection = d3.geo.mercator()
+                           .scale(170) // .scale - think magnifying glass 
+                           .translate([width / 2, height / 2]); // changes the rendered map
+
+        // path variable name 
+        // var path = d3.geo.path().projection(projection);
+        var my_path = d3.geo.path().projection(projection);
+
+        // debugger
+
+        var map = svg.selectAll('path') // path keyword
+                     .data(geo_data.features)
+                     .enter()
+                     .append('path') // path key word
+
+                     // .attr('d', my_path); - how this really works 
+
+                     // Chrome - View Developer - JavaScript Console
+                     // type the function name without parenthesis, a function is returned
+                     // my_path
+                     // function n(n){return n&&("function"==typeof a&&u.pointRadius(+a.apply(this,arguments)),o&&o.valid||
+                     // (o=i(u)),ao.geo.stream(n,o)),u.result()}
+
+                     // This is 1 example of the data that IS passed to the function
+                     // geo_data.features[0]
+                     // Object {type: "Feature", properties: Object, geometry: Object, id: "AFG"}
+
+                     // pass the data to the function to see what is returned
+                     // pass the to the my_path function
+                     // my_path(geo_data.features[0])
+                     // "M640.2495441728577,149.98855387948902L642.9194633414253,151.2080391403686L644.8934595233635,150.7799
+                     // 'd' property set to my_path object
+
+                     .attr('d', my_path) // my_path variable name , my_path, not my_path() - function is arg, not CALLED function
+
+                     .style('fill', 'rgb(9, 157, 217)') // color of countries - blue - udacity blue
+                     .style('stroke', 'black') // color of country borders - country outline 
+                     .style('stroke-width', 0.5); // width of country border lines
+
+/*
+        function plot_points(data) {
+            //draw circles logic
+            // debugger;
+            var nested = d3.nest()
+                           .key(function(d) {
+                              // debugger;
+                              return d['date'].getUTCFullYear();
+                           })
+                           .rollup(function(leaves) {
+                              // debugger;
+                              return "";
+                           })
+                           .entries(data);
+        };
+*/
+
+        function plot_points(data) {
+            //draw circles logic
+            // debugger;
+            var nested = d3.nest()
+                           .key(function(d) {
+                              // debugger;
+                              return d['date'].getUTCFullYear();
+                           })
+                           .rollup(function(leaves) {
+				// leaves;
+                                // debugger;
+                                
+                                var total = d3.sum(leaves, function(d) {
+                                    // debugger;
+                                    return d['attendance'];
+                                });
+
+                                var coords = leaves.map(function(d) {
+                                    // debugger;
+                                    return projection([+d.long, +d.lat]);
+                                });
+
+                                var center_x = d3.mean(coords, function(d) {
+                                    return d[0];
+                                });
+
+                                var center_y = d3.mean(coords, function(d) {
+                                    return d[1];
+                                });
+
+                                return {
+                                    'attendance' : total,
+                                    'x' : center_x,
+                                    'y' : center_y
+                                };
+
+
+                                // YOUR CODE HERE
+                           })
+                           .entries(data);
+        };
+
+        // get the world cup attendance data to draw the circles  
+        // re-format date string in tsv file  
+        var format = d3.time.format('%d-%m-%Y (%H:%M h)');
+ 
+        d3.tsv("world_cup_geo.tsv", function(d) {
+            // if (error) throw error; // big problem
+            // date in file is a string - transform - format as a Date object 
+            // from string to Date 
+            d['date'] = format.parse(d['date']);
+            //  attendance in file is a string - transform - format as an integer 
+            //  from string to integer  
+            // unary math +
+            d['attendance'] = +d['attendance'];
+            return d
+            // }, draw);
+            }, plot_points);
+
+        // map drawn in browser 
+
+        // debugger
+
+      };
+      </script>
+  </head>
+<body>
+  <script type="text/javascript">
+
+  /*
+    Use D3 to load the GeoJSON file
+  */
+    
+d3.json("world_countries.json", draw);
+
+  </script>
+</body>
+</html>
+
+
